@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { ReactFlow, Node, Edge, NodeTypes, NodeMouseHandler } from '@xyflow/react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Edge, Node, NodeMouseHandler, NodeTypes, ReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import AdamNode, { AdamNodeData } from './AdamNode';
 import DetailsPanel from './DetailsPanel';
-import lineageData from '../data-source/adam-lineage.json';
+import { LineageData, lineageData } from "../domain/LineageData";
 
 // Helper to transform lineage data into nodes/edges
-function transformLineageToFlow(data: any): { nodes: Node<AdamNodeData>[]; edges: Edge[] } {
+function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNodeData>[]; edges: Edge[] } {
   const nodes: Node<AdamNodeData>[] = [];
   const edges: Edge[] = [];
 
-  function traverse(node: any, parentId?: string, depth: number = 0, siblingIndex: number = 0) {
+  function traverse(node: LineageData, parentId: string | null = null, depth: number = 0, siblingIndex: number = 0) {
     const nodeId = node.name;
     
     // Only include primitive values, not arrays or objects
@@ -26,19 +26,29 @@ function transformLineageToFlow(data: any): { nodes: Node<AdamNodeData>[]; edges
       data: {
         name: node.name,
         birthYear: node.birthYear,
-        age: node.age,
-        children: node.children ? node.children.length : 0,
+        age: node.ageAtDeath,
+        children: node.children?.length ?? 0,
         ...additionalData,
-      },
-      position: { x: siblingIndex * 240, y: depth * 120 },
+      } as AdamNodeData,
+      position: { x: siblingIndex * 240, y: depth * 130 },
       width: 220,
       type: 'adamNode',
     });
+    
+    // Create edge only if there's a valid parent
     if (parentId) {
-      edges.push({ id: `${parentId}-${nodeId}`, source: parentId, target: nodeId });
+      const edgeId = `${parentId}-${nodeId}`;
+      edges.push({ 
+        id: edgeId, 
+        source: parentId, 
+        target: nodeId,
+        type: 'simplebezier'
+      });
     }
+    
+    // Process children
     if (node.children && node.children.length > 0) {
-      node.children.forEach((child: any, idx: number) => {
+      node.children.forEach((child, idx: number) => {
         traverse(child, nodeId, depth + 1, idx);
       });
     }
@@ -67,7 +77,10 @@ const AdamLineageTree: React.FC = () => {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   useEffect(() => {
-    setElements(transformLineageToFlow(lineageData));
+    const result = transformLineageToFlow(lineageData);
+    console.log('Generated nodes:', result.nodes.length);
+    console.log('Generated edges:', result.edges.length);
+    setElements(result);
   }, []);
 
   const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
