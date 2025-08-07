@@ -11,9 +11,9 @@ export type AdamNodeData = {
   generation?: number;
   [key: string]: any;
 }
-export type AdamNodeProps = Node<AdamNodeData, 'adamNode'>;
+export type AdamNode = Node<AdamNodeData, 'adamNode'>;
 
-export default function AdamNode({ data }: NodeProps<AdamNodeProps>) {
+export default function AdamNodeComponent({ data }: NodeProps<AdamNode>) {
   // Helper function to get highlighting style based on generation
   const getHighlightStyle = (generation: number) => {
     const styles = [

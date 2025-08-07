@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Edge, Node, NodeMouseHandler, NodeTypes, ReactFlow } from '@xyflow/react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
+import { Edge, Node, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import AdamNode, { AdamNodeData } from './AdamNode';
+import AdamNodeComponent, { AdamNodeData, AdamNode } from './AdamNodeComponent';
 import DetailsPanel from './DetailsPanel';
 import { lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants, transformLineageToFlow } from './flowHelpers';
+import type { OnInit } from "@xyflow/react/dist/esm/types";
 
 const nodeTypes: NodeTypes = {
-  adamNode: AdamNode,
+  adamNode: AdamNodeComponent,
 };
 
 // Default edge styles for better visibility
@@ -23,6 +24,7 @@ const defaultEdgeOptions = {
 const AdamLineageTree: React.FC = () => {
   const [elements, setElements] = useState<{ nodes: Node<AdamNodeData>[]; edges: Edge[] }>({ nodes: [], edges: [] });
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
 
   useEffect(() => {
     const result = transformLineageToFlow(lineageData);
@@ -35,6 +37,23 @@ const AdamLineageTree: React.FC = () => {
 
   const handleChildSelect = useCallback((nodeId: string) => {
     setSelectedNodeId(nodeId);
+    
+    // Move the selected node into view
+    if (reactFlowInstance.current) {
+      const selectedNode = elements.nodes.find(node => node.id === nodeId);
+      if (selectedNode) {
+        // Center the node in the viewport with animation
+        reactFlowInstance.current.setCenter(
+          selectedNode.position.x + (selectedNode.width || 220) / 2,
+          selectedNode.position.y + 50, // Add some offset for node height
+          { zoom: 0.5, duration: 300 }
+        );
+      }
+    }
+  }, [elements.nodes]);
+
+  const onInit: OnInit = useCallback((instance) => {
+    reactFlowInstance.current = instance;
   }, []);
 
   // Find highlighted descendants and edges with generation info
@@ -77,7 +96,7 @@ const AdamLineageTree: React.FC = () => {
     return {
       ...edge,
       style: { stroke: '#565267', strokeWidth: 2 }, // Default style
-    };
+    } as Edge;
   });
 
   const selectedNodeData = elements.nodes.find(node => node.id === selectedNodeId)?.data 
@@ -95,6 +114,7 @@ const AdamLineageTree: React.FC = () => {
           onNodeClick={handleNodeClick}
           connectionLineStyle={{ stroke: '#4f46e5', strokeWidth: 2 }}
           proOptions={{ hideAttribution: true }}
+          onInit={onInit}
         />
       </div>
       <DetailsPanel 

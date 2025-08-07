@@ -1,5 +1,5 @@
 import { Edge, Node } from '@xyflow/react';
-import { AdamNodeData } from './AdamNode';
+import { AdamNodeData } from './AdamNodeComponent';
 import { LineageData } from '../domain/LineageData';
 
 // Helper to find all descendant node IDs from a given node with generation tracking
@@ -52,6 +52,7 @@ export function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNod
   const nodes: Node<AdamNodeData>[] = [];
   const edges: Edge[] = [];
   const nodeTimeInfo: Array<{ id: string, birthYear: number | null, parentId: string | null, depth: number }> = [];
+  const existingPositions: Array<{ x: number, y: number, width: number, height: number, id: string }> = [];
 
   // First pass: collect all nodes and their time information
   function collectNodes(node: LineageData, parentId: string | null = null, depth: number = 0) {
@@ -72,6 +73,97 @@ export function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNod
     }
   }
 
+  // Helper function to calculate chronological position with collision detection
+  function calculateChronologicalPosition(nodeId: string, timeInfo: Array<{ id: string, birthYear: number | null, parentId: string | null, depth: number }>) {
+    const currentNode = timeInfo.find(n => n.id === nodeId)!;
+    const nodeWidth = 220;
+    const nodeHeight = 100; // Approximate node height
+    const spacing = 240; // Minimum horizontal spacing
+    
+    // Create time periods and group nodes
+    const timeGroups = new Map<number, string[]>();
+    const noDateNodes: string[] = [];
+    
+    timeInfo.forEach(node => {
+      if (node.birthYear !== null) {
+        // Group by centuries or logical time periods
+        const timePeriod = Math.floor(node.birthYear / 50) * 50; // 50-year periods
+        if (!timeGroups.has(timePeriod)) {
+          timeGroups.set(timePeriod, []);
+        }
+        timeGroups.get(timePeriod)!.push(node.id);
+      } else {
+        noDateNodes.push(node.id);
+      }
+    });
+
+    // Sort time periods
+    const sortedPeriods = Array.from(timeGroups.keys()).sort((a, b) => a - b);
+    
+    let yPosition: number;
+    let xPosition: number;
+    
+    if (currentNode.birthYear !== null) {
+      // Find which time period this node belongs to
+      const timePeriod = Math.floor(currentNode.birthYear / 50) * 50;
+      const periodIndex = sortedPeriods.indexOf(timePeriod);
+      yPosition = periodIndex * 150; // 150px between time periods
+      
+      // Find horizontal position within the time period
+      const nodesInPeriod = timeGroups.get(timePeriod)!;
+      const indexInPeriod = nodesInPeriod.indexOf(nodeId);
+      xPosition = indexInPeriod * spacing; // Initial position
+    } else {
+      // For nodes without birth year, place them after their parent
+      if (currentNode.parentId) {
+        const parentNode = timeInfo.find(n => n.id === currentNode.parentId);
+        if (parentNode && parentNode.birthYear !== null) {
+          const parentTimePeriod = Math.floor(parentNode.birthYear / 50) * 50;
+          const parentPeriodIndex = sortedPeriods.indexOf(parentTimePeriod);
+          yPosition = (parentPeriodIndex + 1) * 150; // Place below parent's time period
+        } else {
+          // If parent also has no date, use depth-based positioning
+          yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
+        }
+      } else {
+        yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
+      }
+      
+      // Group nodes without dates by their parent and arrange horizontally
+      const siblingsWithoutDate = noDateNodes.filter(id => {
+        const siblingNode = timeInfo.find(n => n.id === id);
+        return siblingNode?.parentId === currentNode.parentId;
+      });
+      const indexAmongSiblings = siblingsWithoutDate.indexOf(nodeId);
+      xPosition = indexAmongSiblings * spacing;
+    }
+
+    // Check for collisions and adjust position
+    const checkCollision = (x: number, y: number) => {
+      return existingPositions.some(pos => {
+        const horizontalOverlap = x < pos.x + pos.width && x + nodeWidth > pos.x;
+        const verticalOverlap = y < pos.y + pos.height && y + nodeHeight > pos.y;
+        return horizontalOverlap && verticalOverlap;
+      });
+    };
+
+    // Keep shifting right until we find a free spot
+    while (checkCollision(xPosition, yPosition)) {
+      xPosition += spacing;
+    }
+
+    // Record this position as occupied
+    existingPositions.push({
+      x: xPosition,
+      y: yPosition,
+      width: nodeWidth,
+      height: nodeHeight,
+      id: nodeId
+    });
+
+    return { x: xPosition, y: yPosition };
+  }
+
   // Second pass: create nodes with chronological positioning
   function traverse(node: LineageData, parentId: string | null = null, depth: number = 0) {
     const nodeId = node.name;
@@ -84,7 +176,7 @@ export function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNod
       }
     });
 
-    // Calculate position based on chronological order
+    // Calculate position based on chronological order with collision detection
     const position = calculateChronologicalPosition(nodeId, nodeTimeInfo);
 
     nodes.push({
@@ -120,71 +212,6 @@ export function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNod
         traverse(child, nodeId, depth + 1);
       });
     }
-  }
-
-  // Helper function to calculate chronological position
-  function calculateChronologicalPosition(nodeId: string, timeInfo: Array<{ id: string, birthYear: number | null, parentId: string | null, depth: number }>) {
-    const currentNode = timeInfo.find(n => n.id === nodeId)!;
-    
-    // Create time periods and group nodes
-    const timeGroups = new Map<number, string[]>();
-    const noDateNodes: string[] = [];
-    
-    timeInfo.forEach(node => {
-      if (node.birthYear !== null) {
-        // Group by centuries or logical time periods
-        const timePeriod = Math.floor(node.birthYear / 50) * 50; // 50-year periods
-        if (!timeGroups.has(timePeriod)) {
-          timeGroups.set(timePeriod, []);
-        }
-        timeGroups.get(timePeriod)!.push(node.id);
-      } else {
-        noDateNodes.push(node.id);
-      }
-    });
-
-    // Sort time periods
-    const sortedPeriods = Array.from(timeGroups.keys()).sort((a, b) => a - b);
-    
-    let yPosition : number;
-    let xPosition : number;
-    
-    if (currentNode.birthYear !== null) {
-      // Find which time period this node belongs to
-      const timePeriod = Math.floor(currentNode.birthYear / 50) * 50;
-      const periodIndex = sortedPeriods.indexOf(timePeriod);
-      yPosition = periodIndex * 150; // 150px between time periods
-      
-      // Find horizontal position within the time period
-      const nodesInPeriod = timeGroups.get(timePeriod)!;
-      const indexInPeriod = nodesInPeriod.indexOf(nodeId);
-      xPosition = indexInPeriod * 240; // 240px between nodes horizontally
-    } else {
-      // For nodes without birth year, place them after their parent
-      if (currentNode.parentId) {
-        const parentNode = timeInfo.find(n => n.id === currentNode.parentId);
-        if (parentNode && parentNode.birthYear !== null) {
-          const parentTimePeriod = Math.floor(parentNode.birthYear / 50) * 50;
-          const parentPeriodIndex = sortedPeriods.indexOf(parentTimePeriod);
-          yPosition = (parentPeriodIndex + 1) * 150; // Place below parent's time period
-        } else {
-          // If parent also has no date, use depth-based positioning
-          yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
-        }
-      } else {
-        yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
-      }
-      
-      // Group nodes without dates by their parent and arrange horizontally
-      const siblingsWithoutDate = noDateNodes.filter(id => {
-        const siblingNode = timeInfo.find(n => n.id === id);
-        return siblingNode?.parentId === currentNode.parentId;
-      });
-      const indexAmongSiblings = siblingsWithoutDate.indexOf(nodeId);
-      xPosition = indexAmongSiblings * 240;
-    }
-
-    return { x: xPosition, y: yPosition };
   }
 
   // First collect all node information
