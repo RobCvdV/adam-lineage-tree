@@ -3,12 +3,12 @@ import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { LineageData } from "../domain/LineageData";
 
 export type AdamNodeData = LineageData & {
+  // Additional properties specific to AdamNode
   type: 'adamNode'; // Type identifier for this node
   parent?: LineageData | null; // ID of the parent node
   selected?: boolean;
   highlighted?: boolean;
   generation?: number;
-  [key: string]: any;
 }
 export type AdamNode = Node<AdamNodeData, 'adamNode'>;
 

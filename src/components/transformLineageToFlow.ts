@@ -139,6 +139,7 @@ export function transformLineageToFlow(data: LineageData): {
       id: data.id,
       data: {
         ...data,
+        type: 'adamNode',
         parent,
       } as AdamNodeData,
       position,

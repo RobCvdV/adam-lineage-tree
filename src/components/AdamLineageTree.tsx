@@ -24,7 +24,7 @@ const defaultEdgeOptions = {
 
 const AdamLineageTree: React.FC = () => {
   const [elements, setElements] = useState<{ nodes: AdamNode[]; edges: Edge[] }>({ nodes: [], edges: [] });
-  const [selectedNode, setSelectedNode] = useState<LineageData | null>(null);
+  const [selectedNode, setSelectedNode] = useState<AdamNodeData | null>(null);
   const reactFlowInstance = useRef<ReactFlowInstance<AdamNode> | null>(null);
 
   useEffect(() => {
@@ -38,11 +38,16 @@ const AdamLineageTree: React.FC = () => {
 
   const handleChildSelect = useCallback((node: LineageData) => {
     console.log('select node',node.id);
-    setSelectedNode(node);
+    // Find the node in the elements
+    const selectedNodeElement = elements.nodes.find(n => n.id === node.id);
+    if (!selectedNodeElement) {
+      console.warn(`Node with id ${node.id} not found in elements`);
+      return;
+    }
+    setSelectedNode(selectedNodeElement.data);
     
     // Move the selected node into view
     if (reactFlowInstance.current) {
-      const selectedNodeElement = elements.nodes.find(n => n.id === node.id);
       if (selectedNodeElement) {
         // Center the node in the viewport with animation
         void reactFlowInstance.current.setCenter(
@@ -121,7 +126,6 @@ const AdamLineageTree: React.FC = () => {
       <DetailsPanel 
         nodeData={selectedNode}
         onNodeSelect={handleChildSelect}
-        parentData={(selectedNode as AdamNodeData).parent}
       />
     </div>
   );

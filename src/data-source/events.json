@@ -1,0 +1,198 @@
+[
+  {
+    "eventName": "Creation of Adam",
+    "dateAM": 0,
+    "dateBCEstimate": 4004,
+    "keyFigures": [
+      "Adam",
+      "Eva"
+    ],
+    "scriptureReference": "Genesis 1-2",
+    "description": "God creates the heavens, the earth, and all life. On the sixth day, He creates Adam, the first man, in His own image. This event marks Year 0 in the Anno Mundi (AM) calendar, a system based on biblical genealogies."
+  },
+  {
+    "eventName": "The Fall of Man",
+    "dateAM": 1,
+    "dateBCEstimate": 4003,
+    "keyFigures": [
+      "Adam",
+      "Eva",
+      "Satan"
+    ],
+    "scriptureReference": "Genesis 3",
+    "description": "Tempted by the serpent, Adam and Eva disobey God's command not to eat from the tree of the knowledge of good and evil. This act introduces sin and death into the world, resulting in their expulsion from the Garden of Eden."
+  },
+  {
+    "eventName": "Birth of Seth",
+    "dateAM": 130,
+    "dateBCEstimate": 3874,
+    "keyFigures": [
+      "Adam",
+      "Eva",
+      "Seth"
+    ],
+    "scriptureReference": "Genesis 5:3",
+    "description": "After Kain murders Abel, Seth is born to Adam and Eva when Adam is 130 years old. Seth's lineage is the line through which humanity is preserved and from which Noach descends."
+  },
+  {
+    "eventName": "The Great Flood",
+    "dateAM": 1656,
+    "dateBCEstimate": 2348,
+    "keyFigures": [
+      "Noach",
+      "Sem",
+      "Cham",
+      "Jafet"
+    ],
+    "scriptureReference": "Genesis 6-9",
+    "description": "Due to widespread human wickedness, God sends a global flood. Noach is instructed to build an ark to save his family and pairs of every kind of animal. The flood begins in the 600th year of Noach's life and reshapes the world."
+  },
+  {
+    "eventName": "The Tower of Babel",
+    "dateAM": 1757,
+    "dateBCEstimate": 2247,
+    "keyFigures": [
+      "Nimrod"
+    ],
+    "scriptureReference": "Genesis 11:1-9",
+    "description": "Humanity, speaking a single language, attempts to build a tower to reach the heavens in the land of Sinear. God confuses their languages and scatters them across the face of the earth. This event occurs during the lifetime of Peleg."
+  },
+  {
+    "eventName": "Birth of Abram",
+    "dateAM": 2008,
+    "dateBCEstimate": 1996,
+    "keyFigures": [
+      "Abram",
+      "Terach"
+    ],
+    "scriptureReference": "Genesis 11:26",
+    "description": "Abram is born in Ur of the Chaldees. God would later change his name to Abraham and choose him to be the father of a multitude of nations."
+  },
+  {
+    "eventName": "The Abrahamic Covenant",
+    "dateAM": 2083,
+    "dateBCEstimate": 1921,
+    "keyFigures": [
+      "Abraham",
+      "God"
+    ],
+    "scriptureReference": "Genesis 12, 15, 17",
+    "description": "God calls Abram to leave his home and go to a land He will show him. God makes a covenant with Abraham, promising him numerous descendants, the land of Canaan, and that through him all the nations of the earth would be blessed. This occurs when Abraham is 75."
+  },
+  {
+    "eventName": "Destruction of Sodom and Gomorrah",
+    "dateAM": 2107,
+    "dateBCEstimate": 1897,
+    "keyFigures": [
+      "Abraham",
+      "Lot",
+      "Angels"
+    ],
+    "scriptureReference": "Genesis 18-19",
+    "description": "Due to their great wickedness, God destroys the cities of Sodom and Gomorrah with fire and brimstone. Abraham's nephew, Lot, and his two daughters are rescued just before the destruction."
+  },
+  {
+    "eventName": "Birth of Isaac",
+    "dateAM": 2108,
+    "dateBCEstimate": 1896,
+    "keyFigures": [
+      "Abraham",
+      "Sara",
+      "Izaäk"
+    ],
+    "scriptureReference": "Genesis 21:1-5",
+    "description": "Isaac, the son of promise, is born to Abraham and Sara in their old age (100 and 90 years old, respectively), fulfilling God's covenantal promise."
+  },
+  {
+    "eventName": "Jacob's Family Moves to Egypt",
+    "dateAM": 2298,
+    "dateBCEstimate": 1706,
+    "keyFigures": [
+      "Jakob",
+      "Jozef",
+      "The 12 Sons"
+    ],
+    "scriptureReference": "Genesis 46-47",
+    "description": "A severe famine forces Jakob (now named Israel) and his entire family of 70 to move to Egypt, where his son Jozef, now a high-ranking official, provides for them. This begins the Israelites' sojourn in Egypt."
+  },
+  {
+    "eventName": "The Exodus from Egypt",
+    "dateAM": 2513,
+    "dateBCEstimate": 1491,
+    "keyFigures": [
+      "Mozes",
+      "Aäron",
+      "Pharaoh"
+    ],
+    "scriptureReference": "Exodus 12-14",
+    "description": "After 430 years of sojourning (much of it as slaves), God sends Mozes to deliver the Israelites from bondage in Egypt. After ten plagues, Pharaoh releases them. They miraculously cross the Red Sea as the Egyptian army is drowned."
+  },
+  {
+    "eventName": "Giving of the Law at Mount Sinai",
+    "dateAM": 2513,
+    "dateBCEstimate": 1491,
+    "keyFigures": [
+      "Mozes",
+      "God"
+    ],
+    "scriptureReference": "Exodus 19-24",
+    "description": "Three months after the Exodus, the Israelites arrive at Mount Sinai. God makes a covenant with the nation of Israel and gives them the Ten Commandments and the rest of the Law through Mozes, establishing their religious and civil code."
+  },
+  {
+    "eventName": "Conquest of Canaan Begins",
+    "dateAM": 2553,
+    "dateBCEstimate": 1451,
+    "keyFigures": [
+      "Joshua",
+      "Caleb"
+    ],
+    "scriptureReference": "Joshua 1-6",
+    "description": "After 40 years of wandering in the wilderness, the Israelites, under the leadership of Joshua, cross the Jordan River and begin the conquest of the Promised Land, starting with the miraculous fall of Jericho."
+  },
+  {
+    "eventName": "Saul Becomes the First King of Israel",
+    "dateAM": 2909,
+    "dateBCEstimate": 1095,
+    "keyFigures": [
+      "Saul",
+      "Samuel"
+    ],
+    "scriptureReference": "1 Samuel 10-11",
+    "description": "The Israelites demand a king to be like other nations. God instructs the prophet Samuel to anoint Saul from the tribe of Benjamin as the first king, marking the beginning of the United Monarchy."
+  },
+  {
+    "eventName": "David Becomes King",
+    "dateAM": 2949,
+    "dateBCEstimate": 1055,
+    "keyFigures": [
+      "David",
+      "Samuel",
+      "Saul"
+    ],
+    "scriptureReference": "2 Samuel 2",
+    "description": "After Saul's death in battle, David, who had been anointed by Samuel years earlier, is made king over the house of Judah in Hebron. This begins a seven-year period of civil war with the house of Saul."
+  },
+  {
+    "eventName": "David Conquers Jerusalem",
+    "dateAM": 2956,
+    "dateBCEstimate": 1048,
+    "keyFigures": [
+      "David",
+      "Joab"
+    ],
+    "scriptureReference": "2 Samuel 5",
+    "description": "After becoming king over all Israel, David leads his men to conquer the Jebusite stronghold of Jerusalem. He establishes it as his capital city, which becomes known as the 'City of David'."
+  },
+  {
+    "eventName": "The Davidic Covenant",
+    "dateAM": 2960,
+    "dateBCEstimate": 1044,
+    "keyFigures": [
+      "David",
+      "Nathan",
+      "God"
+    ],
+    "scriptureReference": "2 Samuel 7",
+    "description": "After David expresses a desire to build a temple for God, God responds through the prophet Nathan, making a covenant with David. God promises to establish David's house, kingdom, and throne forever, a promise with ultimate fulfillment in the Messiah."
+  }
+]
