@@ -1,209 +1,209 @@
 {
-  "naam": "Adam",
-  "geboortejaar": 0,
-  "leeftijd": 930,
+  "name": "Adam",
+  "birthYear": 0,
+  "age": 930,
   "partner": "Eva",
-  "commentaar": "De eerste mens. De geboortejaren in dit bestand zijn in Anno Mundi (AM), 'jaar van de wereld', gerekend vanaf de schepping van Adam.",
-  "kinderen": [
+  "comment": "De eerste mens. De geboortejaren in dit bestand zijn in Anno Mundi (AM), 'jaar van de wereld', gerekend vanaf de schepping van Adam.",
+  "children": [
     {
-      "naam": "Kaïn",
-      "geboortejaar": null,
-      "leeftijd": null,
+      "name": "Kain",
+      "birthYear": null,
+      "age": null,
       "partner": null,
-      "commentaar": "Eerstgeboren zoon. Doodde zijn broer Abel en werd verbannen.",
-      "kinderen": []
+      "comment": "Eerstgeboren zoon. Doodde zijn broer Abel en werd verbannen.",
+      "children": []
     },
     {
-      "naam": "Abel",
-      "geboortejaar": null,
-      "leeftijd": null,
+      "name": "Abel",
+      "birthYear": null,
+      "age": null,
       "partner": null,
-      "commentaar": "Tweede zoon. Een herder wiens offer God welgevallig was. Vermoord door Kaïn.",
-      "kinderen": []
+      "comment": "Tweede zoon. Een herder wiens offer God welgevallig was. Vermoord door Kain.",
+      "children": []
     },
     {
-      "naam": "Seth",
-      "geboortejaar": 130,
-      "leeftijd": 912,
+      "name": "Seth",
+      "birthYear": 130,
+      "age": 912,
       "partner": null,
-      "commentaar": "Derde genoemde zoon, geboren na de dood van Abel. De geslachtslijn van Noach loopt via hem.",
-      "kinderen": [
+      "comment": "Derde genoemde zoon, geboren na de dood van Abel. De geslachtslijn van Noach loopt via hem.",
+      "children": [
         {
-          "naam": "Enos",
-          "geboortejaar": 235,
-          "leeftijd": 905,
+          "name": "Enos",
+          "birthYear": 235,
+          "age": 905,
           "partner": null,
-          "commentaar": "Zoon van Seth. In zijn tijd begon men de naam van de HEER aan te roepen.",
-          "kinderen": [
+          "comment": "Zoon van Seth. In zijn tijd begon men de naam van de HEER aan te roepen.",
+          "children": [
             {
-              "naam": "Kenan",
-              "geboortejaar": 325,
-              "leeftijd": 910,
+              "name": "Kenan",
+              "birthYear": 325,
+              "age": 910,
               "partner": null,
-              "commentaar": "Zoon van Enos.",
-              "kinderen": [
+              "comment": "Zoon van Enos.",
+              "children": [
                 {
-                  "naam": "Mahalalel",
-                  "geboortejaar": 395,
-                  "leeftijd": 895,
+                  "name": "Mahalalel",
+                  "birthYear": 395,
+                  "age": 895,
                   "partner": null,
-                  "commentaar": "Zoon van Kenan.",
-                  "kinderen": [
+                  "comment": "Zoon van Kenan.",
+                  "children": [
                     {
-                      "naam": "Jared",
-                      "geboortejaar": 460,
-                      "leeftijd": 962,
+                      "name": "Jared",
+                      "birthYear": 460,
+                      "age": 962,
                       "partner": null,
-                      "commentaar": "Zoon van Mahalalel.",
-                      "kinderen": [
+                      "comment": "Zoon van Mahalalel.",
+                      "children": [
                         {
-                          "naam": "Henoch",
-                          "geboortejaar": 622,
-                          "leeftijd": 365,
+                          "name": "Henoch",
+                          "birthYear": 622,
+                          "age": 365,
                           "partner": null,
-                          "commentaar": "Wandelde met God en werd door God weggenomen zonder te sterven.",
-                          "kinderen": [
+                          "comment": "Wandelde met God en werd door God weggenomen zonder te sterven.",
+                          "children": [
                             {
-                              "naam": "Metusalem",
-                              "geboortejaar": 687,
-                              "leeftijd": 969,
+                              "name": "Metusalem",
+                              "birthYear": 687,
+                              "age": 969,
                               "partner": null,
-                              "commentaar": "Oudste persoon genoemd in de Bijbel. Stierf in het jaar van de zondvloed.",
-                              "kinderen": [
+                              "comment": "Oudste persoon genoemd in de Bijbel. Stierf in het jaar van de zondvloed.",
+                              "children": [
                                 {
-                                  "naam": "Lamech",
-                                  "geboortejaar": 874,
-                                  "leeftijd": 777,
+                                  "name": "Lamech",
+                                  "birthYear": 874,
+                                  "age": 777,
                                   "partner": null,
-                                  "commentaar": "Vader van Noach.",
-                                  "kinderen": [
+                                  "comment": "Vader van Noach.",
+                                  "children": [
                                     {
-                                      "naam": "Noach",
-                                      "geboortejaar": 1056,
-                                      "leeftijd": 950,
+                                      "name": "Noach",
+                                      "birthYear": 1056,
+                                      "age": 950,
                                       "partner": null,
-                                      "commentaar": "Bouwde de ark in opdracht van God en overleefde de zondvloed, die plaatsvond in 1656 AM.",
-                                      "kinderen": [
+                                      "comment": "Bouwde de ark in opdracht van God en overleefde de zondvloed, die plaatsvond in 1656 AM.",
+                                      "children": [
                                         {
-                                          "naam": "Sem",
-                                          "geboortejaar": 1558,
-                                          "leeftijd": 600,
+                                          "name": "Sem",
+                                          "birthYear": 1558,
+                                          "age": 600,
                                           "partner": null,
-                                          "commentaar": "Zoon van Noach. Voorvader van o.a. Abraham en de Semitische volken.",
-                                          "kinderen": [
+                                          "comment": "Zoon van Noach. Voorvader van o.a. Abraham en de Semitische volken.",
+                                          "children": [
                                             {
-                                              "naam": "Arpachsad",
-                                              "geboortejaar": 1658,
-                                              "leeftijd": 438,
+                                              "name": "Arpachsad",
+                                              "birthYear": 1658,
+                                              "age": 438,
                                               "partner": null,
-                                              "commentaar": "Zoon van Sem, geboren twee jaar na de zondvloed.",
-                                              "kinderen": [
+                                              "comment": "Zoon van Sem, geboren twee jaar na de zondvloed.",
+                                              "children": [
                                                 {
-                                                  "naam": "Sela",
-                                                  "geboortejaar": 1693,
-                                                  "leeftijd": 433,
+                                                  "name": "Sela",
+                                                  "birthYear": 1693,
+                                                  "age": 433,
                                                   "partner": null,
-                                                  "commentaar": "Zoon van Arpachsad.",
-                                                  "kinderen": [
+                                                  "comment": "Zoon van Arpachsad.",
+                                                  "children": [
                                                     {
-                                                      "naam": "Eber",
-                                                      "geboortejaar": 1723,
-                                                      "leeftijd": 464,
+                                                      "name": "Eber",
+                                                      "birthYear": 1723,
+                                                      "age": 464,
                                                       "partner": null,
-                                                      "commentaar": "Zoon van Sela. Mogelijke naamgever van de Hebreeën.",
-                                                      "kinderen": [
+                                                      "comment": "Zoon van Sela. Mogelijke naamgever van de Hebreeen.",
+                                                      "children": [
                                                         {
-                                                          "naam": "Peleg",
-                                                          "geboortejaar": 1757,
-                                                          "leeftijd": 239,
+                                                          "name": "Peleg",
+                                                          "birthYear": 1757,
+                                                          "age": 239,
                                                           "partner": null,
-                                                          "commentaar": "Zoon van Eber. In zijn dagen werd de aarde verdeeld.",
-                                                          "kinderen": [
+                                                          "comment": "Zoon van Eber. In zijn dagen werd de aarde verdeeld.",
+                                                          "children": [
                                                             {
-                                                              "naam": "Reü",
-                                                              "geboortejaar": 1787,
-                                                              "leeftijd": 239,
+                                                              "name": "Reu",
+                                                              "birthYear": 1787,
+                                                              "age": 239,
                                                               "partner": null,
-                                                              "commentaar": "Zoon van Peleg.",
-                                                              "kinderen": [
+                                                              "comment": "Zoon van Peleg.",
+                                                              "children": [
                                                                 {
-                                                                  "naam": "Serug",
-                                                                  "geboortejaar": 1819,
-                                                                  "leeftijd": 230,
+                                                                  "name": "Serug",
+                                                                  "birthYear": 1819,
+                                                                  "age": 230,
                                                                   "partner": null,
-                                                                  "commentaar": "Zoon van Reü.",
-                                                                  "kinderen": [
+                                                                  "comment": "Zoon van Reu.",
+                                                                  "children": [
                                                                     {
-                                                                      "naam": "Nahor",
-                                                                      "geboortejaar": 1849,
-                                                                      "leeftijd": 148,
+                                                                      "name": "Nahor",
+                                                                      "birthYear": 1849,
+                                                                      "age": 148,
                                                                       "partner": null,
-                                                                      "commentaar": "Zoon van Serug, grootvader van Abraham.",
-                                                                      "kinderen": [
+                                                                      "comment": "Zoon van Serug, grootvader van Abraham.",
+                                                                      "children": [
                                                                         {
-                                                                          "naam": "Terach",
-                                                                          "geboortejaar": 1878,
-                                                                          "leeftijd": 205,
+                                                                          "name": "Terach",
+                                                                          "birthYear": 1878,
+                                                                          "age": 205,
                                                                           "partner": null,
-                                                                          "commentaar": "Vader van Abraham, Nahor en Haran. Verliet Ur der Chaldeeën.",
-                                                                          "kinderen": [
+                                                                          "comment": "Vader van Abraham, Nahor en Haran. Verliet Ur der Chaldeeen.",
+                                                                          "children": [
                                                                             {
-                                                                              "naam": "Abraham",
-                                                                              "geboortejaar": 2008,
-                                                                              "leeftijd": 175,
+                                                                              "name": "Abraham",
+                                                                              "birthYear": 2008,
+                                                                              "age": 175,
                                                                               "partner": "Sara, Hagar",
-                                                                              "commentaar": "Oorspronkelijk Abram. Stamvader van het Joodse volk met wie God een verbond sloot.",
-                                                                              "kinderen": [
+                                                                              "comment": "Oorspronkelijk Abram. Stamvader van het Joodse volk met wie God een verbond sloot.",
+                                                                              "children": [
                                                                                 {
-                                                                                  "naam": "Ismaël",
-                                                                                  "geboortejaar": 2094,
-                                                                                  "leeftijd": 137,
+                                                                                  "name": "Ismael",
+                                                                                  "birthYear": 2094,
+                                                                                  "age": 137,
                                                                                   "partner": null,
-                                                                                  "commentaar": "Zoon van Abraham en Hagar. Stamvader van de Arabieren volgens de traditie.",
-                                                                                  "kinderen": []
+                                                                                  "comment": "Zoon van Abraham en Hagar. Stamvader van de Arabieren volgens de traditie.",
+                                                                                  "children": []
                                                                                 },
                                                                                 {
-                                                                                  "naam": "Izaäk",
-                                                                                  "geboortejaar": 2108,
-                                                                                  "leeftijd": 180,
+                                                                                  "name": "Izaak",
+                                                                                  "birthYear": 2108,
+                                                                                  "age": 180,
                                                                                   "partner": "Rebekka",
-                                                                                  "commentaar": "Zoon van de belofte. Zijn offer werd door God op de proef gesteld.",
-                                                                                  "kinderen": [
+                                                                                  "comment": "Zoon van de belofte. Zijn offer werd door God op de proef gesteld.",
+                                                                                  "children": [
                                                                                     {
-                                                                                      "naam": "Esau",
-                                                                                      "geboortejaar": 2168,
-                                                                                      "leeftijd": null,
+                                                                                      "name": "Esau",
+                                                                                      "birthYear": 2168,
+                                                                                      "age": null,
                                                                                       "partner": "Ada, Oholibama, Basemat",
-                                                                                      "commentaar": "Tweelingbroer van Jakob, die zijn eerstgeboorterecht aan hem verkocht.",
-                                                                                      "kinderen": []
+                                                                                      "comment": "Tweelingbroer van Jakob, die zijn eerstgeboorterecht aan hem verkocht.",
+                                                                                      "children": []
                                                                                     },
                                                                                     {
-                                                                                      "naam": "Jakob",
-                                                                                      "geboortejaar": 2168,
-                                                                                      "leeftijd": 147,
+                                                                                      "name": "Jakob",
+                                                                                      "birthYear": 2168,
+                                                                                      "age": 147,
                                                                                       "partner": "Lea, Rachel, Bilha, Zilpa",
-                                                                                      "commentaar": "Kreeg de naam Israël. Zijn twaalf zonen werden de stamvaders van de twaalf stammen van Israël.",
-                                                                                      "kinderen": [
-                                                                                        { "naam": "Ruben", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea.", "kinderen": [] },
-                                                                                        { "naam": "Simeon", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea.", "kinderen": [] },
-                                                                                        { "naam": "Levi", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea. Stamvader van de Levieten (priesterstam).", "kinderen": [] },
-                                                                                        { "naam": "Juda", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea. Voorvader van de koningen van Juda.", "kinderen": [] },
-                                                                                        { "naam": "Dan", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Bilha.", "kinderen": [] },
-                                                                                        { "naam": "Naftali", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Bilha.", "kinderen": [] },
-                                                                                        { "naam": "Gad", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Zilpa.", "kinderen": [] },
-                                                                                        { "naam": "Aser", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Zilpa.", "kinderen": [] },
-                                                                                        { "naam": "Issachar", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea.", "kinderen": [] },
-                                                                                        { "naam": "Zebulon", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Lea.", "kinderen": [] },
-                                                                                        { "naam": "Jozef", "geboortejaar": null, "leeftijd": 110, "partner": "Asnat", "commentaar": "Zoon van Rachel. Werd onderkoning van Egypte.", "kinderen": [] },
-                                                                                        { "naam": "Benjamin", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Zoon van Rachel.", "kinderen": [] }
+                                                                                      "comment": "Kreeg de naam Israel. Zijn twaalf zonen werden de stamvaders van de twaalf stammen van Israel.",
+                                                                                      "children": [
+                                                                                        { "name": "Ruben", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea.", "children": [] },
+                                                                                        { "name": "Simeon", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea.", "children": [] },
+                                                                                        { "name": "Levi", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea. Stamvader van de Levieten (priesterstam).", "children": [] },
+                                                                                        { "name": "Juda", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea. Voorvader van de koningen van Juda.", "children": [] },
+                                                                                        { "name": "Dan", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Bilha.", "children": [] },
+                                                                                        { "name": "Naftali", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Bilha.", "children": [] },
+                                                                                        { "name": "Gad", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Zilpa.", "children": [] },
+                                                                                        { "name": "Aser", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Zilpa.", "children": [] },
+                                                                                        { "name": "Issachar", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea.", "children": [] },
+                                                                                        { "name": "Zebulon", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Lea.", "children": [] },
+                                                                                        { "name": "Jozef", "birthYear": null, "age": 110, "partner": "Asnat", "comment": "Zoon van Rachel. Werd onderkoning van Egypte.", "children": [] },
+                                                                                        { "name": "Benjamin", "birthYear": null, "age": null, "partner": null, "comment": "Zoon van Rachel.", "children": [] }
                                                                                       ]
                                                                                     }
                                                                                   ]
                                                                                 }
                                                                               ]
                                                                             },
-                                                                            { "naam": "Nahor", "geboortejaar": null, "leeftijd": null, "partner": "Milka", "commentaar": "Broer van Abraham.", "kinderen": [] },
-                                                                            { "naam": "Haran", "geboortejaar": null, "leeftijd": null, "partner": null, "commentaar": "Broer van Abraham, vader van Lot.", "kinderen": [] }
+                                                                            { "name": "Nahor", "birthYear": null, "age": null, "partner": "Milka", "comment": "Broer van Abraham.", "children": [] },
+                                                                            { "name": "Haran", "birthYear": null, "age": null, "partner": null, "comment": "Broer van Abraham, vader van Lot.", "children": [] }
                                                                           ]
                                                                         }
                                                                       ]
@@ -223,20 +223,20 @@
                                           ]
                                         },
                                         {
-                                          "naam": "Cham",
-                                          "geboortejaar": null,
-                                          "leeftijd": null,
+                                          "name": "Cham",
+                                          "birthYear": null,
+                                          "age": null,
                                           "partner": null,
-                                          "commentaar": "Zoon van Noach. Voorvader van o.a. de Kanaänieten.",
-                                          "kinderen": []
+                                          "comment": "Zoon van Noach. Voorvader van o.a. de Kananieten.",
+                                          "children": []
                                         },
                                         {
-                                          "naam": "Jafet",
-                                          "geboortejaar": null,
-                                          "leeftijd": null,
+                                          "name": "Jafet",
+                                          "birthYear": null,
+                                          "age": null,
                                           "partner": null,
-                                          "commentaar": "Zoon van Noach. Voorvader van diverse volken rond de Middellandse Zee.",
-                                          "kinderen": []
+                                          "comment": "Zoon van Noach. Voorvader van diverse volken rond de Middellandse Zee.",
+                                          "children": []
                                         }
                                       ]
                                     }

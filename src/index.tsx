@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import AdamLineageTree from './AdamLineageTree';
+import AdamLineageTree from './components/AdamLineageTree';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(

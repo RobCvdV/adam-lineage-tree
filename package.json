@@ -1,5 +1,5 @@
 {
-  "name": "AdamAndSons",
+  "name": "adam-lineage",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -12,9 +12,9 @@
   "dependencies": {
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
+    "@xyflow/react": "^12.8.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-flow-renderer": "^10.3.17"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
