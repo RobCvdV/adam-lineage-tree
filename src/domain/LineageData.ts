@@ -4,6 +4,7 @@ export const  lineageData = AdamLineage;
 
 // make a type for lineage data that is a subset of the AdamLineage type
 export type LineageData = {
+  id: string; // unique identifier for the person, can be name or a unique ID
   name: string;
   birthYear?: number | null;
   ageAtDeath?: number | null;

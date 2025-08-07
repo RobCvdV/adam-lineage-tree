@@ -1,11 +1,19 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
-import { Edge, Node, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from '@xyflow/react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Edge,
+  Node,
+  NodeMouseHandler,
+  NodeTypes,
+  ReactFlow,
+  ReactFlowInstance
+} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import AdamNodeComponent, { AdamNodeData, AdamNode } from './AdamNodeComponent';
+import AdamNodeComponent, { AdamNode, AdamNodeData } from './AdamNodeComponent';
 import DetailsPanel from './DetailsPanel';
-import { lineageData } from "../domain/LineageData";
-import { findDescendantEdges, findDescendants, transformLineageToFlow } from './flowHelpers';
+import { LineageData, lineageData } from "../domain/LineageData";
+import { findDescendantEdges, findDescendants } from './flowHelpers';
 import type { OnInit } from "@xyflow/react/dist/esm/types";
+import { transformLineageToFlow } from "./transformLineageToFlow";
 
 const nodeTypes: NodeTypes = {
   adamNode: AdamNodeComponent,
@@ -23,53 +31,56 @@ const defaultEdgeOptions = {
 
 const AdamLineageTree: React.FC = () => {
   const [elements, setElements] = useState<{ nodes: Node<AdamNodeData>[]; edges: Edge[] }>({ nodes: [], edges: [] });
-  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-  const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
+  const [selectedNode, setSelectedNode] = useState<LineageData | null>(null);
+  const reactFlowInstance = useRef<ReactFlowInstance<AdamNode> | null>(null);
 
   useEffect(() => {
     const result = transformLineageToFlow(lineageData);
     setElements(result);
   }, []);
 
-  const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
-    setSelectedNodeId(node.id);
+  const handleNodeClick: NodeMouseHandler<AdamNode> = useCallback((event, node) => {
+    setSelectedNode(node.data);
   }, []);
 
-  const handleChildSelect = useCallback((nodeId: string) => {
-    setSelectedNodeId(nodeId);
+  const handleChildSelect = useCallback((node: LineageData) => {
+    console.log('select node',node.id);
+    setSelectedNode(node);
     
     // Move the selected node into view
     if (reactFlowInstance.current) {
-      const selectedNode = elements.nodes.find(node => node.id === nodeId);
-      if (selectedNode) {
+      const selectedNodeElement = elements.nodes.find(n => n.id === node.id);
+      if (selectedNodeElement) {
         // Center the node in the viewport with animation
-        reactFlowInstance.current.setCenter(
-          selectedNode.position.x + (selectedNode.width || 220) / 2,
-          selectedNode.position.y + 50, // Add some offset for node height
+        void reactFlowInstance.current.setCenter(
+          selectedNodeElement.position.x + (selectedNodeElement.width || 220) / 2,
+          selectedNodeElement.position.y + 50, // Add some offset for node height
           { zoom: 0.5, duration: 300 }
         );
       }
     }
   }, [elements.nodes]);
 
-  const onInit: OnInit = useCallback((instance) => {
-    reactFlowInstance.current = instance;
+  const onInit: OnInit<AdamNode> = useCallback((instance) => {
+    reactFlowInstance.current = instance ;
   }, []);
 
   // Find highlighted descendants and edges with generation info
+  const selectedNodeId = selectedNode?.id || null;
   const highlightedDescendants = selectedNodeId ? findDescendants(selectedNodeId, elements.edges) : new Map<string, number>();
   const highlightedEdges = selectedNodeId ? findDescendantEdges(selectedNodeId, elements.edges) : new Map<string, number>();
 
   // Update nodes with selection and highlighting states
   const nodesWithSelection = elements.nodes.map(node => ({
     ...node,
+    // selected: node.id === selectedNodeId,
     data: {
       ...node.data,
       selected: node.id === selectedNodeId,
       highlighted: highlightedDescendants.has(node.id),
       generation: highlightedDescendants.get(node.id) || 0,
     },
-  }));
+  } as AdamNode));
 
   // Helper function to get edge color and opacity based on generation
   const getEdgeStyle = (generation: number) => {
@@ -99,9 +110,6 @@ const AdamLineageTree: React.FC = () => {
     } as Edge;
   });
 
-  const selectedNodeData = elements.nodes.find(node => node.id === selectedNodeId)?.data 
-    ?? null;
-
   return (
     <div style={{ display: 'flex', width: '100vw', height: '100vh', background: '#f1f5f9' }}>
       <div style={{ flex: 1, position: 'relative' }}>
@@ -118,9 +126,8 @@ const AdamLineageTree: React.FC = () => {
         />
       </div>
       <DetailsPanel 
-        nodeData={selectedNodeData} 
+        nodeData={selectedNode}
         onNodeSelect={handleChildSelect}
-        lineageData={lineageData}
       />
     </div>
   );
