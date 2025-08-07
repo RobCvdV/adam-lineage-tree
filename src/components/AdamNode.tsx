@@ -7,19 +7,68 @@ export type AdamNodeData = {
   age?: number | null;
   children?: number;
   selected?: boolean;
+  highlighted?: boolean;
+  generation?: number;
   [key: string]: any;
 }
 export type AdamNodeProps = Node<AdamNodeData, 'adamNode'>;
 
 export default function AdamNode({ data }: NodeProps<AdamNodeProps>) {
+  // Helper function to get highlighting style based on generation
+  const getHighlightStyle = (generation: number) => {
+    const styles = [
+      // Generation 1 (children)
+      {
+        background: '#fefce8', // bright yellow
+        border: '1px solid #fbbf24',
+        boxShadow: '0 1px 4px rgba(251,191,36,0.25)',
+        opacity: 1.0,
+      },
+      // Generation 2 (grandchildren)
+      {
+        background: '#fffbeb', // lighter yellow
+        border: '1px solid #f59e0b',
+        boxShadow: '0 1px 4px rgba(245,158,11,0.15)',
+        opacity: 0.8,
+      },
+      // Generation 3 (great-grandchildren)
+      {
+        background: '#fefdf8', // very light yellow
+        border: '1px solid #d97706',
+        boxShadow: '0 1px 4px rgba(217,119,6,0.10)',
+        opacity: 0.6,
+      },
+    ];
+    
+    return styles[generation - 1] || styles[2]; // fallback to generation 3 style
+  };
+
+  // Determine background and border colors based on state
+  let background = '#f7fafc'; // default
+  let border = '1px solid #cbd5e1'; // default
+  let boxShadow = '0 1px 4px rgba(0,0,0,0.04)'; // default
+  let opacity = 1.0;
+  
+  if (data.selected) {
+    background = '#e0f2fe';
+    border = '2px solid #38bdf8';
+    boxShadow = '0 2px 8px rgba(56,189,248,0.10)';
+  } else if (data.highlighted && data.generation) {
+    const highlightStyle = getHighlightStyle(data.generation);
+    background = highlightStyle.background;
+    border = highlightStyle.border;
+    boxShadow = highlightStyle.boxShadow;
+    opacity = highlightStyle.opacity;
+  }
+
   return (
     <div
       style={{
         padding: '8px 12px',
         borderRadius: 6,
-        background: data.selected ? '#e0f2fe' : '#f7fafc',
-        border: data.selected ? '2px solid #38bdf8' : '1px solid #cbd5e1',
-        boxShadow: data.selected ? '0 2px 8px rgba(56,189,248,0.10)' : '0 1px 4px rgba(0,0,0,0.04)',
+        background,
+        border,
+        boxShadow,
         minWidth: 140,
         fontSize: 13,
         lineHeight: 1.4,
@@ -29,6 +78,7 @@ export default function AdamNode({ data }: NodeProps<AdamNodeProps>) {
         cursor: 'pointer',
         transition: 'all 0.15s',
         position: 'relative',
+        opacity,
       }}
     >
       {/* Handle for incoming connections (from parent) */}
@@ -53,7 +103,7 @@ export default function AdamNode({ data }: NodeProps<AdamNodeProps>) {
         type="source"
         position={Position.Bottom}
         style={{
-          // background: '#4f46e5',
+          background: '#a09ce4',
           width: 8,
           height: 8,
           border: '2px solid #fff',

@@ -1,4 +1,5 @@
 {
+  "id": "Adam",
   "name": "Adam",
   "birthYear": 0,
   "ageAtDeath": 930,
@@ -6,6 +7,7 @@
   "comment": "De eerste mens, geschapen door God. De geboortejaren in dit bestand zijn in Anno Mundi (AM), 'jaar van de wereld', gerekend vanaf de schepping van Adam.",
   "children": [
     {
+      "id": "Kaïn (Adam)",
       "name": "Kaïn",
       "birthYear": null,
       "ageAtDeath": null,
@@ -13,6 +15,7 @@
       "comment": "Eerstgeboren zoon. Doodde zijn broer Abel en werd verbannen naar het land Nod. De naam van zijn vrouw wordt genoemd in het Boek der Jubileeën.",
       "children": [
         {
+          "id": "Henoch (Kaïn)",
           "name": "Henoch",
           "birthYear": null,
           "ageAtDeath": null,
@@ -20,6 +23,7 @@
           "comment": "Zoon van Kaïn. Kaïn bouwde een stad en noemde die naar zijn zoon Henoch. Niet te verwarren met Henoch uit de lijn van Seth.",
           "children": [
             {
+              "id": "Irad (Henoch)",
               "name": "Irad",
               "birthYear": null,
               "ageAtDeath": null,
@@ -27,6 +31,7 @@
               "comment": "Zoon van Henoch.",
               "children": [
                 {
+                  "id": "Mechujaël (Irad)",
                   "name": "Mechujaël",
                   "birthYear": null,
                   "ageAtDeath": null,
@@ -34,6 +39,7 @@
                   "comment": "Zoon van Irad.",
                   "children": [
                     {
+                      "id": "Metusael (Mechujaël)",
                       "name": "Metusael",
                       "birthYear": null,
                       "ageAtDeath": null,
@@ -41,16 +47,17 @@
                       "comment": "Zoon van Mechujaël.",
                       "children": [
                         {
+                          "id": "Lamech (Metusael)",
                           "name": "Lamech",
                           "birthYear": null,
                           "ageAtDeath": null,
                           "partner": "Ada, Silla",
                           "comment": "Afstammeling van Kaïn. De eerste man die met twee vrouwen trouwde.",
                           "children": [
-                            { "name": "Jabal", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Ada. Stamvader van hen die in tenten wonen en vee hoeden.", "children": [] },
-                            { "name": "Jubal", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Ada. Stamvader van allen die lier en fluit bespelen.", "children": [] },
-                            { "name": "Tubal-Kaïn", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Silla. Smid, bewerker van koper en ijzer.", "children": [] },
-                            { "name": "Naäma", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Dochter van Silla. Zus van Tubal-Kaïn.", "children": [] }
+                            { "id": "Jabal (Lamech)", "name": "Jabal", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Ada. Stamvader van hen die in tenten wonen en vee hoeden.", "children": [] },
+                            { "id": "Jubal (Lamech)", "name": "Jubal", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Ada. Stamvader van allen die lier en fluit bespelen.", "children": [] },
+                            { "id": "Tubal-Kaïn (Lamech)", "name": "Tubal-Kaïn", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Zoon van Silla. Smid, bewerker van koper en ijzer.", "children": [] },
+                            { "id": "Naäma (Lamech)", "name": "Naäma", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Dochter van Silla. Zus van Tubal-Kaïn.", "children": [] }
                           ]
                         }
                       ]
@@ -64,6 +71,7 @@
       ]
     },
     {
+      "id": "Abel (Adam)",
       "name": "Abel",
       "birthYear": null,
       "ageAtDeath": null,
@@ -72,6 +80,7 @@
       "children": []
     },
     {
+      "id": "Seth (Adam)",
       "name": "Seth",
       "birthYear": 130,
       "ageAtDeath": 912,
@@ -79,6 +88,7 @@
       "comment": "Derde genoemde zoon, geboren na de dood van Abel. De geslachtslijn van Noach loopt via hem. De naam van zijn vrouw wordt genoemd in het Boek der Jubileeën.",
       "children": [
         {
+          "id": "Enos (Seth)",
           "name": "Enos",
           "birthYear": 235,
           "ageAtDeath": 905,
@@ -86,6 +96,7 @@
           "comment": "Zoon van Seth. In zijn tijd begon men de naam van de HEER aan te roepen.",
           "children": [
             {
+              "id": "Kenan (Enos)",
               "name": "Kenan",
               "birthYear": 325,
               "ageAtDeath": 910,
@@ -93,6 +104,7 @@
               "comment": "Zoon van Enos.",
               "children": [
                 {
+                  "id": "Mahalalel (Kenan)",
                   "name": "Mahalalel",
                   "birthYear": 395,
                   "ageAtDeath": 895,
@@ -100,6 +112,7 @@
                   "comment": "Zoon van Kenan.",
                   "children": [
                     {
+                      "id": "Jared (Mahalalel)",
                       "name": "Jared",
                       "birthYear": 460,
                       "ageAtDeath": 962,
@@ -107,6 +120,7 @@
                       "comment": "Zoon van Mahalalel.",
                       "children": [
                         {
+                          "id": "Henoch (Jared)",
                           "name": "Henoch",
                           "birthYear": 622,
                           "ageAtDeath": 365,
@@ -114,6 +128,7 @@
                           "comment": "Wandelde met God en werd door God weggenomen zonder te sterven.",
                           "children": [
                             {
+                              "id": "Metusalem (Henoch)",
                               "name": "Metusalem",
                               "birthYear": 687,
                               "ageAtDeath": 969,
@@ -121,6 +136,7 @@
                               "comment": "Oudste persoon genoemd in de Bijbel. Stierf in het jaar van de zondvloed.",
                               "children": [
                                 {
+                                  "id": "Lamech (Metusalem)",
                                   "name": "Lamech",
                                   "birthYear": 874,
                                   "ageAtDeath": 777,
@@ -128,6 +144,7 @@
                                   "comment": "Vader van Noach.",
                                   "children": [
                                     {
+                                      "id": "Noach (Lamech)",
                                       "name": "Noach",
                                       "birthYear": 1056,
                                       "ageAtDeath": 950,
@@ -135,15 +152,17 @@
                                       "comment": "Bouwde de ark en overleefde de zondvloed met zijn gezin (rond 1656 AM).",
                                       "children": [
                                         {
+                                          "id": "Sem (Noach)",
                                           "name": "Sem",
                                           "birthYear": 1558,
                                           "ageAtDeath": 600,
                                           "partner": null,
                                           "comment": "Voorvader van de Semitische volken, inclusief Abraham.",
                                           "children": [
-                                            { "name": "Elam", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Elamieten.", "children": [] },
-                                            { "name": "Assur", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Assyriërs.", "children": [] },
+                                            { "id": "Elam (Sem)", "name": "Elam", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Elamieten.", "children": [] },
+                                            { "id": "Assur (Sem)", "name": "Assur", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Assyriërs.", "children": [] },
                                             {
+                                              "id": "Arpachsad (Sem)",
                                               "name": "Arpachsad",
                                               "birthYear": 1658,
                                               "ageAtDeath": 438,
@@ -151,6 +170,7 @@
                                               "comment": "Zoon van Sem, geboren twee jaar na de zondvloed. Voorvader van Abraham.",
                                               "children": [
                                                 {
+                                                  "id": "Sela (Arpachsad)",
                                                   "name": "Sela",
                                                   "birthYear": 1693,
                                                   "ageAtDeath": 433,
@@ -158,6 +178,7 @@
                                                   "comment": "Zoon van Arpachsad. Sommige manuscripten (Septuagint) noemen een Kenan tussen Arpachsad en Sela.",
                                                   "children": [
                                                     {
+                                                      "id": "Eber (Sela)",
                                                       "name": "Eber",
                                                       "birthYear": 1723,
                                                       "ageAtDeath": 464,
@@ -165,6 +186,7 @@
                                                       "comment": "Zoon van Sela. Mogelijke naamgever van de Hebreeën.",
                                                       "children": [
                                                         {
+                                                          "id": "Peleg (Eber)",
                                                           "name": "Peleg",
                                                           "birthYear": 1757,
                                                           "ageAtDeath": 239,
@@ -172,6 +194,7 @@
                                                           "comment": "Zoon van Eber. In zijn dagen werd de aarde verdeeld (toren van Babel).",
                                                           "children": [
                                                             {
+                                                              "id": "Reü (Peleg)",
                                                               "name": "Reü",
                                                               "birthYear": 1787,
                                                               "ageAtDeath": 239,
@@ -179,6 +202,7 @@
                                                               "comment": "Zoon van Peleg.",
                                                               "children": [
                                                                 {
+                                                                  "id": "Serug (Reü)",
                                                                   "name": "Serug",
                                                                   "birthYear": 1819,
                                                                   "ageAtDeath": 230,
@@ -186,6 +210,7 @@
                                                                   "comment": "Zoon van Reü.",
                                                                   "children": [
                                                                     {
+                                                                      "id": "Nahor (Serug)",
                                                                       "name": "Nahor",
                                                                       "birthYear": 1849,
                                                                       "ageAtDeath": 148,
@@ -193,6 +218,7 @@
                                                                       "comment": "Zoon van Serug, grootvader van Abraham.",
                                                                       "children": [
                                                                         {
+                                                                          "id": "Terach (Nahor)",
                                                                           "name": "Terach",
                                                                           "birthYear": 1878,
                                                                           "ageAtDeath": 205,
@@ -200,39 +226,40 @@
                                                                           "comment": "Vader van Abraham, Nahor en Haran. Verliet Ur der Chaldeeën.",
                                                                           "children": [
                                                                             {
+                                                                              "id": "Abraham (Terach)",
                                                                               "name": "Abraham",
                                                                               "birthYear": 2008,
                                                                               "ageAtDeath": 175,
                                                                               "partner": "Sara, Hagar, Ketura",
                                                                               "comment": "Oorspronkelijk Abram. Stamvader van het Joodse volk en vele andere volken.",
                                                                               "children": [
-                                                                                { "name": "Ismaël", "birthYear": 2094, "ageAtDeath": 137, "partner": null, "comment": "Zoon met Hagar. Stamvader van 12 vorsten.", "children": [] },
-                                                                                { "name": "Izaäk", "birthYear": 2108, "ageAtDeath": 180, "partner": "Rebekka", "comment": "Zoon van de belofte met Sara.", "children": [
-                                                                                  { "name": "Esau", "birthYear": 2168, "ageAtDeath": null, "partner": "Ada, Oholibama, Basemat", "comment": "Ook Edom genoemd. Tweelingbroer van Jakob. Stamvader van de Edomieten.", "children": []},
-                                                                                  { "name": "Jakob", "birthYear": 2168, "ageAtDeath": 147, "partner": "Lea, Rachel, Bilha, Zilpa", "comment": "Kreeg de naam Israël. Vader van de 12 stammen.", "children": [
-                                                                                    {"name": "Ruben", "mother": "Lea"},
-                                                                                    {"name": "Simeon", "mother": "Lea"},
-                                                                                    {"name": "Levi", "mother": "Lea", "comment": "Stamvader van de Levieten. Zijn lijn leidt tot Mozes en Aäron.", "children": [
-                                                                                      {"name": "Gerson"}, {"name": "Kehat", "children": [
-                                                                                        {"name": "Amram", "partner": "Jochebed", "children": [
-                                                                                          {"name": "Aäron", "comment": "Eerste Hogepriester van Israël."},
-                                                                                          {"name": "Mozes", "comment": "Leider van de Exodus uit Egypte."},
-                                                                                          {"name": "Mirjam", "comment": "Profetes."}
+                                                                                { "id": "Ismaël (Abraham)", "name": "Ismaël", "birthYear": 2094, "ageAtDeath": 137, "partner": null, "comment": "Zoon met Hagar. Stamvader van 12 vorsten.", "children": [] },
+                                                                                { "id": "Izaäk (Abraham)", "name": "Izaäk", "birthYear": 2108, "ageAtDeath": 180, "partner": "Rebekka", "comment": "Zoon van de belofte met Sara.", "children": [
+                                                                                  { "id": "Esau (Izaäk)", "name": "Esau", "birthYear": 2168, "ageAtDeath": null, "partner": "Ada, Oholibama, Basemat", "comment": "Ook Edom genoemd. Tweelingbroer van Jakob. Stamvader van de Edomieten.", "children": []},
+                                                                                  { "id": "Jakob (Izaäk)", "name": "Jakob", "birthYear": 2168, "ageAtDeath": 147, "partner": "Lea, Rachel, Bilha, Zilpa", "comment": "Kreeg de naam Israël. Vader van de 12 stammen.", "children": [
+                                                                                    {"id": "Ruben (Jakob)", "name": "Ruben", "mother": "Lea"},
+                                                                                    {"id": "Simeon (Jakob)", "name": "Simeon", "mother": "Lea"},
+                                                                                    {"id": "Levi (Jakob)", "name": "Levi", "mother": "Lea", "comment": "Stamvader van de Levieten. Zijn lijn leidt tot Mozes en Aäron.", "children": [
+                                                                                      {"id": "Gerson (Levi)", "name": "Gerson"}, {"id": "Kehat (Levi)", "name": "Kehat", "children": [
+                                                                                        {"id": "Amram (Kehat)", "name": "Amram", "partner": "Jochebed", "children": [
+                                                                                          {"id": "Aäron (Amram)", "name": "Aäron", "comment": "Eerste Hogepriester van Israël."},
+                                                                                          {"id": "Mozes (Amram)", "name": "Mozes", "comment": "Leider van de Exodus uit Egypte."},
+                                                                                          {"id": "Mirjam (Amram)", "name": "Mirjam", "comment": "Profetes."}
                                                                                         ]}
-                                                                                      ]}, {"name": "Merari"}
+                                                                                      ]}, {"id": "Merari (Levi)", "name": "Merari"}
                                                                                     ]},
-                                                                                    {"name": "Juda", "mother": "Lea", "partner": "Tamar", "comment": "Voorvader van de koningen van Juda, inclusief David en Jezus.", "children": [
-                                                                                      {"name": "Er"}, {"name": "Onan"}, {"name": "Sela"},
-                                                                                      {"name": "Perez", "mother": "Tamar", "children": [
-                                                                                        {"name": "Chezron", "children": [
-                                                                                          {"name": "Ram", "children": [
-                                                                                            {"name": "Amminadab", "children": [
-                                                                                              {"name": "Nachson", "comment": "Vorst van de stam Juda tijdens de Exodus.", "children": [
-                                                                                                {"name": "Salmon", "partner": "Rachab", "children": [
-                                                                                                  {"name": "Boaz", "partner": "Ruth", "children": [
-                                                                                                    {"name": "Obed", "children": [
-                                                                                                      {"name": "Isaï", "children": [
-                                                                                                        {"name": "David", "comment": "Tweede koning van Israël."}
+                                                                                    {"id": "Juda (Jakob)", "name": "Juda", "mother": "Lea", "partner": "Tamar", "comment": "Voorvader van de koningen van Juda, inclusief David en Jezus.", "children": [
+                                                                                      {"id": "Er (Juda)", "name": "Er"}, {"id": "Onan (Juda)", "name": "Onan"}, {"id": "Sela (Juda)", "name": "Sela"},
+                                                                                      {"id": "Perez (Juda)", "name": "Perez", "mother": "Tamar", "children": [
+                                                                                        {"id": "Chezron (Perez)", "name": "Chezron", "children": [
+                                                                                          {"id": "Ram (Chezron)", "name": "Ram", "children": [
+                                                                                            {"id": "Amminadab (Ram)", "name": "Amminadab", "children": [
+                                                                                              {"id": "Nachson (Amminadab)", "name": "Nachson", "comment": "Vorst van de stam Juda tijdens de Exodus.", "children": [
+                                                                                                {"id": "Salmon (Nachson)", "name": "Salmon", "partner": "Rachab", "children": [
+                                                                                                  {"id": "Boaz (Salmon)", "name": "Boaz", "partner": "Ruth", "children": [
+                                                                                                    {"id": "Obed (Boaz)", "name": "Obed", "children": [
+                                                                                                      {"id": "Isaï (Obed)", "name": "Isaï", "children": [
+                                                                                                        {"id": "David (Isaï)", "name": "David", "comment": "Tweede koning van Israël."}
                                                                                                       ]}
                                                                                                     ]}
                                                                                                   ]}
@@ -242,39 +269,39 @@
                                                                                           ]}
                                                                                         ]}
                                                                                       ]},
-                                                                                      {"name": "Zerach", "mother": "Tamar"}
+                                                                                      {"id": "Zerach (Juda)", "name": "Zerach", "mother": "Tamar"}
                                                                                     ]},
-                                                                                    {"name": "Dan", "mother": "Bilha"},
-                                                                                    {"name": "Naftali", "mother": "Bilha"},
-                                                                                    {"name": "Gad", "mother": "Zilpa"},
-                                                                                    {"name": "Aser", "mother": "Zilpa"},
-                                                                                    {"name": "Issachar", "mother": "Lea"},
-                                                                                    {"name": "Zebulon", "mother": "Lea"},
-                                                                                    {"name": "Dina", "mother": "Lea", "comment": "Enige genoemde dochter van Jakob."},
-                                                                                    {"name": "Jozef", "mother": "Rachel", "ageAtDeath": 110, "partner": "Asnat", "comment": "Onderkoning van Egypte.", "children": [
-                                                                                      {"name": "Manasse"}, {"name": "Efraïm"}
+                                                                                    {"id": "Dan (Jakob)", "name": "Dan", "mother": "Bilha"},
+                                                                                    {"id": "Naftali (Jakob)", "name": "Naftali", "mother": "Bilha"},
+                                                                                    {"id": "Gad (Jakob)", "name": "Gad", "mother": "Zilpa"},
+                                                                                    {"id": "Aser (Jakob)", "name": "Aser", "mother": "Zilpa"},
+                                                                                    {"id": "Issachar (Jakob)", "name": "Issachar", "mother": "Lea"},
+                                                                                    {"id": "Zebulon (Jakob)", "name": "Zebulon", "mother": "Lea"},
+                                                                                    {"id": "Dina (Jakob)", "name": "Dina", "mother": "Lea", "comment": "Enige genoemde dochter van Jakob."},
+                                                                                    {"id": "Jozef (Jakob)", "name": "Jozef", "mother": "Rachel", "ageAtDeath": 110, "partner": "Asnat", "comment": "Onderkoning van Egypte.", "children": [
+                                                                                      {"id": "Manasse (Jozef)", "name": "Manasse"}, {"id": "Efraïm (Jozef)", "name": "Efraïm"}
                                                                                     ]},
-                                                                                    {"name": "Benjamin", "mother": "Rachel"}
+                                                                                    {"id": "Benjamin (Jakob)", "name": "Benjamin", "mother": "Rachel"}
                                                                                   ]}
                                                                                 ]},
-                                                                                { "name": "Zimran", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
-                                                                                { "name": "Joksan", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
-                                                                                { "name": "Medan", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
-                                                                                { "name": "Midjan", "partner": null, "comment": "Zoon met Ketura. Stamvader van de Midjanieten.", "children": [] },
-                                                                                { "name": "Jisbak", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
-                                                                                { "name": "Suach", "partner": null, "comment": "Zoon met Ketura.", "children": [] }
+                                                                                { "id": "Zimran (Abraham)", "name": "Zimran", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
+                                                                                { "id": "Joksan (Abraham)", "name": "Joksan", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
+                                                                                { "id": "Medan (Abraham)", "name": "Medan", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
+                                                                                { "id": "Midjan (Abraham)", "name": "Midjan", "partner": null, "comment": "Zoon met Ketura. Stamvader van de Midjanieten.", "children": [] },
+                                                                                { "id": "Jisbak (Abraham)", "name": "Jisbak", "partner": null, "comment": "Zoon met Ketura.", "children": [] },
+                                                                                { "id": "Suach (Abraham)", "name": "Suach", "partner": null, "comment": "Zoon met Ketura.", "children": [] }
                                                                               ]
                                                                             },
-                                                                            { "name": "Nahor", "birthYear": null, "ageAtDeath": null, "partner": "Milka", "comment": "Broer van Abraham. Bleef in Mesopotamië.", "children": [
-                                                                              {"name": "Us"}, {"name": "Buz"}, {"name": "Kemuël"}, {"name": "Kesed"}, {"name": "Chazo"}, {"name": "Pildas"}, {"name": "Jidlaf"},
-                                                                              {"name": "Betuël", "children": [
-                                                                                {"name": "Laban"}, {"name": "Rebekka", "partner": "Izaäk", "comment": "Vrouw van Izaäk."}
+                                                                            { "id": "Nahor (Terach)", "name": "Nahor", "birthYear": null, "ageAtDeath": null, "partner": "Milka", "comment": "Broer van Abraham. Bleef in Mesopotamië.", "children": [
+                                                                              {"id": "Us (Nahor)", "name": "Us"}, {"id": "Buz (Nahor)", "name": "Buz"}, {"id": "Kemuël (Nahor)", "name": "Kemuël"}, {"id": "Kesed (Nahor)", "name": "Kesed"}, {"id": "Chazo (Nahor)", "name": "Chazo"}, {"id": "Pildas (Nahor)", "name": "Pildas"}, {"id": "Jidlaf (Nahor)", "name": "Jidlaf"},
+                                                                              {"id": "Betuël (Nahor)", "name": "Betuël", "children": [
+                                                                                {"id": "Laban (Betuël)", "name": "Laban"}, {"id": "Rebekka (Betuël)", "name": "Rebekka", "partner": "Izaäk", "comment": "Vrouw van Izaäk."}
                                                                               ]}
                                                                             ]},
-                                                                            { "name": "Haran", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Broer van Abraham. Stierf in Ur der Chaldeeën.", "children": [
-                                                                              {"name": "Lot", "comment": "Neef van Abraham, gered uit Sodom."},
-                                                                              {"name": "Milka", "partner": "Nahor", "comment": "Vrouw van haar oom Nahor."},
-                                                                              {"name": "Jiska"}
+                                                                            { "id": "Haran (Terach)", "name": "Haran", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Broer van Abraham. Stierf in Ur der Chaldeeën.", "children": [
+                                                                              {"id": "Lot (Haran)", "name": "Lot", "comment": "Neef van Abraham, gered uit Sodom."},
+                                                                              {"id": "Milka (Haran)", "name": "Milka", "partner": "Nahor", "comment": "Vrouw van haar oom Nahor."},
+                                                                              {"id": "Jiska (Haran)", "name": "Jiska"}
                                                                             ]}
                                                                           ]
                                                                         }
@@ -286,45 +313,47 @@
                                                             }
                                                           ]
                                                         },
-                                                        { "name": "Joktan", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Broer van Peleg. Stamvader van Arabische stammen.", "children": [] }
+                                                        { "id": "Joktan (Eber)", "name": "Joktan", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Broer van Peleg. Stamvader van Arabische stammen.", "children": [] }
                                                       ]
                                                     }
                                                   ]
                                                 }
                                               ]
                                             },
-                                            { "name": "Lud", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Lydiërs.", "children": [] },
-                                            { "name": "Aram", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Arameeërs.", "children": [
-                                              {"name": "Us"}, {"name": "Chul"}, {"name": "Geter"}, {"name": "Mas"}
+                                            { "id": "Lud (Sem)", "name": "Lud", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Lydiërs.", "children": [] },
+                                            { "id": "Aram (Sem)", "name": "Aram", "birthYear": null, "ageAtDeath": null, "partner": null, "comment": "Stamvader van de Arameeërs.", "children": [
+                                              {"id": "Us (Aram)", "name": "Us"}, {"id": "Chul (Aram)", "name": "Chul"}, {"id": "Geter (Aram)", "name": "Geter"}, {"id": "Mas (Aram)", "name": "Mas"}
                                             ]}
                                           ]
                                         },
                                         {
+                                          "id": "Cham (Noach)",
                                           "name": "Cham",
                                           "birthYear": null,
                                           "ageAtDeath": null,
                                           "partner": null,
                                           "comment": "Zoon van Noach. Zijn zoon Kanaän werd door Noach vervloekt.",
                                           "children": [
-                                            { "name": "Kus", "comment": "Stamvader van volken in Ethiopië/Nubië. Vader van Nimrod.", "children": [
-                                              {"name": "Nimrod", "comment": "Een machtig jager, stichter van Babel, Erek, Akkad en Kalne."}
+                                            { "id": "Kus (Cham)", "name": "Kus", "comment": "Stamvader van volken in Ethiopië/Nubië. Vader van Nimrod.", "children": [
+                                              {"id": "Nimrod (Kus)", "name": "Nimrod", "comment": "Een machtig jager, stichter van Babel, Erek, Akkad en Kalne."}
                                             ]},
-                                            { "name": "Misraïm", "comment": "Stamvader van de Egyptenaren. 'Misraïm' is Hebreeuws voor Egypte.", "children": [] },
-                                            { "name": "Put", "comment": "Stamvader van een volk in Noord-Afrika, mogelijk Libië.", "children": [] },
-                                            { "name": "Kanaän", "comment": "Stamvader van de Kanaänitische volken, de oorspronkelijke bewoners van het beloofde land.", "children": [
-                                              {"name": "Sidon", "comment": "Eerstgeborene. Naamgever van de Fenicische stad Sidon."},
-                                              {"name": "Chet", "comment": "Stamvader van de Hethieten."}
+                                            { "id": "Misraïm (Cham)", "name": "Misraïm", "comment": "Stamvader van de Egyptenaren. 'Misraïm' is Hebreeuws voor Egypte.", "children": [] },
+                                            { "id": "Put (Cham)", "name": "Put", "comment": "Stamvader van een volk in Noord-Afrika, mogelijk Libië.", "children": [] },
+                                            { "id": "Kanaän (Cham)", "name": "Kanaän", "comment": "Stamvader van de Kanaänitische volken, de oorspronkelijke bewoners van het beloofde land.", "children": [
+                                              {"id": "Sidon (Kanaän)", "name": "Sidon", "comment": "Eerstgeborene. Naamgever van de Fenicische stad Sidon."},
+                                              {"id": "Chet (Kanaän)", "name": "Chet", "comment": "Stamvader van de Hethieten."}
                                             ]}
                                           ]
                                         },
                                         {
+                                          "id": "Jafet (Noach)",
                                           "name": "Jafet",
                                           "birthYear": null,
                                           "ageAtDeath": null,
                                           "partner": null,
                                           "comment": "Zoon van Noach. Voorvader van diverse volken rond de Middellandse Zee en Klein-Azië.",
                                           "children": [
-                                            {"name": "Gomer"}, {"name": "Magog"}, {"name": "Madai"}, {"name": "Javan", "comment": "Stamvader van de Grieken (Ioniërs)."}, {"name": "Tubal"}, {"name": "Mesech"}, {"name": "Tiras"}
+                                            {"id": "Gomer (Jafet)", "name": "Gomer"}, {"id": "Magog (Jafet)", "name": "Magog"}, {"id": "Madai (Jafet)", "name": "Madai"}, {"id": "Javan (Jafet)", "name": "Javan", "comment": "Stamvader van de Grieken (Ioniërs)."}, {"id": "Tubal (Jafet)", "name": "Tubal"}, {"id": "Mesech (Jafet)", "name": "Mesech"}, {"id": "Tiras (Jafet)", "name": "Tiras"}
                                           ]
                                         }
                                       ]
@@ -346,6 +375,7 @@
       ]
     },
     {
+      "id": "Awan (Adam)",
       "name": "Awan",
       "birthYear": null,
       "ageAtDeath": null,
@@ -354,6 +384,7 @@
       "children": []
     },
     {
+      "id": "Azura (Adam)",
       "name": "Azura",
       "birthYear": null,
       "ageAtDeath": null,
