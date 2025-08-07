@@ -1,12 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  Edge,
-  Node,
-  NodeMouseHandler,
-  NodeTypes,
-  ReactFlow,
-  ReactFlowInstance
-} from '@xyflow/react';
+import { Edge, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import AdamNodeComponent, { AdamNode, AdamNodeData } from './AdamNodeComponent';
 import DetailsPanel from './DetailsPanel';
@@ -30,7 +23,7 @@ const defaultEdgeOptions = {
 };
 
 const AdamLineageTree: React.FC = () => {
-  const [elements, setElements] = useState<{ nodes: Node<AdamNodeData>[]; edges: Edge[] }>({ nodes: [], edges: [] });
+  const [elements, setElements] = useState<{ nodes: AdamNode[]; edges: Edge[] }>({ nodes: [], edges: [] });
   const [selectedNode, setSelectedNode] = useState<LineageData | null>(null);
   const reactFlowInstance = useRef<ReactFlowInstance<AdamNode> | null>(null);
 
@@ -39,7 +32,7 @@ const AdamLineageTree: React.FC = () => {
     setElements(result);
   }, []);
 
-  const handleNodeClick: NodeMouseHandler<AdamNode> = useCallback((event, node) => {
+  const handleNodeClick: NodeMouseHandler<AdamNode> = useCallback((_event, node) => {
     setSelectedNode(node.data);
   }, []);
 
@@ -128,6 +121,7 @@ const AdamLineageTree: React.FC = () => {
       <DetailsPanel 
         nodeData={selectedNode}
         onNodeSelect={handleChildSelect}
+        parentData={(selectedNode as AdamNodeData).parent}
       />
     </div>
   );

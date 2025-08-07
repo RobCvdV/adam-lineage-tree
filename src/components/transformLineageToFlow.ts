@@ -1,13 +1,13 @@
 // Helper to transform lineage data into nodes/edges
 import { LineageData } from "../domain/LineageData";
-import { Edge, Node } from "@xyflow/react";
-import { AdamNodeData } from "./AdamNodeComponent";
+import { Edge } from "@xyflow/react";
+import { AdamNode, AdamNodeData } from "./AdamNodeComponent";
 
 export function transformLineageToFlow(data: LineageData): {
-  nodes: Node<AdamNodeData>[];
+  nodes: AdamNode[];
   edges: Edge[]
 } {
-  const nodes: Node<AdamNodeData>[] = [];
+  const nodes: AdamNode[] = [];
   const edges: Edge[] = [];
   const nodeTimeInfo: Array<{
     id: string,
@@ -42,7 +42,7 @@ export function transformLineageToFlow(data: LineageData): {
     }
   }
 
-  // Helper function to calculate chronological position with collision detection
+  // Helper function to calculate chronological position with proper parent-child ordering
   function calculateChronologicalPosition(nodeId: string, timeInfo: Array<{
     id: string,
     birthYear: number | null,
@@ -51,65 +51,49 @@ export function transformLineageToFlow(data: LineageData): {
   }>) {
     const currentNode = timeInfo.find(n => n.id === nodeId)!;
     const nodeWidth = 220;
-    const nodeHeight = 100; // Approximate node height
-    const spacing = 240; // Minimum horizontal spacing
-
-    // Create time periods and group nodes
-    const timeGroups = new Map<number, string[]>();
-    const noDateNodes: string[] = [];
-
-    timeInfo.forEach(node => {
-      if (node.birthYear !== null) {
-        // Group by centuries or logical time periods
-        const timePeriod = Math.floor(node.birthYear / 50) * 50; // 50-year periods
-        if (!timeGroups.has(timePeriod)) {
-          timeGroups.set(timePeriod, []);
-        }
-        timeGroups.get(timePeriod)!.push(node.id);
-      } else {
-        noDateNodes.push(node.id);
-      }
-    });
-
-    // Sort time periods
-    const sortedPeriods = Array.from(timeGroups.keys()).sort((a, b) => a - b);
+    const nodeHeight = 100;
+    const horizontalSpacing = 240;
+    const verticalSpacing = 150;
 
     let yPosition: number;
     let xPosition: number;
 
-    if (currentNode.birthYear) {
-      // Find which time period this node belongs to
-      const timePeriod = Math.floor(currentNode.birthYear / 50) * 50;
-      const periodIndex = sortedPeriods.indexOf(timePeriod);
-      yPosition = periodIndex * 150; // 150px between time periods
-
-      // Find horizontal position within the time period
-      const nodesInPeriod = timeGroups.get(timePeriod)!;
-      const indexInPeriod = nodesInPeriod.indexOf(nodeId);
-      xPosition = indexInPeriod * spacing; // Initial position
+    // Root node (Adam) always goes at the top
+    if (currentNode.parentId === null) {
+      yPosition = 0;
+      xPosition = 0;
     } else {
-      // For nodes without birth year, place them after their parent
-      if (currentNode.parentId) {
-        const parentNode = timeInfo.find(n => n.id === currentNode.parentId);
-        if (parentNode && parentNode.birthYear) {
-          const parentTimePeriod = Math.floor(parentNode.birthYear / 50) * 50;
-          const parentPeriodIndex = sortedPeriods.indexOf(parentTimePeriod);
-          yPosition = (parentPeriodIndex + 1) * 150; // Place below parent's time period
+      // Find parent position first
+      const parentPosition = existingPositions.find(pos => pos.id === currentNode.parentId);
+      
+      if (parentPosition) {
+        // Place children below parent with proper vertical spacing
+        yPosition = parentPosition.y + verticalSpacing;
+        
+        // For horizontal positioning, group siblings by birth year if available
+        const siblings = timeInfo.filter(n => n.parentId === currentNode.parentId);
+        
+        if (siblings.length > 1 && siblings.some(s => s.birthYear !== null)) {
+          // Sort siblings by birth year (nulls last)
+          const sortedSiblings = siblings.sort((a, b) => {
+            if (a.birthYear === null && b.birthYear === null) return 0;
+            if (a.birthYear === null) return 1;
+            if (b.birthYear === null) return -1;
+            return a.birthYear - b.birthYear;
+          });
+          
+          const siblingIndex = sortedSiblings.findIndex(s => s.id === nodeId);
+          xPosition = parentPosition.x + (siblingIndex - Math.floor(siblings.length / 2)) * horizontalSpacing;
         } else {
-          // If parent also has no date, use depth-based positioning
-          yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
+          // If no birth years available, use simple horizontal arrangement
+          const siblingIndex = siblings.findIndex(s => s.id === nodeId);
+          xPosition = parentPosition.x + (siblingIndex - Math.floor(siblings.length / 2)) * horizontalSpacing;
         }
       } else {
-        yPosition = sortedPeriods.length * 150 + currentNode.depth * 100;
+        // Fallback if parent position not found (shouldn't happen with proper traversal)
+        yPosition = currentNode.depth * verticalSpacing;
+        xPosition = 0;
       }
-
-      // Group nodes without dates by their parent and arrange horizontally
-      const siblingsWithoutDate = noDateNodes.filter(id => {
-        const siblingNode = timeInfo.find(n => n.id === id);
-        return siblingNode?.parentId === currentNode.parentId;
-      });
-      const indexAmongSiblings = siblingsWithoutDate.indexOf(nodeId);
-      xPosition = indexAmongSiblings * spacing;
     }
 
     // Check for collisions and adjust position
@@ -123,7 +107,7 @@ export function transformLineageToFlow(data: LineageData): {
 
     // Keep shifting right until we find a free spot
     while (checkCollision(xPosition, yPosition)) {
-      xPosition += spacing;
+      xPosition += horizontalSpacing;
     }
 
     // Record this position as occupied
@@ -138,7 +122,7 @@ export function transformLineageToFlow(data: LineageData): {
     return {x: xPosition, y: yPosition};
   }
 
-  // Second pass: create nodes with chronological positioning
+  // Second pass: create nodes with proper parent-child positioning
   function traverse(data: LineageData, parent: LineageData | null = null, depth: number = 0) {
     // Only include primitive values, not arrays or objects
     const additionalData: Record<string, any> = {};
@@ -148,7 +132,7 @@ export function transformLineageToFlow(data: LineageData): {
       }
     });
 
-    // Calculate position based on chronological order with collision detection
+    // Calculate position ensuring parent-child order
     const position = calculateChronologicalPosition(data.id, nodeTimeInfo);
 
     nodes.push({
@@ -156,8 +140,6 @@ export function transformLineageToFlow(data: LineageData): {
       data: {
         ...data,
         parent,
-        // highlighted: false,
-        // ...additionalData,
       } as AdamNodeData,
       position,
       width: 220,
@@ -175,7 +157,7 @@ export function transformLineageToFlow(data: LineageData): {
       });
     }
 
-    // Process children
+    // Process children after parent is positioned
     if (data.children && data.children.length > 0) {
       data.children.forEach((child) => {
         traverse(child, data, depth + 1);

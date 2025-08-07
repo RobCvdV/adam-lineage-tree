@@ -1,5 +1,4 @@
 import { Edge } from '@xyflow/react';
-import { LineageData } from '../domain/LineageData';
 
 // Helper to find all descendant node IDs from a given node with generation tracking
 export function findDescendants(nodeId: string, edges: Edge[]): Map<string, number> {

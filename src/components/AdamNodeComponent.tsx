@@ -4,7 +4,6 @@ import { LineageData } from "../domain/LineageData";
 
 export type AdamNodeData = LineageData & {
   type: 'adamNode'; // Type identifier for this node
-  age?: number | null;
   parent?: LineageData | null; // ID of the parent node
   selected?: boolean;
   highlighted?: boolean;
@@ -95,7 +94,7 @@ export default function AdamNodeComponent({ data }: NodeProps<AdamNode>) {
       
       <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 2 }}>{data.name}</div>
       <div style={{ marginBottom: 2 }}><span style={{ color: '#555' }}>Birth year:</span> {data.birthYear ?? '-'}</div>
-      <div style={{ marginBottom: 2 }}><span style={{ color: '#555' }}>Age:</span> {data.age ?? '-'}</div>
+      <div style={{ marginBottom: 2 }}><span style={{ color: '#555' }}>Age:</span> {data.ageAtDeath ?? '-'}</div>
       <div style={{ marginBottom: 2 }}><span style={{ color: '#555' }}>Children:</span> {data.children?.length ?? 0}</div>
       
       {/* Handle for outgoing connections (to children) */}
