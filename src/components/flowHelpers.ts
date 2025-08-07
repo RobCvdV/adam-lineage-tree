@@ -146,8 +146,8 @@ export function transformLineageToFlow(data: LineageData): { nodes: Node<AdamNod
     // Sort time periods
     const sortedPeriods = Array.from(timeGroups.keys()).sort((a, b) => a - b);
     
-    let yPosition = 0;
-    let xPosition = 0;
+    let yPosition : number;
+    let xPosition : number;
     
     if (currentNode.birthYear !== null) {
       // Find which time period this node belongs to

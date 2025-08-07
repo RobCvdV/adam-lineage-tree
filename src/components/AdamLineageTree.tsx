@@ -33,6 +33,10 @@ const AdamLineageTree: React.FC = () => {
     setSelectedNodeId(node.id);
   }, []);
 
+  const handleChildSelect = useCallback((nodeId: string) => {
+    setSelectedNodeId(nodeId);
+  }, []);
+
   // Find highlighted descendants and edges with generation info
   const highlightedDescendants = selectedNodeId ? findDescendants(selectedNodeId, elements.edges) : new Map<string, number>();
   const highlightedEdges = selectedNodeId ? findDescendantEdges(selectedNodeId, elements.edges) : new Map<string, number>();
@@ -93,7 +97,11 @@ const AdamLineageTree: React.FC = () => {
           proOptions={{ hideAttribution: true }}
         />
       </div>
-      <DetailsPanel nodeData={selectedNodeData} />
+      <DetailsPanel 
+        nodeData={selectedNodeData} 
+        onNodeSelect={handleChildSelect}
+        lineageData={lineageData}
+      />
     </div>
   );
 };
