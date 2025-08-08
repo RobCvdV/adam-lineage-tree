@@ -23,68 +23,90 @@ const defaultEdgeOptions = {
 };
 
 const AdamLineageTree: React.FC = () => {
-  const [elements, setElements] = useState<{ nodes: PersonNode[]; edges: Edge[] }>({ nodes: [], edges: [] });
+  const [elements, setElements] = useState<{ nodes: PersonNode[]; edges: Edge[] }>({
+    nodes: [],
+    edges: []
+  });
   const [selectedNode, setSelectedNode] = useState<PersonNodeData | null>(null);
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const reactFlowInstance = useRef<ReactFlowInstance<PersonNode> | null>(null);
-
-  useEffect(() => {
-    const result = transformLineageToFlow(lineageData);
-    setElements(result);
-  }, []);
-
-  const moveToNode = useCallback((node: PersonNode) => {
-    if (reactFlowInstance.current) {
-      // Center the node in the viewport with animation
-      void reactFlowInstance.current.setCenter(
-        node.position.x + (node.width || 220) / 2,
-        node.position.y + 300 , // Add some offset for node height
-        { zoom: 0.5, duration: 300 }
-      );
-    }
-  }, [reactFlowInstance]);
-
-  const handleChildSelect = useCallback((node: LineageData | PersonNode) => {
-    console.log('select node',node.id);
-    // Find the node in the elements
-    let selectedNodeElement = (node as PersonNode).data?.parent ? node as PersonNode : elements.nodes.find(n => n.id === node.id) as PersonNode;
-    if (!selectedNodeElement) {
-      console.warn(`Node with id ${node.id} not found in elements`);
-      return;
-    }
-    
-    setSelectedNode(selectedNodeElement.data);
-    
-    // Move the selected node into view
-    if (reactFlowInstance.current) {
-      if (selectedNodeElement) {
-        // Center the node in the viewport with animation
-        moveToNode(selectedNodeElement);
-      }
-    }
-  }, [elements.nodes, moveToNode]);
 
   // Check if we're on mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-  
-  useEffect(() => {
-    // Automatically select the first node on initial load
-    if (elements.nodes.length > 0) {
-      const firstNode = elements.nodes[0];
-      handleChildSelect(firstNode);
+
+  // Stable initialization function
+  const initializeTree = useCallback(() => {
+    if (isInitialized) return;
+
+    const result = transformLineageToFlow(lineageData);
+    setElements(result);
+
+    // Find and select Adam node immediately after setting elements
+    const adamNode = result.nodes.find(node => node.id === 'Adam' || node.data.name === 'Adam');
+    if (adamNode) {
+      setSelectedNode(adamNode.data);
+      setIsInitialized(true);
+
+      // Move to Adam node after a brief delay to ensure ReactFlow is ready
+      setTimeout(() => {
+        if (reactFlowInstance.current) {
+          reactFlowInstance.current.setCenter(
+            adamNode.position.x + (adamNode.width || 220) / 2,
+            adamNode.position.y + 300,
+            {zoom: 0.5, duration: 300}
+          );
+        }
+      }, 100);
     }
-  }
-  , [elements.nodes, handleChildSelect]);
-    
+  }, [isInitialized]);
+
+  // Initialize on mount
+  useEffect(() => {
+    initializeTree();
+  }, [initializeTree]);
+
+  const moveToNode = useCallback((node: PersonNode) => {
+    if (reactFlowInstance.current) {
+      // Center the node in the viewport with animation
+      void reactFlowInstance.current.setCenter(
+        node.position.x + (node.width || 220) / 2,
+        node.position.y + 300, // Add some offset for node height
+        {zoom: 0.5, duration: 300}
+      );
+    }
+  }, []);
+
+  const findNode = useCallback((idOrName: string): PersonNode | undefined => {
+    return elements.nodes.find(node => node.id === idOrName) ||
+      elements.nodes.find(node => node.data.name === idOrName);
+  }, [elements.nodes]);
+
+  const handleChildSelect = useCallback((node: LineageData | PersonNode) => {
+    console.log('select node', node.id);
+    // if node is not a PersonNode, Find the node in the elements
+    let selectedNodeElement = node as PersonNode | undefined;
+    if (!('data' in selectedNodeElement)) {
+      selectedNodeElement = findNode(node.id);
+    }
+
+    if (!selectedNodeElement) {
+      console.warn(`Node with id ${node.id} not found in elements`);
+      return;
+    }
+
+    setSelectedNode(selectedNodeElement.data);
+    moveToNode(selectedNodeElement);
+  }, [findNode, moveToNode]);
 
   const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
     setSelectedNode(node.data as PersonNodeData);
@@ -95,8 +117,22 @@ const AdamLineageTree: React.FC = () => {
   }, [isMobile]);
 
   const onInit: OnInit<PersonNode> = useCallback((instance) => {
-    reactFlowInstance.current = instance ;
-  }, []);
+    reactFlowInstance.current = instance;
+
+    // Try to move to Adam node after ReactFlow is fully initialized
+    if (isInitialized && selectedNode?.id === 'Adam') {
+      setTimeout(() => {
+        const adamNode = elements.nodes.find(node => node.id === 'Adam');
+        if (adamNode && instance) {
+          instance.setCenter(
+            adamNode.position.x + (adamNode.width || 220) / 2,
+            adamNode.position.y + 300,
+            {zoom: 0.5, duration: 300}
+          );
+        }
+      }, 200);
+    }
+  }, [isInitialized, selectedNode, elements.nodes]);
 
   // Find highlighted descendants and edges with generation info
   const selectedNodeId = selectedNode?.id || null;
@@ -120,7 +156,7 @@ const AdamLineageTree: React.FC = () => {
     const baseColor = '#fbbf24'; // yellow
     const opacities = [1.0, 0.7, 0.4]; // decreasing opacity for each generation
     const strokeWidths = [3, 2.5, 2]; // decreasing width for each generation
-    
+
     return {
       stroke: baseColor,
       strokeWidth: strokeWidths[generation - 1] || 2,
@@ -139,7 +175,7 @@ const AdamLineageTree: React.FC = () => {
     }
     return {
       ...edge,
-      style: { stroke: '#565267', strokeWidth: 2 }, // Default style
+      style: {stroke: '#565267', strokeWidth: 2}, // Default style
     } as Edge;
   });
 
@@ -158,11 +194,11 @@ const AdamLineageTree: React.FC = () => {
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
+    <div style={{
+      display: 'flex',
       flexDirection: isMobile ? 'column' : 'row',
-      width: '100vw', 
-      height: '100vh', 
+      width: '100vw',
+      height: '100vh',
       background: '#f1f5f9',
       position: 'relative'
     }}>
@@ -207,8 +243,8 @@ const AdamLineageTree: React.FC = () => {
       )}
 
       {/* Main Tree Container */}
-      <div style={{ 
-        flex: 1, 
+      <div style={{
+        flex: 1,
         position: 'relative',
         height: isMobile ? 'calc(100vh - 60px)' : '100vh'
       }}>
@@ -219,8 +255,8 @@ const AdamLineageTree: React.FC = () => {
           defaultEdgeOptions={defaultEdgeOptions}
           fitView
           onNodeClick={handleNodeClick}
-          connectionLineStyle={{ stroke: '#4f46e5', strokeWidth: 2 }}
-          proOptions={{ hideAttribution: true }}
+          connectionLineStyle={{stroke: '#4f46e5', strokeWidth: 2}}
+          proOptions={{hideAttribution: true}}
           onInit={onInit}
         />
       </div>
@@ -230,7 +266,7 @@ const AdamLineageTree: React.FC = () => {
         // Mobile: Overlay details panel
         <>
           {isMobileDetailsOpen && (
-            <div 
+            <div
               style={{
                 position: 'fixed',
                 top: 0,
@@ -286,10 +322,10 @@ const AdamLineageTree: React.FC = () => {
                 ×
               </button>
             </div>
-            
+
             {/* Scrollable Details Content */}
-            <div style={{ height: 'calc(80vh - 65px)', overflow: 'auto' }}>
-              <DetailsPanel 
+            <div style={{height: 'calc(80vh - 65px)', overflow: 'auto'}}>
+              <DetailsPanel
                 nodeData={selectedNode}
                 onNodeSelect={handleChildSelect}
                 isMobile={true}
@@ -299,14 +335,14 @@ const AdamLineageTree: React.FC = () => {
           </div>
         </>
       ) : (
-        // Desktop: Side panel
-        <DetailsPanel 
-          nodeData={selectedNode}
-          onNodeSelect={handleChildSelect}
-          isMobile={false}
-          personTitle={getPersonTitle(selectedNode)}
-        />
-      )}
+         // Desktop: Side panel
+         <DetailsPanel
+           nodeData={selectedNode}
+           onNodeSelect={handleChildSelect}
+           isMobile={false}
+           personTitle={getPersonTitle(selectedNode)}
+         />
+       )}
     </div>
   );
 };

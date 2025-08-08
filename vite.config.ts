@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/adam-lineage-tree/',
   build: {
     outDir: 'dist',
   },
@@ -11,4 +12,3 @@ export default defineConfig({
     allowedHosts: ['localhost', 'mbmx.akiar.nl']
   },
 });
-
