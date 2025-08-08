@@ -3,7 +3,6 @@ import { Edge, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from 
 import '@xyflow/react/dist/style.css';
 import PersonNodeComponent, { PersonNode, PersonNodeData } from './PersonNodeComponent';
 import DetailsPanel from './DetailsPanel';
-import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData, lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants } from './flowHelpers';
@@ -205,8 +204,6 @@ const AdamLineageTree: React.FC = () => {
       background: theme.surfaceBackground,
       position: 'relative'
     }}>
-      {/* Theme Toggle Button */}
-      <ThemeToggle isMobile={isMobile}/>
 
       {/* Mobile Header with Details Toggle */}
       {isMobile && (

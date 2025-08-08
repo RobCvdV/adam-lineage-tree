@@ -112,24 +112,31 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    // Check system preference
+    // Always start with system preference
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   const theme = isDarkMode ? darkTheme : lightTheme;
 
-  const toggleTheme = () => {
-    setIsDarkMode(prev => {
-      const newMode = !prev;
-      localStorage.setItem('theme', newMode ? 'dark' : 'light');
-      return newMode;
-    });
-  };
+  useEffect(() => {
+    // Listen for system theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    // Add listener for system theme changes
+    mediaQuery.addEventListener('change', handleChange);
+
+    // Set initial value based on system preference
+    setIsDarkMode(mediaQuery.matches);
+
+    // Cleanup listener on unmount
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
 
   useEffect(() => {
     // Apply theme to document body
@@ -138,8 +145,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
     document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
   }, [theme]);
 
+  // Remove the toggleTheme function since we're following system preferences
   return (
-    <ThemeContext.Provider value={{isDarkMode, theme, toggleTheme}}>
+    <ThemeContext.Provider value={{isDarkMode, theme, toggleTheme: () => {}}}>
       {children}
     </ThemeContext.Provider>
   );
