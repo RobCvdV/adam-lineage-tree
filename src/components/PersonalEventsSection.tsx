@@ -2,7 +2,6 @@ import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData } from '../domain/LineageData';
 import ClickablePersonName from './ClickablePersonName';
-import { usePersonSelection } from './hooks/usePersonSelection';
 
 interface PersonalEvent {
   personId: string;
@@ -26,7 +25,6 @@ const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
   onNodeSelect
 }) => {
   const {theme} = useTheme();
-  const {handlePersonClick} = usePersonSelection({onNodeSelect});
 
   if (personalEvents.length === 0) return null;
 
