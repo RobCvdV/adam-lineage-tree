@@ -2,22 +2,26 @@ import React from 'react';
 import { LineageData } from "../domain/LineageData";
 import { useTheme } from '../context/ThemeContext';
 
-interface PartnerSectionProps {
-  partnersData: LineageData[];
+interface PersonSectionProps {
+  peopleData: LineageData[];
   onNodeSelect?: (node: LineageData) => void;
   isMobile?: boolean;
   sectionSpacing?: number;
+  titleSingle?: string;
+  titlePlural?: string;
 }
 
-const PartnerSection: React.FC<PartnerSectionProps> = ({
-  partnersData,
+const PeopleSection: React.FC<PersonSectionProps> = ({
+  peopleData,
   onNodeSelect,
   isMobile = false,
+  titleSingle = 'Person',
+  titlePlural = 'People',
   sectionSpacing = 16
 }) => {
   const {theme} = useTheme();
 
-  if (!partnersData || partnersData.length === 0) return null;
+  if (!peopleData || peopleData.length === 0) return null;
 
   const sectionStyle = {
     marginTop: sectionSpacing,
@@ -30,7 +34,7 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
     marginBottom: '12px',
   };
 
-  const partnerButtonStyle = {
+  const personButtonStyle = {
     background: theme.buttonBackground,
     border: `1px solid ${theme.buttonBorder}`,
     borderRadius: '6px',
@@ -45,22 +49,22 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
     fontSize: '14px',
   };
 
-  const handlePartnerClick = (partner: LineageData) => {
+  const handlePersonClick = (person: LineageData) => {
     if (onNodeSelect) {
-      onNodeSelect(partner);
+      onNodeSelect(person);
     }
   };
 
   return (
     <div style={sectionStyle}>
       <div style={titleStyle}>
-        {partnersData.length === 1 ? 'Partner' : 'Partners'}
+        {peopleData.length === 1 ? titleSingle : titlePlural}{peopleData.length > 2 ? ` (${peopleData.length})` : ''}
       </div>
-      {partnersData.map((partner) => (
+      {peopleData.map((person) => (
         <button
-          key={partner.id}
-          style={partnerButtonStyle}
-          onClick={() => handlePartnerClick(partner)}
+          key={person.id}
+          style={personButtonStyle}
+          onClick={() => handlePersonClick(person)}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = theme.buttonHoverBackground;
             e.currentTarget.style.color = theme.buttonHoverText;
@@ -73,15 +77,15 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
           }}
         >
           <div style={{fontWeight: 600}}>
-            {partner.name}
-            {Boolean(partner.birthYear) && (
+            {person.name}
+            {Boolean(person.birthYear) && (
               <span style={{
                 color: theme.mutedText,
                 fontWeight: 400,
                 marginLeft: 8,
                 fontSize: isMobile ? 14 : 'inherit'
               }}>
-                (born {partner.birthYear})
+                (born {person.birthYear})
               </span>
             )}
           </div>
@@ -91,4 +95,4 @@ const PartnerSection: React.FC<PartnerSectionProps> = ({
   );
 };
 
-export default PartnerSection;
+export default PeopleSection;
