@@ -1,7 +1,7 @@
 import { eventsData, LineageData } from '../domain/LineageData';
 import { Event } from '../domain/EventsData';
 import { CharacterEventData, characterEventsData } from '../domain/CharacterEventsData';
-import { AdamNodeData } from "../components/AdamNodeComponent";
+import { PersonNodeData } from "../components/PersonNodeComponent";
 
 // Estimate lifespan for a person based on available data
 export function estimateLifespan(person: LineageData, allPeople: LineageData[]): { birthYearAM: number; deathYearAM: number } {
@@ -97,7 +97,7 @@ export function getAllPeople(data: LineageData): LineageData[] {
 }
 
 // Find events that occurred during a person's lifetime
-export function getLifeEvents(person: AdamNodeData, allPeople: LineageData[]): Event[] {
+export function getLifeEvents(person: PersonNodeData, allPeople: LineageData[]): Event[] {
   const { birthYearAM, deathYearAM } = estimateLifespan(person, allPeople);
   
   return eventsData.filter(event => 

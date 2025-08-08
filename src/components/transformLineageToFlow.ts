@@ -1,13 +1,13 @@
 // Helper to transform lineage data into nodes/edges
 import { LineageData } from "../domain/LineageData";
 import { Edge } from "@xyflow/react";
-import { AdamNode, AdamNodeData } from "./AdamNodeComponent";
+import { PersonNode, PersonNodeData } from "./PersonNodeComponent";
 
 export function transformLineageToFlow(data: LineageData): {
-  nodes: AdamNode[];
+  nodes: PersonNode[];
   edges: Edge[]
 } {
-  const nodes: AdamNode[] = [];
+  const nodes: PersonNode[] = [];
   const edges: Edge[] = [];
   const nodeTimeInfo: Array<{
     id: string,
@@ -139,12 +139,11 @@ export function transformLineageToFlow(data: LineageData): {
       id: data.id,
       data: {
         ...data,
-        type: 'adamNode',
         parent,
-      } as AdamNodeData,
+      } as PersonNodeData,
       position,
       width: 220,
-      type: 'adamNode',
+      type: 'personNode',
     });
 
     // Create edge only if there's a valid parent

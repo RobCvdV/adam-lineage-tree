@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Edge, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import AdamNodeComponent, { AdamNode, AdamNodeData } from './AdamNodeComponent';
+import PersonNodeComponent, { PersonNode, PersonNodeData } from './PersonNodeComponent';
 import DetailsPanel from './DetailsPanel';
 import { LineageData, lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants } from './flowHelpers';
@@ -9,7 +9,7 @@ import type { OnInit } from "@xyflow/react/dist/esm/types";
 import { transformLineageToFlow } from "./transformLineageToFlow";
 
 const nodeTypes: NodeTypes = {
-  adamNode: AdamNodeComponent,
+  personNode: PersonNodeComponent,
 };
 
 // Default edge styles for better visibility
@@ -23,18 +23,35 @@ const defaultEdgeOptions = {
 };
 
 const AdamLineageTree: React.FC = () => {
-  const [elements, setElements] = useState<{ nodes: AdamNode[]; edges: Edge[] }>({ nodes: [], edges: [] });
-  const [selectedNode, setSelectedNode] = useState<AdamNodeData | null>(null);
-  const reactFlowInstance = useRef<ReactFlowInstance<AdamNode> | null>(null);
+  const [elements, setElements] = useState<{ nodes: PersonNode[]; edges: Edge[] }>({ nodes: [], edges: [] });
+  const [selectedNode, setSelectedNode] = useState<PersonNodeData | null>(null);
+  const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const reactFlowInstance = useRef<ReactFlowInstance<PersonNode> | null>(null);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const result = transformLineageToFlow(lineageData);
     setElements(result);
   }, []);
 
-  const handleNodeClick: NodeMouseHandler<AdamNode> = useCallback((_event, node) => {
-    setSelectedNode(node.data);
-  }, []);
+  const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
+    setSelectedNode(node.data as PersonNodeData);
+    // On mobile, automatically open details panel when a node is selected
+    if (isMobile) {
+      setIsMobileDetailsOpen(true);
+    }
+  }, [isMobile]);
 
   const handleChildSelect = useCallback((node: LineageData) => {
     console.log('select node',node.id);
@@ -59,7 +76,7 @@ const AdamLineageTree: React.FC = () => {
     }
   }, [elements.nodes]);
 
-  const onInit: OnInit<AdamNode> = useCallback((instance) => {
+  const onInit: OnInit<PersonNode> = useCallback((instance) => {
     reactFlowInstance.current = instance ;
   }, []);
 
@@ -78,7 +95,7 @@ const AdamLineageTree: React.FC = () => {
       highlighted: highlightedDescendants.has(node.id),
       generation: highlightedDescendants.get(node.id) || 0,
     },
-  } as AdamNode));
+  } as PersonNode));
 
   // Helper function to get edge color and opacity based on generation
   const getEdgeStyle = (generation: number) => {
@@ -108,9 +125,75 @@ const AdamLineageTree: React.FC = () => {
     } as Edge;
   });
 
+  const toggleMobileDetails = () => {
+    setIsMobileDetailsOpen(!isMobileDetailsOpen);
+  };
+
+  const closeMobileDetails = () => {
+    setIsMobileDetailsOpen(false);
+  };
+
+  // Helper function to generate person title with parent relationship
+  const getPersonTitle = (person: PersonNodeData | null): string => {
+    if (!person) return 'Details';
+    return `${person.name}${person.parent ? `, son of ${person.parent.name}` : ''}`;
+  };
+
   return (
-    <div style={{ display: 'flex', width: '100vw', height: '100vh', background: '#f1f5f9' }}>
-      <div style={{ flex: 1, position: 'relative' }}>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: isMobile ? 'column' : 'row',
+      width: '100vw', 
+      height: '100vh', 
+      background: '#f1f5f9',
+      position: 'relative'
+    }}>
+      {/* Mobile Header with Details Toggle */}
+      {isMobile && (
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '12px 16px',
+          background: '#fff',
+          borderBottom: '1px solid #e2e8f0',
+          zIndex: 10
+        }}>
+          <h1 style={{
+            margin: 0,
+            fontSize: '18px',
+            fontWeight: 600,
+            color: '#374151'
+          }}>
+            Adam Lineage
+          </h1>
+          {selectedNode && (
+            <button
+              onClick={toggleMobileDetails}
+              style={{
+                padding: '8px 12px',
+                background: isMobileDetailsOpen ? '#3b82f6' : '#f3f4f6',
+                color: isMobileDetailsOpen ? '#fff' : '#374151',
+                border: '1px solid #d1d5db',
+                borderRadius: '6px',
+                fontSize: '14px',
+                fontWeight: 500,
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+            >
+              {isMobileDetailsOpen ? 'Close Details' : 'View Details'}
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Main Tree Container */}
+      <div style={{ 
+        flex: 1, 
+        position: 'relative',
+        height: isMobile ? 'calc(100vh - 60px)' : '100vh'
+      }}>
         <ReactFlow
           nodes={nodesWithSelection}
           edges={edgesWithHighlighting}
@@ -123,10 +206,89 @@ const AdamLineageTree: React.FC = () => {
           onInit={onInit}
         />
       </div>
-      <DetailsPanel 
-        nodeData={selectedNode}
-        onNodeSelect={handleChildSelect}
-      />
+
+      {/* Details Panel - Responsive */}
+      {isMobile ? (
+        // Mobile: Overlay details panel
+        <>
+          {isMobileDetailsOpen && (
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'rgba(0, 0, 0, 0.5)',
+                zIndex: 50
+              }}
+              onClick={closeMobileDetails}
+            />
+          )}
+          <div style={{
+            position: 'fixed',
+            top: isMobileDetailsOpen ? '0' : '100%',
+            left: 0,
+            right: 0,
+            height: '80vh',
+            background: '#fff',
+            transition: 'top 0.3s ease-in-out',
+            zIndex: 100,
+            borderTopLeftRadius: '16px',
+            borderTopRightRadius: '16px',
+            boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.15)'
+          }}>
+            {/* Mobile Details Header */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '16px 20px',
+              borderBottom: '1px solid #e2e8f0'
+            }}>
+              <h2 style={{
+                margin: 0,
+                fontSize: '18px',
+                fontWeight: 600,
+                color: '#374151'
+              }}>
+                {getPersonTitle(selectedNode)}
+              </h2>
+              <button
+                onClick={closeMobileDetails}
+                style={{
+                  padding: '8px',
+                  background: 'transparent',
+                  border: 'none',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  color: '#6b7280'
+                }}
+              >
+                ×
+              </button>
+            </div>
+            
+            {/* Scrollable Details Content */}
+            <div style={{ height: 'calc(80vh - 65px)', overflow: 'auto' }}>
+              <DetailsPanel 
+                nodeData={selectedNode}
+                onNodeSelect={handleChildSelect}
+                isMobile={true}
+                personTitle={getPersonTitle(selectedNode)}
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        // Desktop: Side panel
+        <DetailsPanel 
+          nodeData={selectedNode}
+          onNodeSelect={handleChildSelect}
+          isMobile={false}
+          personTitle={getPersonTitle(selectedNode)}
+        />
+      )}
     </div>
   );
 };
