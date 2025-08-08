@@ -33,7 +33,7 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
   const {
     detailItems,
     children,
-    parentData,
+    parentsData,
     lifeEvents,
     personalEvents
   } = useDetailsPanelData(nodeData);
@@ -49,7 +49,9 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         {personTitle || nodeData.name}
       </div>
 
-      <DetailList items={detailItems}/>
+      <DetailList
+        items={detailItems}
+      />
 
       <PersonalEventsSection
         personalEvents={personalEvents}
@@ -64,10 +66,9 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
       />
 
       <ParentSection
-        parentData={parentData}
+        parentsData={parentsData}
         onNodeSelect={onNodeSelect}
         isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
       />
 
       <ChildrenSection
