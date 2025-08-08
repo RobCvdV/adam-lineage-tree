@@ -1,228 +1,228 @@
 [
   {
-    "personId": "Adam",
-    "eventName": "De Kleding van Licht",
-    "jasherReference": "Jasher 7:24-25",
-    "description": "Volgens Jasher maakte God voor Adam en Eva niet alleen kleding van dierenhuiden, maar kleding die hen speciale kracht en autoriteit gaf. Deze kledingstukken werden doorgegeven en gaven macht aan de drager. Nimrod verkreeg ze uiteindelijk via Cham, wat bijdroeg aan zijn macht.",
+    "personId":         "Adam (-)",
+    "eventName":        "The Garments of Light",
+    "jasherReference":  "Jasher 7:24-25",
+    "description":      "According to Jasher, God made not only garments of animal skins for Adam and Eve, but garments that gave them special power and authority. These garments were passed down and gave power to the wearer. Nimrod eventually obtained them through Ham, which contributed to his power.",
     "relatedPersonIds": [
-      "Eva (Adam's partner)",
-      "Cham (Noach)",
-      "Nimrod (Kus)"
+      "Eve (Adam)",
+      "Ham (Noah)",
+      "Nimrod (Cush)"
     ]
   },
   {
-    "personId": "Adam",
-    "eventName": "Rouw om Abel",
-    "jasherReference": "Jasher 1:26",
-    "description": "Na de moord op Abel rouwden Adam en Eva intens. Volgens Jasher kende Adam zijn vrouw niet meer voor 130 jaar, tot de geboorte van Seth, die de lijn van de mensheid zou voortzetten.",
+    "personId":         "Adam (-)",
+    "eventName":        "Mourning for Abel",
+    "jasherReference":  "Jasher 1:26",
+    "description":      "After Abel's murder, Adam and Eve mourned intensely. According to Jasher, Adam did not know his wife for 130 years, until the birth of Seth, who would continue the line of humanity.",
     "relatedPersonIds": [
-      "Eva (Adam's partner)",
+      "Eve (Adam)",
       "Abel (Adam)",
-      "Kaïn (Adam)",
+      "Cain (Adam)",
       "Seth (Adam)"
     ]
   },
   {
-    "personId": "Kaïn (Adam)",
-    "eventName": "De Ruzie en Moord op Abel",
-    "jasherReference": "Jasher 1:15-25",
-    "description": "Jasher geeft een gedetailleerde dialoog weer die aan de moord voorafging. De ruzie ging niet alleen over het offer, maar escaleerde tot een fysiek gevecht waarin Kaïn een stuk van een ploeg gebruikte om Abel te doden, omdat hij niet wist hoe hij zijn ziel uit hem moest krijgen.",
+    "personId":         "Cain (Adam)",
+    "eventName":        "The Quarrel and Murder of Abel",
+    "jasherReference":  "Jasher 1:15-25",
+    "description":      "Jasher recounts a detailed dialogue that preceded the murder. The quarrel was not only about the offering but escalated into a physical fight in which Cain used a piece of a plow to kill Abel, because he did not know how to get his soul out of him.",
     "relatedPersonIds": [
       "Abel (Adam)"
     ]
   },
   {
-    "personId": "Henoch (Jared)",
-    "eventName": "Koning en Leraar van de Mensheid",
-    "jasherReference": "Jasher 3",
-    "description": "In Jasher wordt Henoch niet alleen als vroom beschreven, maar ook als een rechtvaardige koning die de mensheid 243 jaar lang regeerde. Hij leerde hen wijsheid, kennis en de wegen van God, waardoor er vrede en orde heerste op aarde.",
+    "personId":         "Enoch (Jared)",
+    "eventName":        "King and Teacher of Humanity",
+    "jasherReference":  "Jasher 3",
+    "description":      "In Jasher, Enoch is described not only as pious but also as a righteous king who ruled humanity for 243 years. He taught them wisdom, knowledge, and the ways of God, leading to peace and order on earth.",
     "relatedPersonIds": [
-      "Metusalem (Henoch)"
+      "Methuselah (Enoch)"
     ]
   },
   {
-    "personId": "Henoch (Jared)",
-    "eventName": "Opname in de Hemel",
-    "jasherReference": "Jasher 3:36-38",
-    "description": "Zijn opname wordt gedetailleerd beschreven. Hij werd voor de ogen van vele getuigen, waaronder zijn zoon Metusalem, op een vurig paard ten hemel opgenomen, wat een diepe indruk achterliet en zijn leringen bevestigde.",
+    "personId":         "Enoch (Jared)",
+    "eventName":        "Ascension into Heaven",
+    "jasherReference":  "Jasher 3:36-38",
+    "description":      "His ascension is described in detail. He was taken up into heaven on a fiery horse before the eyes of many witnesses, including his son Methuselah, which left a deep impression and confirmed his teachings.",
     "relatedPersonIds": [
-      "Metusalem (Henoch)"
+      "Methuselah (Enoch)"
     ]
   },
   {
-    "personId": "Lamech (Metusalem)",
-    "eventName": "De Wonderbaarlijke Geboorte van Noach",
-    "jasherReference": "Jasher 4:14-16",
-    "description": "Jasher vertelt over Lamechs verbazing en angst bij de geboorte van Noach, die er bijzonder en wijs uitzag. Hij vreesde dat het kind van de 'zonen van God' was, maar zijn vader Metusalem stelde hem gerust dat Noach uit zijn lijn kwam en voorbestemd was de mensheid te redden.",
+    "personId":         "Lamech (Methuselah)",
+    "eventName":        "The Miraculous Birth of Noah",
+    "jasherReference":  "Jasher 4:14-16",
+    "description":      "Jasher tells of Lamech's astonishment and fear at the birth of Noah, who looked extraordinary and wise. He feared that the child was from the 'sons of God,' but his father Methuselah reassured him that Noah came from his line and was destined to save humanity.",
     "relatedPersonIds": [
-      "Noach (Lamech)",
-      "Metusalem (Henoch)"
+      "Noah (Lamech)",
+      "Methuselah (Enoch)"
     ]
   },
   {
-    "personId": "Noach (Lamech)",
-    "eventName": "Prediking tegen Corruptie",
-    "jasherReference": "Jasher 5:14-20",
-    "description": "Noach predikte 120 jaar lang bekering tot een generatie die extreem corrupt was. Jasher beschrijft hoe ze mensen en dieren van verschillende soorten met elkaar kruisten en hoe de 'zonen van God' (gevallen engelen) menselijke vrouwen namen, wat leidde tot Gods oordeel.",
+    "personId":         "Noah (Lamech)",
+    "eventName":        "Preaching Against Corruption",
+    "jasherReference":  "Jasher 5:14-20",
+    "description":      "Noah preached repentance for 120 years to a generation that was extremely corrupt. Jasher describes how they interbred humans and animals of different kinds and how the 'sons of God' (fallen angels) took human women, which led to God's judgment.",
     "relatedPersonIds": []
   },
   {
-    "personId": "Noach (Lamech)",
-    "eventName": "De Dronkenschap en Vloek over Kanaän",
-    "jasherReference": "Jasher 7:28-39",
-    "description": "Jasher beschrijft dat Cham niet alleen zijn vaders naaktheid zag, maar ook de kleding van Adam stal die Noach had bewaard. Hij gaf deze later aan zijn zoon Kus. Noach vervloekte Kanaän, de zoon van Cham, vanwege deze respectloze daad.",
+    "personId":         "Noah (Lamech)",
+    "eventName":        "The Drunkenness and Curse on Canaan",
+    "jasherReference":  "Jasher 7:28-39",
+    "description":      "Jasher describes that Ham not only saw his father's nakedness but also stole Adam's garments that Noah had preserved. He later gave them to his son Cush. Noah cursed Canaan, Ham's son, because of this disrespectful act.",
     "relatedPersonIds": [
-      "Cham (Noach)",
-      "Kanaän (Cham)",
-      "Kus (Cham)"
+      "Ham (Noah)",
+      "Canaan (Ham)",
+      "Cush (Ham)"
     ]
   },
   {
-    "personId": "Nimrod (Kus)",
-    "eventName": "Opkomst als Tiran met Adams Kleding",
-    "jasherReference": "Jasher 7:42-50",
-    "description": "Nimrod, zoon van Kus, werd een machtig jager en koning nadat hij de kleding van Adam had verkregen. Deze kleding gaf hem succes in de jacht en in de strijd, waardoor mensen hem volgden en hij het koninkrijk van Babel kon stichten.",
+    "personId":         "Nimrod (Cush)",
+    "eventName":        "Rise as a Tyrant with Adam's Garments",
+    "jasherReference":  "Jasher 7:42-50",
+    "description":      "Nimrod, son of Cush, became a mighty hunter and king after he obtained Adam's garments. These garments gave him success in hunting and in battle, causing people to follow him and enabling him to establish the kingdom of Babel.",
     "relatedPersonIds": [
-      "Kus (Cham)",
-      "Esau (Izaäk)"
+      "Cush (Ham)",
+      "Esau (Isaac)"
     ]
   },
   {
-    "personId": "Abraham (Terach)",
-    "eventName": "Vernietiging van de Afgoden van Terach",
-    "jasherReference": "Jasher 11-12",
-    "description": "Op 50-jarige leeftijd vernietigt Abram de afgoden in het huis van zijn vader Terach. Hij plaatst een bijl in de hand van de grootste afgod om de spot te drijven met hun machteloosheid. Deze daad leidt tot zijn confrontatie met koning Nimrod.",
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Destruction of Terah's Idols",
+    "jasherReference":  "Jasher 11-12",
+    "description":      "At the age of 50, Abram destroys the idols in the house of his father Terah. He places an axe in the hand of the largest idol to mock their powerlessness. This act leads to his confrontation with King Nimrod.",
     "relatedPersonIds": [
-      "Terach (Nahor)",
-      "Nimrod (Kus)"
+      "Terah (Nahor)",
+      "Nimrod (Cush)"
     ]
   },
   {
-    "personId": "Abraham (Terach)",
-    "eventName": "De Vurige Oven van Nimrod",
-    "jasherReference": "Jasher 12:20-40",
-    "description": "Nadat Abram de afgodsbeelden had vernietigd, liet koning Nimrod hem in een vurige oven werpen. God redde Abram wonderbaarlijk voor de ogen van het hele hof. Zijn broer Haran, die twijfelde, werd ook in het vuur geworpen en stierf.",
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Nimrod's Fiery Furnace",
+    "jasherReference":  "Jasher 12:20-40",
+    "description":      "After Abram destroyed the idols, King Nimrod had him cast into a fiery furnace. God miraculously saved Abram before the eyes of the entire court. His brother Haran, who doubted, was also cast into the fire and died.",
     "relatedPersonIds": [
-      "Nimrod (Kus)",
-      "Haran (Terach)",
+      "Nimrod (Cush)",
+      "Haran (Terah)",
       "Lot (Haran)"
     ]
   },
   {
-    "personId": "Abraham (Terach)",
-    "eventName": "Oorlog met de Vier Koningen",
-    "jasherReference": "Jasher 13-14",
-    "description": "Abram leidt zijn 318 getrainde mannen om zijn neef Lot te redden van Kedorlaomer en zijn geallieerde koningen, inclusief Nimrod (die hier Amrafel wordt genoemd). Jasher beschrijft een strategische nachtelijke aanval die resulteert in een beslissende overwinning.",
+    "personId":         "Abraham (Terah)",
+    "eventName":        "War with the Four Kings",
+    "jasherReference":  "Jasher 13-14",
+    "description":      "Abram leads his 318 trained men to rescue his nephew Lot from Kedorlaomer and his allied kings, including Nimrod (who is called Amraphel here). Jasher describes a strategic night attack resulting in a decisive victory.",
     "relatedPersonIds": [
       "Lot (Haran)",
-      "Nimrod (Kus)"
+      "Nimrod (Cush)"
     ]
   },
   {
-    "personId": "Izaäk (Abraham)",
-    "eventName": "De Binding (Akedah)",
-    "jasherReference": "Jasher 23",
-    "description": "Jasher benadrukt dat Izaäk, op 37-jarige leeftijd, volledig op de hoogte was van Gods bevel en er vrijwillig mee instemde. Onderweg probeerde Satan hen beiden te stoppen door een grote rivier te creëren, maar ze volhardden in hun geloof.",
+    "personId":         "Isaac (Abraham)",
+    "eventName":        "The Binding (Akedah)",
+    "jasherReference":  "Jasher 23",
+    "description":      "Jasher emphasizes that Isaac, at 37 years old, was fully aware of God's command and willingly agreed to it. Along the way, Satan tried to stop them both by creating a large river, but they persevered in their faith.",
     "relatedPersonIds": [
-      "Abraham (Terach)",
-      "Sara (Abraham's partner)"
+      "Abraham (Terah)",
+      "Sarah (Abraham)"
     ]
   },
   {
-    "personId": "Esau (Izaäk)",
-    "eventName": "Moord op Nimrod en Verkoop van Geboorterecht",
-    "jasherReference": "Jasher 27:1-12",
-    "description": "Volgens Jasher verkocht Esau zijn eerstgeboorterecht nadat hij uitgeput thuiskwam van het vermoorden van de tiran Nimrod. Hij had Nimrod en twee van zijn mannen in een hinderlaag gelokt. Hij vreesde voor zijn leven en hechtte op dat moment geen waarde aan het geboorterecht.",
+    "personId":         "Esau (Isaac)",
+    "eventName":        "Murder of Nimrod and Sale of Birthright",
+    "jasherReference":  "Jasher 27:1-12",
+    "description":      "According to Jasher, Esau sold his birthright after returning home exhausted from killing the tyrant Nimrod. He had ambushed Nimrod and two of his men. He feared for his life and at that moment placed no value on the birthright.",
     "relatedPersonIds": [
-      "Jakob (Izaäk)",
-      "Nimrod (Kus)"
+      "Jacob (Isaac)",
+      "Nimrod (Cush)"
     ]
   },
   {
-    "personId": "Jakob (Izaäk)",
-    "eventName": "Het verkrijgen van de Zegeningen",
-    "jasherReference": "Jasher 27-28",
-    "description": "Op aandringen van zijn moeder Rebekka vermomt Jakob zich als Esau om de zegen van het eerstgeboorterecht van zijn blinde vader Izaäk te ontvangen. Jasher voegt toe dat God engelen stuurde om te voorkomen dat Esau op tijd terugkwam van de jacht.",
+    "personId":         "Jacob (Isaac)",
+    "eventName":        "Obtaining the Blessings",
+    "jasherReference":  "Jasher 27-28",
+    "description":      "At the urging of his mother Rebekah, Jacob disguises himself as Esau to receive the blessing of the birthright from his blind father Isaac. Jasher adds that God sent angels to prevent Esau from returning from the hunt in time.",
     "relatedPersonIds": [
-      "Izaäk (Abraham)",
-      "Rebekka (Betuël)",
-      "Esau (Izaäk)"
+      "Isaac (Abraham)",
+      "Rebekah (Bethuel)",
+      "Esau (Isaac)"
     ]
   },
   {
-    "personId": "Jakob (Izaäk)",
-    "eventName": "Oorlogen tegen de Kanaänitische Koningen",
-    "jasherReference": "Jasher 37-38",
-    "description": "Na de gebeurtenissen in Sichem, verenigen de Kanaänitische koningen zich tegen Jakob en zijn familie. Jasher beschrijft uitgebreide en succesvolle oorlogen die Jakob en zijn zonen voerden, wat hun reputatie als geduchte krijgers in het land vestigde.",
+    "personId":         "Jacob (Isaac)",
+    "eventName":        "Wars Against the Canaanite Kings",
+    "jasherReference":  "Jasher 37-38",
+    "description":      "After the events in Shechem, the Canaanite kings unite against Jacob and his family. Jasher describes extensive and successful wars waged by Jacob and his sons, which established their reputation as formidable warriors in the land.",
     "relatedPersonIds": [
-      "Juda (Jakob)",
-      "Simeon (Jakob)",
-      "Levi (Jakob)"
+      "Judah (Jacob)",
+      "Simeon (Jacob)",
+      "Levi (Jacob)"
     ]
   },
   {
-    "personId": "Jozef (Jakob)",
-    "eventName": "Jozef en Zuleika, de Vrouw van Potifar",
-    "jasherReference": "Jasher 44-45",
-    "description": "Jasher geeft een naam aan de vrouw van Potifar: Zuleika. Haar pogingen om Jozef te verleiden worden zeer gedetailleerd beschreven, inclusief een banket waar ze haar vriendinnen uitnodigde, die zichzelf in de vingers sneden met fruitmesjes, afgeleid door Jozefs schoonheid.",
+    "personId":         "Joseph (Jacob)",
+    "eventName":        "Joseph and Zuleika, Potiphar's Wife",
+    "jasherReference":  "Jasher 44-45",
+    "description":      "Jasher gives a name to Potiphar's wife: Zuleika. Her attempts to tempt Joseph are described in great detail, including a banquet where she invited her friends, who cut their fingers with fruit knives, distracted by Joseph's beauty.",
     "relatedPersonIds": [
-      "Potifar (Farao's officier)"
+      "Potiphar (-)"
     ]
   },
   {
-    "personId": "Jozef (Jakob)",
-    "eventName": "De Test met de Beker",
-    "jasherReference": "Jasher 53-54",
-    "description": "Jozef test zijn broers door zijn zilveren beker in de zak van Benjamin te plaatsen. De daaropvolgende confrontatie, met Juda's gepassioneerde pleidooi, overtuigt Jozef van hun oprechte berouw en verandering van hart.",
+    "personId":         "Joseph (Jacob)",
+    "eventName":        "The Test with the Cup",
+    "jasherReference":  "Jasher 53-54",
+    "description":      "Joseph tests his brothers by placing his silver cup in Benjamin's sack. The ensuing confrontation, with Judah's passionate plea, convinces Joseph of their genuine repentance and change of heart.",
     "relatedPersonIds": [
-      "Juda (Jakob)",
-      "Benjamin (Jakob)"
+      "Judah (Jacob)",
+      "Benjamin (Jacob)"
     ]
   },
   {
-    "personId": "Juda (Jakob)",
-    "eventName": "Pleidooi voor Benjamin",
-    "jasherReference": "Jasher 54",
-    "description": "Jasher beschrijft Juda's toorn en pleidooi voor Benjamin met grote intensiteit. Hij brult als een leeuw, waardoor de muren van Egypte schudden en hij dreigt het land te vernietigen als Benjamin niet wordt vrijgelaten. Dit dwingt Jozef om zijn identiteit bekend te maken.",
+    "personId":         "Judah (Jacob)",
+    "eventName":        "Plea for Benjamin",
+    "jasherReference":  "Jasher 54",
+    "description":      "Jasher describes Judah's wrath and plea for Benjamin with great intensity. He roars like a lion, causing the walls of Egypt to shake, and threatens to destroy the land if Benjamin is not released. This forces Joseph to reveal his identity.",
     "relatedPersonIds": [
-      "Jozef (Jakob)",
-      "Benjamin (Jakob)"
+      "Joseph (Jacob)",
+      "Benjamin (Jacob)"
     ]
   },
   {
-    "personId": "Mozes (Amram)",
-    "eventName": "Koning van Cush (Ethiopië)",
-    "jasherReference": "Jasher 72-76",
-    "description": "Jasher vult de 'verborgen jaren' van Mozes' leven in. Na zijn vlucht uit Egypte reisde hij naar Cush, waar hij hun generaal werd in een negen jaar durende oorlog. Na de overwinning maakten de Cushieten hem voor 40 jaar hun koning.",
+    "personId":         "Moses (Amram)",
+    "eventName":        "King of Cush (Ethiopia)",
+    "jasherReference":  "Jasher 72-76",
+    "description":      "Jasher fills in the 'hidden years' of Moses' life. After his flight from Egypt, he traveled to Cush, where he became their general in a nine-year war. After the victory, the Cushites made him their king for 40 years.",
     "relatedPersonIds": []
   },
   {
-    "personId": "Mozes (Amram)",
-    "eventName": "De Wonderbaarlijke Staf",
-    "jasherReference": "Jasher 77, 79",
-    "description": "De staf die Mozes gebruikte, had volgens Jasher een wonderbaarlijke geschiedenis. Hij was gemaakt van saffier, gegraveerd met Gods naam en doorgegeven via de patriarchen. Jethro nam hem mee naar Midian, plantte hem in zijn tuin en alleen Mozes was in staat hem eruit te trekken, wat bewees dat hij de uitverkorene was.",
+    "personId":         "Moses (Amram)",
+    "eventName":        "The Miraculous Staff",
+    "jasherReference":  "Jasher 77, 79",
+    "description":      "The staff Moses used, according to Jasher, had a miraculous history. It was made of sapphire, engraved with God's name, and passed down through the patriarchs. Jethro took it to Midian, planted it in his garden, and only Moses was able to pull it out, proving he was the chosen one.",
     "relatedPersonIds": [
-      "Jethro (Priester van Midian)"
+      "Jethro (-)"
     ]
   },
   {
-    "personId": "David (Isaï)",
-    "eventName": "Strijd met Goliath",
-    "jasherReference": "Niet in Jasher (eindigt met Jozua), maar een sleutelgebeurtenis in Samuel.",
-    "description": "De jonge herder David verslaat de reusachtige Filistijnse kampioen Goliath met een enkele steen uit zijn slinger. Deze daad van geloof in God katapulteert hem tot nationale held en brengt hem aan het hof van koning Saul.",
+    "personId":         "David (Jesse)",
+    "eventName":        "Battle with Goliath",
+    "jasherReference":  "Not in Jasher (ends with Joshua), but a key event in Samuel.",
+    "description":      "The young shepherd David defeats the giant Philistine champion Goliath with a single stone from his sling. This act of faith in God catapults him to national hero status and brings him to the court of King Saul.",
     "relatedPersonIds": [
-      "Goliath (Filistijnse kampioen)",
-      "Saul (Koning van Israël)"
+      "Goliath (-)",
+      "Saul (-)"
     ]
   },
   {
-    "personId": "David (Isaï)",
-    "eventName": "Vriendschap en Verbond met Jonathan",
-    "jasherReference": "Niet in Jasher.",
-    "description": "David vormt een diepe, onbreekbare vriendschapsband met Jonathan, de zoon van koning Saul. Jonathan riskeert zijn leven en zijn troonopvolging om David te beschermen tegen de moorddadige jaloezie van zijn vader.",
+    "personId":         "David (Jesse)",
+    "eventName":        "Friendship and Covenant with Jonathan",
+    "jasherReference":  "Not in Jasher.",
+    "description":      "David forms a deep, unbreakable bond of friendship with Jonathan, the son of King Saul. Jonathan risks his life and his succession to the throne to protect David from his father's murderous jealousy.",
     "relatedPersonIds": [
-      "Jonathan (Zoon van Saul)",
-      "Saul (Koning van Israël)"
+      "Jonathan (Saul)",
+      "Saul (-)"
     ]
   }
 ]
