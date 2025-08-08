@@ -8,6 +8,7 @@ export default defineConfig({
   },
   server: {
     open: true,
+    allowedHosts: ['localhost', 'mbmx.akiar.nl']
   },
 });
 
