@@ -29,6 +29,42 @@ const AdamLineageTree: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const reactFlowInstance = useRef<ReactFlowInstance<PersonNode> | null>(null);
 
+  useEffect(() => {
+    const result = transformLineageToFlow(lineageData);
+    setElements(result);
+  }, []);
+
+  const moveToNode = useCallback((node: PersonNode) => {
+    if (reactFlowInstance.current) {
+      // Center the node in the viewport with animation
+      void reactFlowInstance.current.setCenter(
+        node.position.x + (node.width || 220) / 2,
+        node.position.y + 300 , // Add some offset for node height
+        { zoom: 0.5, duration: 300 }
+      );
+    }
+  }, [reactFlowInstance]);
+
+  const handleChildSelect = useCallback((node: LineageData | PersonNode) => {
+    console.log('select node',node.id);
+    // Find the node in the elements
+    let selectedNodeElement = (node as PersonNode).data?.parent ? node as PersonNode : elements.nodes.find(n => n.id === node.id) as PersonNode;
+    if (!selectedNodeElement) {
+      console.warn(`Node with id ${node.id} not found in elements`);
+      return;
+    }
+    
+    setSelectedNode(selectedNodeElement.data);
+    
+    // Move the selected node into view
+    if (reactFlowInstance.current) {
+      if (selectedNodeElement) {
+        // Center the node in the viewport with animation
+        moveToNode(selectedNodeElement);
+      }
+    }
+  }, [elements.nodes, moveToNode]);
+
   // Check if we're on mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -39,11 +75,16 @@ const AdamLineageTree: React.FC = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
+  
   useEffect(() => {
-    const result = transformLineageToFlow(lineageData);
-    setElements(result);
-  }, []);
+    // Automatically select the first node on initial load
+    if (elements.nodes.length > 0) {
+      const firstNode = elements.nodes[0];
+      handleChildSelect(firstNode);
+    }
+  }
+  , [elements.nodes, handleChildSelect]);
+    
 
   const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
     setSelectedNode(node.data as PersonNodeData);
@@ -52,29 +93,6 @@ const AdamLineageTree: React.FC = () => {
       setIsMobileDetailsOpen(true);
     }
   }, [isMobile]);
-
-  const handleChildSelect = useCallback((node: LineageData) => {
-    console.log('select node',node.id);
-    // Find the node in the elements
-    const selectedNodeElement = elements.nodes.find(n => n.id === node.id);
-    if (!selectedNodeElement) {
-      console.warn(`Node with id ${node.id} not found in elements`);
-      return;
-    }
-    setSelectedNode(selectedNodeElement.data);
-    
-    // Move the selected node into view
-    if (reactFlowInstance.current) {
-      if (selectedNodeElement) {
-        // Center the node in the viewport with animation
-        void reactFlowInstance.current.setCenter(
-          selectedNodeElement.position.x + (selectedNodeElement.width || 220) / 2,
-          selectedNodeElement.position.y + 50, // Add some offset for node height
-          { zoom: 0.5, duration: 300 }
-        );
-      }
-    }
-  }, [elements.nodes]);
 
   const onInit: OnInit<PersonNode> = useCallback((instance) => {
     reactFlowInstance.current = instance ;
