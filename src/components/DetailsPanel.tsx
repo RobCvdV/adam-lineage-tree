@@ -9,6 +9,7 @@ import PersonalEventsSection from './PersonalEventsSection';
 import LifeEventsSection from './LifeEventsSection';
 import ParentSection from './ParentSection';
 import ChildrenSection from './ChildrenSection';
+import PartnerSection from './PartnerSection';
 
 interface DetailsPanelProps {
   nodeData: PersonNodeData | null;
@@ -34,6 +35,7 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
     detailItems,
     children,
     parentsData,
+    partnersData,
     lifeEvents,
     personalEvents
   } = useDetailsPanelData(nodeData);
@@ -51,6 +53,13 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
 
       <DetailList
         items={detailItems}
+      />
+
+      <PartnerSection
+        partnersData={partnersData}
+        onNodeSelect={onNodeSelect}
+        isMobile={isMobile}
+        sectionSpacing={styles.sectionSpacing}
       />
 
       <ParentSection

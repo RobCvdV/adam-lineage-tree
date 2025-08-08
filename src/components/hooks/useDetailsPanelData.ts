@@ -12,6 +12,7 @@ export function useDetailsPanelData(nodeData: PersonNodeData | null) {
         detailItems: [],
         children: [],
         parentsData: [],
+        partnersData: [],
         lifeEvents: [],
         personalEvents: []
       };
@@ -24,6 +25,11 @@ export function useDetailsPanelData(nodeData: PersonNodeData | null) {
     const children = nodeData.children
       .map(childId => lineageData.find(person => person.id === childId))
       .filter((child): child is LineageData => child !== undefined);
+
+    // Find partners data
+    const partnersData = nodeData.partners
+      .map(partnerId => lineageData.find(person => person.id === partnerId))
+      .filter((partner): partner is LineageData => partner !== undefined);
 
     // Get life events during the person's lifetime (pass both required parameters)
     const lifeEvents = getLifeEvents(nodeData, lineageData);
@@ -44,6 +50,7 @@ export function useDetailsPanelData(nodeData: PersonNodeData | null) {
       detailItems,
       children,
       parentsData,
+      partnersData,
       lifeEvents,
       personalEvents
     };
