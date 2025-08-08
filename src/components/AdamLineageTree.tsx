@@ -3,6 +3,8 @@ import { Edge, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from 
 import '@xyflow/react/dist/style.css';
 import PersonNodeComponent, { PersonNode, PersonNodeData } from './PersonNodeComponent';
 import DetailsPanel from './DetailsPanel';
+import ThemeToggle from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 import { LineageData, lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants } from './flowHelpers';
 import type { OnInit } from "@xyflow/react/dist/esm/types";
@@ -23,6 +25,7 @@ const defaultEdgeOptions = {
 };
 
 const AdamLineageTree: React.FC = () => {
+  const {theme} = useTheme();
   const [elements, setElements] = useState<{ nodes: PersonNode[]; edges: Edge[] }>({
     nodes: [],
     edges: []
@@ -199,9 +202,12 @@ const AdamLineageTree: React.FC = () => {
       flexDirection: isMobile ? 'column' : 'row',
       width: '100vw',
       height: '100vh',
-      background: '#f1f5f9',
+      background: theme.surfaceBackground,
       position: 'relative'
     }}>
+      {/* Theme Toggle Button */}
+      <ThemeToggle isMobile={isMobile}/>
+
       {/* Mobile Header with Details Toggle */}
       {isMobile && (
         <div style={{
@@ -209,15 +215,15 @@ const AdamLineageTree: React.FC = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '12px 16px',
-          background: '#fff',
-          borderBottom: '1px solid #e2e8f0',
+          background: theme.panelBackground,
+          borderBottom: `1px solid ${theme.sectionBorder}`,
           zIndex: 10
         }}>
           <h1 style={{
             margin: 0,
             fontSize: '18px',
             fontWeight: 600,
-            color: '#374151'
+            color: theme.primaryText
           }}>
             Adam Lineage
           </h1>
@@ -226,9 +232,9 @@ const AdamLineageTree: React.FC = () => {
               onClick={toggleMobileDetails}
               style={{
                 padding: '8px 12px',
-                background: isMobileDetailsOpen ? '#3b82f6' : '#f3f4f6',
-                color: isMobileDetailsOpen ? '#fff' : '#374151',
-                border: '1px solid #d1d5db',
+                background: isMobileDetailsOpen ? theme.buttonHoverBackground : theme.buttonBackground,
+                color: isMobileDetailsOpen ? theme.buttonHoverText : theme.buttonText,
+                border: `1px solid ${theme.buttonBorder}`,
                 borderRadius: '6px',
                 fontSize: '14px',
                 fontWeight: 500,
@@ -252,10 +258,16 @@ const AdamLineageTree: React.FC = () => {
           nodes={nodesWithSelection}
           edges={edgesWithHighlighting}
           nodeTypes={nodeTypes}
-          defaultEdgeOptions={defaultEdgeOptions}
+          defaultEdgeOptions={{
+            ...defaultEdgeOptions,
+            style: {
+              stroke: theme.edgeStroke,
+              strokeWidth: 2,
+            }
+          }}
           fitView
           onNodeClick={handleNodeClick}
-          connectionLineStyle={{stroke: '#4f46e5', strokeWidth: 2}}
+          connectionLineStyle={{stroke: theme.edgeHighlight, strokeWidth: 2}}
           proOptions={{hideAttribution: true}}
           onInit={onInit}
         />
@@ -285,7 +297,7 @@ const AdamLineageTree: React.FC = () => {
             left: 0,
             right: 0,
             height: '80vh',
-            background: '#fff',
+            background: theme.panelBackground,
             transition: 'top 0.3s ease-in-out',
             zIndex: 100,
             borderTopLeftRadius: '16px',
@@ -298,13 +310,13 @@ const AdamLineageTree: React.FC = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
               padding: '16px 20px',
-              borderBottom: '1px solid #e2e8f0'
+              borderBottom: `1px solid ${theme.sectionBorder}`
             }}>
               <h2 style={{
                 margin: 0,
                 fontSize: '18px',
                 fontWeight: 600,
-                color: '#374151'
+                color: theme.primaryText
               }}>
                 {getPersonTitle(selectedNode)}
               </h2>
@@ -316,7 +328,7 @@ const AdamLineageTree: React.FC = () => {
                   border: 'none',
                   fontSize: '20px',
                   cursor: 'pointer',
-                  color: '#6b7280'
+                  color: theme.mutedText
                 }}
               >
                 ×

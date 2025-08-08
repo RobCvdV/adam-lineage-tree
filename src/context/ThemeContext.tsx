@@ -1,0 +1,146 @@
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+
+export interface ThemeColors {
+  // Background colors
+  background: string;
+  surfaceBackground: string;
+  panelBackground: string;
+
+  // Text colors
+  primaryText: string;
+  secondaryText: string;
+  mutedText: string;
+
+  // Node colors
+  nodeBackground: string;
+  nodeBorder: string;
+  nodeSelectedBackground: string;
+  nodeSelectedBorder: string;
+  nodeText: string;
+
+  // Button colors
+  buttonBackground: string;
+  buttonBorder: string;
+  buttonText: string;
+  buttonHoverBackground: string;
+  buttonHoverBorder: string;
+  buttonHoverText: string;
+
+  // Edge colors
+  edgeStroke: string;
+  edgeHighlight: string;
+
+  // Section colors
+  sectionBorder: string;
+}
+
+const lightTheme: ThemeColors = {
+  background: '#ffffff',
+  surfaceBackground: '#f9fafb',
+  panelBackground: '#ffffff',
+
+  primaryText: '#111827',
+  secondaryText: '#374151',
+  mutedText: '#6b7280',
+
+  nodeBackground: '#ffffff',
+  nodeBorder: '#d1d5db',
+  nodeSelectedBackground: '#fef3c7',
+  nodeSelectedBorder: '#f59e0b',
+  nodeText: '#111827',
+
+  buttonBackground: '#fef3c7',
+  buttonBorder: '#f59e0b',
+  buttonText: '#374151',
+  buttonHoverBackground: '#fbbf24',
+  buttonHoverBorder: '#d97706',
+  buttonHoverText: '#ffffff',
+
+  edgeStroke: '#6b7280',
+  edgeHighlight: '#fbbf24',
+
+  sectionBorder: '#e5e7eb'
+};
+
+const darkTheme: ThemeColors = {
+  background: '#111827',
+  surfaceBackground: '#1f2937',
+  panelBackground: '#374151',
+
+  primaryText: '#f9fafb',
+  secondaryText: '#d1d5db',
+  mutedText: '#9ca3af',
+
+  nodeBackground: '#374151',
+  nodeBorder: '#6b7280',
+  nodeSelectedBackground: '#451a03',
+  nodeSelectedBorder: '#f59e0b',
+  nodeText: '#f9fafb',
+
+  buttonBackground: '#451a03',
+  buttonBorder: '#f59e0b',
+  buttonText: '#d1d5db',
+  buttonHoverBackground: '#92400e',
+  buttonHoverBorder: '#f59e0b',
+  buttonHoverText: '#ffffff',
+
+  edgeStroke: '#9ca3af',
+  edgeHighlight: '#fbbf24',
+
+  sectionBorder: '#6b7280'
+};
+
+interface ThemeContextType {
+  isDarkMode: boolean;
+  theme: ThemeColors;
+  toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export const useTheme = (): ThemeContextType => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+};
+
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    // Check system preference
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  const theme = isDarkMode ? darkTheme : lightTheme;
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => {
+      const newMode = !prev;
+      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      return newMode;
+    });
+  };
+
+  useEffect(() => {
+    // Apply theme to document body
+    document.body.style.backgroundColor = theme.background;
+    document.body.style.color = theme.primaryText;
+    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+  }, [theme]);
+
+  return (
+    <ThemeContext.Provider value={{isDarkMode, theme, toggleTheme}}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
