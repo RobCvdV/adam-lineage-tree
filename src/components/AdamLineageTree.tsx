@@ -20,7 +20,7 @@ const defaultEdgeOptions = {
     stroke: '#565267',
     strokeWidth: 2,
   },
-  type: 'smoothstep',
+  type: 'default', // use the default smooth edges so they don't overlap each other as much 
 };
 
 const AdamLineageTree: React.FC = () => {
@@ -50,7 +50,7 @@ const AdamLineageTree: React.FC = () => {
   const initializeTree = useCallback(() => {
     if (isInitialized) return;
 
-    const result = transformLineageToFlow(lineageData);
+    const result = transformLineageToFlow(lineageData, isMobile);
     setElements(result);
 
     // Find and select Adam node immediately after setting elements
@@ -70,7 +70,7 @@ const AdamLineageTree: React.FC = () => {
         }
       }, 100);
     }
-  }, [isInitialized]);
+  }, [isInitialized, isMobile]);
 
   // Initialize on mount
   useEffect(() => {
@@ -89,7 +89,7 @@ const AdamLineageTree: React.FC = () => {
   }, []);
 
   const findNode = useCallback((idOrName: string): PersonNode | undefined => {
-    return elements.nodes.find(node => node.id === idOrName) ||
+    return elements.nodes.find(node => node.id === idOrName) ??
       elements.nodes.find(node => node.data.name === idOrName);
   }, [elements.nodes]);
 

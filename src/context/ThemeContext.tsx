@@ -41,7 +41,7 @@ const lightTheme: ThemeColors = {
 
   primaryText: '#111827',
   secondaryText: '#374151',
-  mutedText: '#6b7280',
+  mutedText: '#434751',
 
   nodeBackground: '#ffffff',
   nodeBorder: '#d1d5db',
@@ -69,7 +69,7 @@ const darkTheme: ThemeColors = {
 
   primaryText: '#f9fafb',
   secondaryText: '#d1d5db',
-  mutedText: '#9ca3af',
+  mutedText: '#b0b9c3',
 
   nodeBackground: '#374151',
   nodeBorder: '#6b7280',

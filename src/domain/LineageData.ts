@@ -5,13 +5,15 @@ import { Event } from './EventsData';
 export const lineageData = AdamLineage;
 export const eventsData: Event[] = EventsJson;
 
-// make a type for lineage data that is a subset of the AdamLineage type
+// Updated type for flat lineage data structure
 export type LineageData = {
   id: string;
   name: string;
   birthYear?: number | null;
   ageAtDeath?: number | null;
-  partner?: string | null;
-  children?: LineageData[];
+  partners: string[];
+  parents: string[];
+  children: string[];
+  comment: string;
   [key: string]: any; // allow additional properties
 };

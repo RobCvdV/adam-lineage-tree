@@ -4,7 +4,10 @@ import { CharacterEventData, characterEventsData } from '../domain/CharacterEven
 import { PersonNodeData } from "../components/PersonNodeComponent";
 
 // Estimate lifespan for a person based on available data
-export function estimateLifespan(person: LineageData, allPeople: LineageData[]): { birthYearAM: number; deathYearAM: number } {
+export function estimateLifespan(person: LineageData, allPeople: LineageData[]): {
+  birthYearAM: number;
+  deathYearAM: number
+} {
   let birthYearAM: number;
   let deathYearAM: number;
 
@@ -25,14 +28,14 @@ export function estimateLifespan(person: LineageData, allPeople: LineageData[]):
     deathYearAM = birthYearAM + estimatedLifespan;
   }
 
-  return { birthYearAM, deathYearAM };
+  return {birthYearAM, deathYearAM};
 }
 
 // Estimate birth year based on parent or chronological position
 function estimateBirthYear(person: LineageData, allPeople: LineageData[]): number {
   // Try to find parent information
   const parent = findParent(person, allPeople);
-  
+
   if (parent && parent.birthYear !== null && parent.birthYear !== undefined) {
     // Parent's birth year is already in AM format
     const parentBirthAM = parent.birthYear;
@@ -56,18 +59,15 @@ function estimateBirthYear(person: LineageData, allPeople: LineageData[]): numbe
   return 1500;
 }
 
-// Find parent of a person in the lineage
+// Find parent of a person in the lineage - updated for flat array structure
 function findParent(person: LineageData, allPeople: LineageData[]): LineageData | null {
-  for (const potential of allPeople) {
-    if (potential.children) {
-      for (const child of potential.children) {
-        if (child.id === person.id || child.name === person.name) {
-          return potential;
-        }
-      }
-    }
-  }
-  return null;
+  if (person.parents.length === 0) return null;
+
+  // Get the first parent (father) - create a map for efficient lookup
+  const peopleMap = new Map<string, LineageData>();
+  allPeople.forEach(p => peopleMap.set(p.id, p));
+
+  return peopleMap.get(person.parents[0]) || null;
 }
 
 // Estimate lifespan based on biblical era
@@ -83,31 +83,28 @@ function estimateLifespanByEra(birthYearAM: number): number {
   }
 }
 
-// Get all people from lineage data (flattened)
-export function getAllPeople(data: LineageData): LineageData[] {
-  const people: LineageData[] = [data];
-  
-  if (data.children) {
-    for (const child of data.children) {
-      people.push(...getAllPeople(child));
-    }
-  }
-  
-  return people;
+// Get all people from lineage data - updated for flat array structure
+export function getAllPeople(data: LineageData[]): LineageData[] {
+  // Data is already a flat array, so just return it
+  return data;
 }
 
 // Find events that occurred during a person's lifetime
 export function getLifeEvents(person: PersonNodeData, allPeople: LineageData[]): Event[] {
-  const { birthYearAM, deathYearAM } = estimateLifespan(person, allPeople);
-  
-  return eventsData.filter(event => 
-    event.dateAM >= birthYearAM && event.dateAM <= deathYearAM
-  );
+  const {birthYearAM, deathYearAM} = estimateLifespan(person, allPeople);
+
+  return eventsData.filter(event => {
+    const eventYear = event.dateAM;
+    return eventYear >= birthYearAM && eventYear <= deathYearAM;
+  });
 }
 
-// Find personal events/actions for a specific person
-export function getPersonalEvents(person: LineageData): CharacterEventData[] {
-  return characterEventsData.filter(event => 
-    event.personId === person.id || event.personId === person.name
+// Get personal events for a specific person
+export function getPersonalEvents(person: PersonNodeData): CharacterEventData[] {
+  return characterEventsData.filter(event =>
+    event.personId === person.id ||
+    event.personId === person.name ||
+    (event.relatedPersonIds && event.relatedPersonIds.includes(person.id)) ||
+    (event.relatedPersonIds && event.relatedPersonIds.includes(person.name))
   );
 }

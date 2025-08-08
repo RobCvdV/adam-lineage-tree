@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData } from "../domain/LineageData";
+import { getNodeSizes, MOBILE_BREAKPOINT } from '../constants/nodeSizes';
 
 export type PersonNodeData = LineageData & {
   // Additional properties specific to PersonNode
@@ -20,7 +21,7 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
   // Check if we're on mobile for responsive styling
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     };
 
     checkMobile();
@@ -75,11 +76,8 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
     opacity = highlightStyle.opacity;
   }
 
-  // Responsive sizing
-  const nodeWidth = isMobile ? 180 : 220;
-  const nodePadding = isMobile ? 12 : 16;
-  const fontSize = isMobile ? 14 : 16;
-  const detailFontSize = isMobile ? 11 : 12;
+  // Responsive sizing using constants
+  const sizes = getNodeSizes(isMobile);
 
   return (
     <div
@@ -87,15 +85,15 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
         background,
         border,
         borderRadius: '8px',
-        padding: nodePadding,
-        minWidth: nodeWidth,
-        maxWidth: nodeWidth,
+        padding: sizes.padding,
+        minWidth: sizes.width,
+        maxWidth: sizes.width,
         boxShadow,
         opacity,
         transition: 'all 0.2s ease-in-out',
         cursor: 'pointer',
         // Ensure touch targets are large enough on mobile
-        minHeight: isMobile ? '60px' : '50px',
+        minHeight: sizes.height,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center'
@@ -107,8 +105,8 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
         position={Position.Top}
         style={{
           background: theme.edgeHighlight,
-          width: isMobile ? 10 : 8,
-          height: isMobile ? 10 : 8,
+          width: sizes.handleSize,
+          height: sizes.handleSize,
           border: `2px solid ${theme.nodeBackground}`
         }}
       />
@@ -116,7 +114,7 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
       {/* Person's name */}
       <div style={{
         fontWeight: 600,
-        fontSize: fontSize,
+        fontSize: sizes.fontSize,
         color: theme.nodeText,
         marginBottom: 4,
         lineHeight: 1.2,
@@ -128,7 +126,7 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
 
       {/* Birth year and age */}
       <div style={{
-        fontSize: detailFontSize,
+        fontSize: sizes.detailFontSize,
         color: theme.mutedText,
         textAlign: 'center',
         lineHeight: 1.2
@@ -147,8 +145,8 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
         position={Position.Bottom}
         style={{
           background: theme.edgeHighlight,
-          width: isMobile ? 10 : 8,
-          height: isMobile ? 10 : 8,
+          width: sizes.handleSize,
+          height: sizes.handleSize,
           border: `2px solid ${theme.nodeBackground}`
         }}
       />
