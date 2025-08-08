@@ -2,6 +2,8 @@
 
 An interactive family tree visualization of Adam's lineage using React, TypeScript, and React Flow.
 
+🌟 **Live Demo**: [https://robcvdv.github.io/adam-lineage-tree](https://robcvdv.github.io/adam-lineage-tree)
+
 ## Features
 
 - Interactive family tree visualization
