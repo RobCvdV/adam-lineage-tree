@@ -7,7 +7,7 @@ export const eventsData: Event[] = EventsJson;
 
 // make a type for lineage data that is a subset of the AdamLineage type
 export type LineageData = {
-  id: string; // unique identifier for the person, can be name or a unique ID
+  id: string;
   name: string;
   birthYear?: number | null;
   ageAtDeath?: number | null;
