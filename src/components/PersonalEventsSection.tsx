@@ -1,5 +1,8 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { LineageData } from '../domain/LineageData';
+import ClickablePersonName from './ClickablePersonName';
+import { usePersonSelection } from './hooks/usePersonSelection';
 
 interface PersonalEvent {
   personId: string;
@@ -13,14 +16,17 @@ interface PersonalEventsSectionProps {
   personalEvents: PersonalEvent[];
   isMobile: boolean;
   sectionSpacing: number;
+  onNodeSelect?: (node: LineageData) => void;
 }
 
 const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
   personalEvents,
   isMobile,
-  sectionSpacing
+  sectionSpacing,
+  onNodeSelect
 }) => {
   const {theme} = useTheme();
+  const {handlePersonClick} = usePersonSelection({onNodeSelect});
 
   if (personalEvents.length === 0) return null;
 
@@ -87,7 +93,15 @@ const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
                 color: theme.mutedText,
                 marginTop: 6
               }}>
-                Related: {event.relatedPersonIds.join(', ')}
+                Related: {event.relatedPersonIds.map((personId, index) => (
+                <span key={personId}>
+                    {index > 0 && ', '}
+                  <ClickablePersonName
+                    personId={personId}
+                    onNodeSelect={onNodeSelect}
+                  />
+                  </span>
+              ))}
               </div>
             )}
           </div>

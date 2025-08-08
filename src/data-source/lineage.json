@@ -5,7 +5,7 @@
     "birthYear":  0,
     "ageAtDeath": 930,
     "partners":   [
-      "Eva (-)"
+      "Eve (-)"
     ],
     "parents":    [],
     "children":   [
@@ -16,8 +16,8 @@
     "comment":    "The first man, created by God. Birth years in this file are Anno Mundi (AM), 'year of the world', calculated from Adam's creation."
   },
   {
-    "id":         "Eva (-)",
-    "name":       "Eva",
+    "id":         "Eve (-)",
+    "name":       "Eve",
     "birthYear":  0,
     "ageAtDeath": null,
     "partners":   [
@@ -41,7 +41,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eva (-)"
+      "Eve (-)"
     ],
     "children":   [
       "Enoch (Cain)"
@@ -58,7 +58,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eva (-)"
+      "Eve (-)"
     ],
     "children":   [
       "Enoch (Cain)"
@@ -73,7 +73,7 @@
     "partners":   [],
     "parents":    [
       "Adam (-)",
-      "Eva (-)"
+      "Eve (-)"
     ],
     "children":   [],
     "comment":    "Second son. A shepherd whose offering was pleasing to God. Murdered by Cain, died childless at around age 130."
@@ -88,7 +88,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eva (-)"
+      "Eve (-)"
     ],
     "children":   [
       "Enos (Seth)"
@@ -105,7 +105,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eva (-)"
+      "Eve (-)"
     ],
     "children":   [
       "Enos (Seth)"

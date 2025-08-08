@@ -1,17 +1,21 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Event } from "../domain/EventsData";
+import { LineageData } from '../domain/LineageData';
+import ClickablePersonName from './ClickablePersonName';
 
 interface LifeEventsSectionProps {
   lifeEvents: Event[];
   isMobile: boolean;
   sectionSpacing: number;
+  onNodeSelect?: (node: LineageData) => void;
 }
 
 const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({
   lifeEvents,
   isMobile,
-  sectionSpacing
+  sectionSpacing,
+  onNodeSelect
 }) => {
   const {theme} = useTheme();
 
@@ -80,7 +84,15 @@ const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({
                 color: theme.mutedText,
                 marginTop: 6
               }}>
-                Key figures: {event.keyFigures.join(', ')}
+                Key figures: {event.keyFigures.map((personId, index) => (
+                <span key={personId}>
+                    {index > 0 && ', '}
+                  <ClickablePersonName
+                    personId={personId}
+                    onNodeSelect={onNodeSelect}
+                  />
+                  </span>
+              ))}
               </div>
             )}
           </div>

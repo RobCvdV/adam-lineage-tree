@@ -57,12 +57,14 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         personalEvents={personalEvents}
         isMobile={isMobile}
         sectionSpacing={styles.sectionSpacing}
+        onNodeSelect={onNodeSelect}
       />
 
       <LifeEventsSection
         lifeEvents={lifeEvents}
         isMobile={isMobile}
         sectionSpacing={styles.sectionSpacing}
+        onNodeSelect={onNodeSelect}
       />
 
       <ParentSection
