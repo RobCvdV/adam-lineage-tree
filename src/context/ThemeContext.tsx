@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 export interface ThemeColors {
   // Background colors
@@ -64,7 +64,7 @@ const lightTheme: ThemeColors = {
 
 const darkTheme: ThemeColors = {
   background: '#111827',
-  surfaceBackground: '#1f2937',
+  surfaceBackground: '#262c32',
   panelBackground: '#374151',
 
   primaryText: '#f9fafb',
@@ -73,15 +73,15 @@ const darkTheme: ThemeColors = {
 
   nodeBackground: '#374151',
   nodeBorder: '#6b7280',
-  nodeSelectedBackground: '#451a03',
-  nodeSelectedBorder: '#f59e0b',
+  nodeSelectedBackground: '#265151',
+  nodeSelectedBorder: '#f5c60b',
   nodeText: '#f9fafb',
 
-  buttonBackground: '#451a03',
-  buttonBorder: '#f59e0b',
+  buttonBackground: '#265151',
+  buttonBorder: '#f5c60b',
   buttonText: '#d1d5db',
-  buttonHoverBackground: '#92400e',
-  buttonHoverBorder: '#f59e0b',
+  buttonHoverBackground: '#213a3a',
+  buttonHoverBorder: '#f5c60b',
   buttonHoverText: '#ffffff',
 
   edgeStroke: '#9ca3af',
