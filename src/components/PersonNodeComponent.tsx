@@ -3,6 +3,7 @@ import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData } from "../domain/LineageData";
 import { getNodeSizes, MOBILE_BREAKPOINT } from '../constants/nodeSizes';
+import { getGenerationColor } from '../utils/colorUtils';
 
 export type PersonNodeData = LineageData & {
   // Additional properties specific to PersonNode
@@ -29,40 +30,29 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Helper function to get highlighting style based on generation
+  // Helper function to get highlighting style based on generation using color gradation
   const getHighlightStyle = (generation: number) => {
-    const styles = [
-      // Generation 1 (children)
-      {
-        background: theme.nodeSelectedBackground,
-        border: `1px solid ${theme.nodeSelectedBorder}`,
-        boxShadow: '0 1px 4px rgba(251,191,36,0.25)',
-        opacity: 1.0,
-      },
-      // Generation 2 (grandchildren)
-      {
-        background: theme.nodeSelectedBackground,
-        border: `1px solid ${theme.nodeSelectedBorder}`,
-        boxShadow: '0 1px 4px rgba(245,158,11,0.15)',
-        opacity: 0.8,
-      },
-      // Generation 3 (great-grandchildren)
-      {
-        background: theme.nodeSelectedBackground,
-        border: `1px solid ${theme.nodeSelectedBorder}`,
-        boxShadow: '0 1px 4px rgba(217,119,6,0.10)',
-        opacity: 0.6,
-      },
-    ];
+    // Interpolate colors based on generation (0 = full highlight, 3 = default)
+    const factor = Math.min(generation / 3, 1);
 
-    return styles[generation - 1] || styles[2]; // fallback to generation 3 style
+    const gradientBg = getGenerationColor(theme.nodeSelectedBackground, theme.nodeBackground, factor);
+    const gradientBorder = getGenerationColor(theme.nodeSelectedBorder, theme.nodeBorder, factor);
+
+    // Shadow intensity also reduces with generation
+    const shadowOpacities = [0.25, 0.15, 0.10];
+    const shadowOpacity = shadowOpacities[generation - 1] || 0.10;
+
+    return {
+      background: gradientBg,
+      border: `1px solid ${gradientBorder}`,
+      boxShadow: `0 1px 4px rgba(251,191,36,${shadowOpacity})`,
+    };
   };
 
   // Determine background and border colors based on state
   let background = theme.nodeBackground;
   let border = `1px solid ${theme.nodeBorder}`;
   let boxShadow = '0 1px 4px rgba(0,0,0,0.04)';
-  let opacity = 1.0;
 
   if (data.selected) {
     background = theme.nodeSelectedBackground;
@@ -73,7 +63,6 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
     background = highlightStyle.background;
     border = highlightStyle.border;
     boxShadow = highlightStyle.boxShadow;
-    opacity = highlightStyle.opacity;
   }
 
   // Responsive sizing using constants
@@ -89,7 +78,6 @@ export default function PersonNodeComponent({data}: NodeProps<PersonNode>) {
         minWidth: sizes.width,
         maxWidth: sizes.width,
         boxShadow,
-        opacity,
         transition: 'all 0.2s ease-in-out',
         cursor: 'pointer',
         // Ensure touch targets are large enough on mobile

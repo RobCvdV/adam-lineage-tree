@@ -8,6 +8,7 @@ import { LineageData, lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants } from './flowHelpers';
 import type { OnInit } from "@xyflow/react/dist/esm/types";
 import { transformLineageToFlow } from "./transformLineageToFlow";
+import { getEdgeStyleForGeneration } from '../utils/edgeStyles';
 
 const nodeTypes: NodeTypes = {
   personNode: PersonNodeComponent,
@@ -153,26 +154,13 @@ const AdamLineageTree: React.FC = () => {
     },
   } as PersonNode));
 
-  // Helper function to get edge color and opacity based on generation
-  const getEdgeStyle = (generation: number) => {
-    const baseColor = '#fbbf24'; // yellow
-    const opacities = [1.0, 0.7, 0.4]; // decreasing opacity for each generation
-    const strokeWidths = [3, 2.5, 2]; // decreasing width for each generation
-
-    return {
-      stroke: baseColor,
-      strokeWidth: strokeWidths[generation - 1] || 2,
-      opacity: opacities[generation - 1] || 0.4,
-    };
-  };
-
-  // Update edges with highlighting
+  // Update edges with highlighting using extracted utility
   const edgesWithHighlighting = elements.edges.map(edge => {
     if (highlightedEdges.has(edge.id)) {
       const generation = highlightedEdges.get(edge.id)!;
       return {
         ...edge,
-        style: getEdgeStyle(generation),
+        style: getEdgeStyleForGeneration(generation),
       };
     }
     return {
