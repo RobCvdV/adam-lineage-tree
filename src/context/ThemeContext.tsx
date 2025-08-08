@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 
 export interface ThemeColors {
   // Background colors
@@ -68,8 +68,8 @@ const darkTheme: ThemeColors = {
   panelBackground: '#374151',
 
   primaryText: '#f9fafb',
-  secondaryText: '#d1d5db',
-  mutedText: '#b0b9c3',
+  secondaryText: '#b2b8c5',
+  mutedText: '#ababac',
 
   nodeBackground: '#374151',
   nodeBorder: '#6b7280',
@@ -93,7 +93,6 @@ const darkTheme: ThemeColors = {
 interface ThemeContextType {
   isDarkMode: boolean;
   theme: ThemeColors;
-  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -145,9 +144,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
     document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
   }, [theme]);
 
+  const themeContextValue: ThemeContextType = useMemo(() => ({
+    isDarkMode,
+    theme,
+  }), [isDarkMode, theme]);
+
   // Remove the toggleTheme function since we're following system preferences
   return (
-    <ThemeContext.Provider value={{isDarkMode, theme, toggleTheme: () => {}}}>
+    <ThemeContext.Provider value={themeContextValue}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,38 +1,37 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { LineageData } from '../domain/LineageData';
+import { getPersonData, LineageData } from '../domain/LineageData';
 
 interface ClickablePersonNameProps {
   personId: string;
   onNodeSelect?: (node: LineageData) => void;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
 }
 
 const ClickablePersonName: React.FC<ClickablePersonNameProps> = ({
   personId,
   onNodeSelect,
   style = {},
-  children
 }) => {
   const {theme} = useTheme();
 
-  const handleClick = () => {
-    if (onNodeSelect) {
-      onNodeSelect({id: personId} as LineageData);
-    }
-  };
-
+  const person = useMemo<LineageData | undefined>(() => getPersonData(personId), [personId]);
   const defaultStyle: React.CSSProperties = {
-    color: theme.primaryText,
-    cursor: onNodeSelect ? 'pointer' : 'default',
-    textDecoration: onNodeSelect ? 'underline' : 'none',
+    color: theme.secondaryText,
+    cursor: person ? 'pointer' : 'default',
+    textDecoration: person ? 'underline' : 'none',
     transition: 'color 0.2s ease',
     ...style
   };
 
-  if (!onNodeSelect) {
-    return <span style={defaultStyle}>{children || personId}</span>;
+  const handleClick = useCallback(() => {
+    if (onNodeSelect) {
+      onNodeSelect({id: personId} as LineageData);
+    }
+  }, [onNodeSelect, personId]);
+
+  if (!onNodeSelect || !person) {
+    return <span style={defaultStyle}>{person?.name ?? personId}</span>;
   }
 
   return (
@@ -40,13 +39,13 @@ const ClickablePersonName: React.FC<ClickablePersonNameProps> = ({
       onClick={handleClick}
       style={defaultStyle}
       onMouseEnter={(e) => {
-        e.currentTarget.style.color = theme.secondaryText;
+        e.currentTarget.style.color = theme.primaryText;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = style.color || theme.primaryText;
+        e.currentTarget.style.color = style.color || theme.secondaryText;
       }}
     >
-      {children || personId}
+      {person.name}
     </span>
   );
 };

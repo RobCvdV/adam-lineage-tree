@@ -35,7 +35,7 @@ export function useDetailsPanelData(nodeData: PersonNodeData | null) {
     const detailItems = Object.entries(nodeData)
       .filter(([key, value]) => {
         // Exclude these properties as they're handled by specific sections
-        const excludedKeys = ['id', 'name', 'children', 'parents', 'selected', 'highlighted', 'generation', 'parent'];
+        const excludedKeys = ['id', 'name', 'children', 'parents', 'selected', 'highlighted', 'generation', 'parent', 'parents', 'partners'];
         return !excludedKeys.includes(key) && value !== null && value !== undefined;
       })
       .map(([key, value]) => ({key, value}));

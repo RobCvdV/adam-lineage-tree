@@ -16,3 +16,7 @@ export interface LineageData {
   children: string[];
   comment?: string;
 }
+
+export function getPersonData(personId: string): LineageData | undefined {
+  return lineageData.find(person => person.id === personId);
+}

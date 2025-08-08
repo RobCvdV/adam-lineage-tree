@@ -53,6 +53,19 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         items={detailItems}
       />
 
+      <ParentSection
+        parentsData={parentsData}
+        onNodeSelect={onNodeSelect}
+        isMobile={isMobile}
+      />
+
+      <ChildrenSection
+        childrenData={children}
+        onNodeSelect={onNodeSelect}
+        isMobile={isMobile}
+        sectionSpacing={styles.sectionSpacing}
+      />
+
       <PersonalEventsSection
         personalEvents={personalEvents}
         isMobile={isMobile}
@@ -65,19 +78,6 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         isMobile={isMobile}
         sectionSpacing={styles.sectionSpacing}
         onNodeSelect={onNodeSelect}
-      />
-
-      <ParentSection
-        parentsData={parentsData}
-        onNodeSelect={onNodeSelect}
-        isMobile={isMobile}
-      />
-
-      <ChildrenSection
-        childrenData={children}
-        onNodeSelect={onNodeSelect}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
       />
     </div>
   );
