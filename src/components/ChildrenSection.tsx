@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 import { LineageData } from '../domain/LineageData';
 
 interface ChildrenSectionProps {
@@ -8,31 +9,35 @@ interface ChildrenSectionProps {
   sectionSpacing: number;
 }
 
-const ChildrenSection: React.FC<ChildrenSectionProps> = ({ 
-  childrenData, 
-  onNodeSelect, 
-  isMobile, 
-  sectionSpacing 
+const ChildrenSection: React.FC<ChildrenSectionProps> = ({
+  childrenData,
+  onNodeSelect,
+  isMobile,
+  sectionSpacing
 }) => {
+  const {theme} = useTheme();
+
   if (childrenData.length === 0) return null;
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.background = '#e0f2fe';
-    e.currentTarget.style.borderColor = '#38bdf8';
+    e.currentTarget.style.background = theme.buttonHoverBackground;
+    e.currentTarget.style.borderColor = theme.buttonHoverBorder;
+    e.currentTarget.style.color = theme.buttonHoverText;
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.background = '#f8fafc';
-    e.currentTarget.style.borderColor = '#e2e8f0';
+    e.currentTarget.style.background = theme.buttonBackground;
+    e.currentTarget.style.borderColor = theme.buttonBorder;
+    e.currentTarget.style.color = theme.buttonText;
   };
 
   return (
     <div style={{marginTop: sectionSpacing}}>
       <div style={{
-        fontWeight: 600, 
-        fontSize: isMobile ? 15 : 16, 
-        marginBottom: 12, 
-        color: '#374151'
+        fontWeight: 600,
+        fontSize: isMobile ? 15 : 16,
+        marginBottom: 12,
+        color: theme.primaryText
       }}>
         Children ({childrenData.length})
       </div>
@@ -43,26 +48,25 @@ const ChildrenSection: React.FC<ChildrenSectionProps> = ({
             onClick={() => onNodeSelect?.(child)}
             style={{
               padding: isMobile ? '12px' : '8px 12px',
-              background: '#f8fafc',
-              border: '1px solid #e2e8f0',
+              background: theme.buttonBackground,
+              border: `1px solid ${theme.buttonBorder}`,
               borderRadius: 6,
               cursor: 'pointer',
               textAlign: 'left',
               fontSize: isMobile ? 15 : 14,
-              color: '#374151',
-              transition: 'all 0.15s',
               fontWeight: 500,
-              minHeight: isMobile ? '48px' : 'auto'
+              color: theme.buttonText,
+              transition: 'all 0.2s ease'
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             {child.name}
-            {child.birthYear && (
+            {Boolean(child.birthYear) && (
               <span style={{
-                color: '#6b7280', 
-                fontWeight: 400, 
-                marginLeft: 8, 
+                color: theme.mutedText,
+                fontWeight: 400,
+                marginLeft: 8,
                 fontSize: isMobile ? 14 : 'inherit'
               }}>
                 (born {child.birthYear})

@@ -98,7 +98,7 @@ const AdamLineageTree: React.FC = () => {
     console.log('select node', node.id);
     // if node is not a PersonNode, Find the node in the elements
     let selectedNodeElement = node as PersonNode | undefined;
-    if (!('data' in selectedNodeElement)) {
+    if (!selectedNodeElement || !('data' in selectedNodeElement)) {
       selectedNodeElement = findNode(node.id);
     }
 

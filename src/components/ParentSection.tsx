@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 import { LineageData } from '../domain/LineageData';
 
 interface ParentSectionProps {
@@ -14,18 +15,20 @@ const ParentSection: React.FC<ParentSectionProps> = ({
   isMobile,
   sectionSpacing
 }) => {
+  const {theme} = useTheme();
+
   if (!parentData) return null;
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.background = '#fbbf24';
-    e.currentTarget.style.borderColor = '#d97706';
-    e.currentTarget.style.color = '#fff';
+    e.currentTarget.style.background = theme.buttonHoverBackground;
+    e.currentTarget.style.borderColor = theme.buttonHoverBorder;
+    e.currentTarget.style.color = theme.buttonHoverText;
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.background = '#fef3c7';
-    e.currentTarget.style.borderColor = '#f59e0b';
-    e.currentTarget.style.color = '#374151';
+    e.currentTarget.style.background = theme.buttonBackground;
+    e.currentTarget.style.borderColor = theme.buttonBorder;
+    e.currentTarget.style.color = theme.buttonText;
   };
 
   return (
@@ -34,7 +37,7 @@ const ParentSection: React.FC<ParentSectionProps> = ({
         fontWeight: 600,
         fontSize: isMobile ? 15 : 16,
         marginBottom: 12,
-        color: '#374151'
+        color: theme.primaryText
       }}>
         Parent
       </div>
@@ -43,16 +46,15 @@ const ParentSection: React.FC<ParentSectionProps> = ({
           onClick={() => onNodeSelect?.(parentData)}
           style={{
             padding: isMobile ? '12px' : '8px 12px',
-            background: '#fef3c7',
-            border: '1px solid #f59e0b',
+            background: theme.buttonBackground,
+            border: `1px solid ${theme.buttonBorder}`,
             borderRadius: 6,
             cursor: 'pointer',
             textAlign: 'left',
             fontSize: isMobile ? 15 : 14,
-            color: '#374151',
-            transition: 'all 0.15s',
             fontWeight: 500,
-            minHeight: isMobile ? '48px' : 'auto'
+            color: theme.buttonText,
+            transition: 'all 0.2s ease'
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

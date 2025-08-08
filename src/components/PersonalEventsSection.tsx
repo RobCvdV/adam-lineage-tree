@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 interface PersonalEvent {
   personId: string;
@@ -14,11 +15,13 @@ interface PersonalEventsSectionProps {
   sectionSpacing: number;
 }
 
-const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({ 
-  personalEvents, 
-  isMobile, 
-  sectionSpacing 
+const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
+  personalEvents,
+  isMobile,
+  sectionSpacing
 }) => {
+  const {theme} = useTheme();
+
   if (personalEvents.length === 0) return null;
 
   const fontSize = {
@@ -35,10 +38,10 @@ const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
   return (
     <div style={{marginTop: sectionSpacing}}>
       <div style={{
-        fontWeight: 600, 
-        fontSize: fontSize.title, 
-        marginBottom: 12, 
-        color: '#374151'
+        fontWeight: 600,
+        fontSize: fontSize.title,
+        marginBottom: 12,
+        color: theme.primaryText
       }}>
         Personal Events & Actions ({personalEvents.length})
       </div>
@@ -48,42 +51,43 @@ const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
             key={`${event.personId}-${event.eventName}`}
             style={{
               padding,
-              background: '#fef7f0',
-              border: '1px solid #fb923c',
+              background: theme.surfaceBackground,
+              border: `1px solid ${theme.sectionBorder}`,
               borderRadius: 6,
               fontSize: isMobile ? 14 : 13,
-              color: '#374151',
+              color: theme.primaryText,
+              transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}
           >
             <div style={{
-              fontWeight: 600, 
-              marginBottom: 4, 
-              color: '#c2410c', 
+              fontWeight: 600,
+              marginBottom: 4,
+              color: theme.secondaryText,
               fontSize: fontSize.eventName
             }}>
               {event.eventName}
             </div>
             <div style={{
-              fontSize: fontSize.reference, 
-              color: '#6b7280', 
-              marginBottom: 6
+              fontSize: fontSize.reference,
+              color: theme.mutedText,
+              marginBottom: 4
             }}>
-              {event.jasherReference}
+              Reference: {event.jasherReference}
             </div>
             <div style={{
-              fontSize: fontSize.description, 
-              lineHeight: 1.4, 
-              marginBottom: 6
+              fontSize: fontSize.description,
+              lineHeight: 1.4,
+              color: theme.primaryText
             }}>
               {event.description}
             </div>
             {event.relatedPersonIds && event.relatedPersonIds.length > 0 && (
               <div style={{
-                fontSize: fontSize.related, 
-                color: '#6b7280', 
+                fontSize: fontSize.related,
+                color: theme.mutedText,
                 marginTop: 6
               }}>
-                Related people: {event.relatedPersonIds.join(', ')}
+                Related: {event.relatedPersonIds.join(', ')}
               </div>
             )}
           </div>

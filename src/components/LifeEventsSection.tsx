@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 import { Event } from "../domain/EventsData";
 
 interface LifeEventsSectionProps {
@@ -7,16 +8,18 @@ interface LifeEventsSectionProps {
   sectionSpacing: number;
 }
 
-const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({ 
-  lifeEvents, 
-  isMobile, 
-  sectionSpacing 
+const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({
+  lifeEvents,
+  isMobile,
+  sectionSpacing
 }) => {
+  const {theme} = useTheme();
+
   if (lifeEvents.length === 0) return null;
 
   const fontSize = {
-    title: isMobile ? 15 : 16,
-    eventName: isMobile ? 15 : 'inherit',
+    title: isMobile ? 18 : 16,
+    eventName: isMobile ? 15 : 14,
     date: isMobile ? 13 : 12,
     description: isMobile ? 13 : 12,
     keyFigures: isMobile ? 12 : 11
@@ -28,10 +31,10 @@ const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({
   return (
     <div style={{marginTop: sectionSpacing}}>
       <div style={{
-        fontWeight: 600, 
-        fontSize: fontSize.title, 
-        marginBottom: 12, 
-        color: '#374151'
+        fontWeight: 600,
+        fontSize: fontSize.title,
+        marginBottom: 12,
+        color: theme.primaryText
       }}>
         Events During Lifetime ({lifeEvents.length})
       </div>
@@ -41,38 +44,40 @@ const LifeEventsSection: React.FC<LifeEventsSectionProps> = ({
             key={`${event.dateAM}-${event.eventName}`}
             style={{
               padding,
-              background: '#f0f9ff',
-              border: '1px solid #0ea5e9',
+              background: theme.surfaceBackground,
+              border: `1px solid ${theme.sectionBorder}`,
               borderRadius: 6,
               fontSize: isMobile ? 14 : 13,
-              color: '#374151',
+              color: theme.primaryText,
+              transition: 'background-color 0.3s ease, border-color 0.3s ease',
             }}
           >
             <div style={{
-              fontWeight: 600, 
-              marginBottom: 4, 
-              color: '#0c4a6e', 
+              fontWeight: 600,
+              marginBottom: 4,
+              color: theme.secondaryText,
               fontSize: fontSize.eventName
             }}>
               {event.eventName}
             </div>
             <div style={{
-              fontSize: fontSize.date, 
-              color: '#6b7280', 
+              fontSize: fontSize.date,
+              color: theme.mutedText,
               marginBottom: 4
             }}>
               Year {event.dateAM} AM ({event.dateBCEstimate} BC) • {event.scriptureReference}
             </div>
             <div style={{
-              fontSize: fontSize.description, 
-              lineHeight: 1.4
+              fontSize: fontSize.description,
+              lineHeight: 1.4,
+              color: theme.primaryText
             }}>
               {event.description}
             </div>
             {event.keyFigures.length > 0 && (
               <div style={{
-                fontSize: fontSize.keyFigures, 
-                color: '#6b7280', 
+                fontSize: fontSize.keyFigures,
+                color: theme.mutedText,
                 marginTop: 6
               }}>
                 Key figures: {event.keyFigures.join(', ')}
