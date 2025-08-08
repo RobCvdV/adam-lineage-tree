@@ -8,11 +8,11 @@ interface ParentSectionProps {
   sectionSpacing: number;
 }
 
-const ParentSection: React.FC<ParentSectionProps> = ({ 
-  parentData, 
-  onNodeSelect, 
-  isMobile, 
-  sectionSpacing 
+const ParentSection: React.FC<ParentSectionProps> = ({
+  parentData,
+  onNodeSelect,
+  isMobile,
+  sectionSpacing
 }) => {
   if (!parentData) return null;
 
@@ -31,9 +31,9 @@ const ParentSection: React.FC<ParentSectionProps> = ({
   return (
     <div style={{marginTop: sectionSpacing}}>
       <div style={{
-        fontWeight: 600, 
-        fontSize: isMobile ? 15 : 16, 
-        marginBottom: 12, 
+        fontWeight: 600,
+        fontSize: isMobile ? 15 : 16,
+        marginBottom: 12,
         color: '#374151'
       }}>
         Parent
@@ -58,11 +58,11 @@ const ParentSection: React.FC<ParentSectionProps> = ({
           onMouseLeave={handleMouseLeave}
         >
           {parentData.name}
-          {parentData.birthYear && (
+          {Boolean(parentData.birthYear) && (
             <span style={{
-              color: '#6b7280', 
-              fontWeight: 400, 
-              marginLeft: 8, 
+              color: '#6b7280',
+              fontWeight: 400,
+              marginLeft: 8,
               fontSize: isMobile ? 14 : 'inherit'
             }}>
               (born {parentData.birthYear})
