@@ -13,18 +13,20 @@ interface SearchResult {
 }
 
 interface SearchComponentProps {
+  isMobile?: boolean;
   onSelectPerson: (person: LineageData, highlightEvent?: {
     type: 'life-event' | 'personal-event',
     eventId: string
   }) => void;
 }
 
-const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
+const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobile}) => {
   const {theme} = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const hasResults = results.length > 0;
 
   // Focus input when opened
   useEffect(() => {
@@ -127,7 +129,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
       // For general events, find the most relevant person
       const event = result.data as Event;
       if (event.keyFigures.length > 0) {
-        const person = lineageData.find(p => event.keyFigures.includes(p.id));
+        // Use the first person from keyFigures list (most relevant)
+        const firstKeyFigureId = event.keyFigures.find(kf => lineageData.some(p => p.id === kf));
+        const person = lineageData.find(p => p.id === firstKeyFigureId);
         if (person) {
           onSelectPerson(person, {
             type: 'life-event',
@@ -200,9 +204,9 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
             style={{
               position: 'absolute',
               top: '60px',
-              right: '16px',
-              width: '320px',
-              maxHeight: '400px',
+              right: '6px',
+              width: isMobile ? 'calc(100% - 12px)' : '400px',
+              bottom: hasResults ? '6px' : 'auto',
               background: theme.panelBackground,
               borderRadius: '8px',
               boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
@@ -244,7 +248,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
 
             {/* Search Results */}
             <div style={{
-              maxHeight: '300px',
+              maxHeight: '100%',
               overflowY: 'auto'
             }}>
               {results.length === 0 && searchTerm.trim() && (

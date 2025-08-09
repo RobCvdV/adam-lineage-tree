@@ -286,7 +286,7 @@ const AdamLineageTree: React.FC = () => {
         />
 
         {/* Search Component - positioned in top right of flow view */}
-        <SearchComponent onSelectPerson={handleChildSelect}/>
+        <SearchComponent onSelectPerson={handleChildSelect} isMobile={isMobile}/>
       </div>
 
       {/* Details Panel - Responsive */}
