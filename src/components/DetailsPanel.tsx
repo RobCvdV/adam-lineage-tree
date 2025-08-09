@@ -14,6 +14,7 @@ interface DetailsPanelProps {
   onNodeSelect?: (node: LineageData) => void;
   isMobile?: boolean;
   personTitle?: string;
+  highlightedEvent?: { type: 'life-event' | 'personal-event', eventId: string } | null;
 }
 
 const EmptyState: React.FC<{ isMobile: boolean; styles: any }> = ({isMobile, styles}) => (
@@ -26,7 +27,8 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
   nodeData,
   onNodeSelect,
   isMobile = false,
-  personTitle
+  personTitle,
+  highlightedEvent
 }) => {
   const {theme} = useTheme();
   const {
@@ -85,6 +87,7 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         isMobile={isMobile}
         sectionSpacing={styles.sectionSpacing}
         onNodeSelect={onNodeSelect}
+        highlightedEventId={highlightedEvent?.type === 'personal-event' ? highlightedEvent.eventId : undefined}
       />
 
       <LifeEventsSection
@@ -92,6 +95,7 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         isMobile={isMobile}
         sectionSpacing={styles.sectionSpacing}
         onNodeSelect={onNodeSelect}
+        highlightedEventId={highlightedEvent?.type === 'life-event' ? highlightedEvent.eventId : undefined}
       />
     </div>
   );

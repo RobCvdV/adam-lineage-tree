@@ -32,6 +32,10 @@ const AdamLineageTree: React.FC = () => {
     edges: []
   });
   const [selectedNode, setSelectedNode] = useState<PersonNodeData | null>(null);
+  const [highlightedEvent, setHighlightedEvent] = useState<{
+    type: 'life-event' | 'personal-event',
+    eventId: string
+  } | null>(null);
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -95,8 +99,16 @@ const AdamLineageTree: React.FC = () => {
       elements.nodes.find(node => node.data.name === idOrName);
   }, [elements.nodes]);
 
-  const handleChildSelect = useCallback((node: LineageData | PersonNode) => {
+  const handleChildSelect = useCallback((node: LineageData | PersonNode, highlightEvent?: {
+    type: 'life-event' | 'personal-event',
+    eventId: string
+  }) => {
     console.log('select node', node.id);
+    // Clear previous event highlighting when selecting normally
+    if (!highlightEvent) {
+      setHighlightedEvent(null);
+    }
+
     // if node is not a PersonNode, Find the node in the elements
     let selectedNodeElement = node as PersonNode | undefined;
     if (!selectedNodeElement || !('data' in selectedNodeElement)) {
@@ -110,7 +122,22 @@ const AdamLineageTree: React.FC = () => {
 
     setSelectedNode(selectedNodeElement.data);
     moveToNode(selectedNodeElement);
-  }, [findNode, moveToNode]);
+
+    // Set event highlighting if provided
+    if (highlightEvent) {
+      setHighlightedEvent(highlightEvent);
+
+      // Open mobile details panel when selecting from search
+      if (isMobile) {
+        setIsMobileDetailsOpen(true);
+      }
+    }
+
+    // Also open mobile details panel for any search selection on mobile
+    if (isMobile && (highlightEvent || selectedNodeElement)) {
+      setIsMobileDetailsOpen(true);
+    }
+  }, [findNode, moveToNode, isMobile]);
 
   const handleNodeClick: NodeMouseHandler = useCallback((event, node) => {
     setSelectedNode(node.data as PersonNodeData);
@@ -331,6 +358,7 @@ const AdamLineageTree: React.FC = () => {
                 onNodeSelect={handleChildSelect}
                 isMobile={true}
                 personTitle={getPersonTitle(selectedNode)}
+                highlightedEvent={highlightedEvent}
               />
             </div>
           </div>
@@ -342,6 +370,7 @@ const AdamLineageTree: React.FC = () => {
            onNodeSelect={handleChildSelect}
            isMobile={false}
            personTitle={getPersonTitle(selectedNode)}
+           highlightedEvent={highlightedEvent}
          />
        )}
     </div>

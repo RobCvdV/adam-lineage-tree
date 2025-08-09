@@ -2,17 +2,21 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { eventsData, lineageData, LineageData } from '../domain/LineageData';
 import { Event } from '../domain/EventsData';
+import { CharacterEventData, characterEventsData } from '../domain/CharacterEventsData';
 
 interface SearchResult {
-  type: 'person' | 'event';
+  type: 'person' | 'person-event' | 'event';
   id: string;
   name: string;
   description?: string;
-  data: LineageData | Event;
+  data: LineageData | Event | CharacterEventData;
 }
 
 interface SearchComponentProps {
-  onSelectPerson: (person: LineageData) => void;
+  onSelectPerson: (person: LineageData, highlightEvent?: {
+    type: 'life-event' | 'personal-event',
+    eventId: string
+  }) => void;
 }
 
 const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
@@ -70,10 +74,35 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
       }
     });
 
-    // Sort results: people first, then by relevance
+    // Search character events (person events)
+    characterEventsData.forEach((charEvent: CharacterEventData) => {
+      const person = lineageData.find(p => p.id === charEvent.personId);
+      const personName = person?.name || charEvent.personId;
+
+      if (personName.toLowerCase().includes(term) ||
+        charEvent.eventName.toLowerCase().includes(term) ||
+        charEvent.description.toLowerCase().includes(term)) {
+
+        searchResults.push({
+          type: 'person-event',
+          id: `${charEvent.personId}-${charEvent.eventName}`,
+          name: `${personName} - ${charEvent.eventName}`,
+          description: charEvent.description.length > 100
+                       ? charEvent.description.substring(0, 100) + '...'
+                       : charEvent.description,
+          data: charEvent
+        });
+      }
+    });
+
+    // Sort results: people first, then person-events, then general events
     searchResults.sort((a, b) => {
-      if (a.type !== b.type) {
-        return a.type === 'person' ? -1 : 1;
+      const typeOrder = {'person': 0, 'person-event': 1, 'event': 2};
+      const aOrder = typeOrder[a.type];
+      const bOrder = typeOrder[b.type];
+
+      if (aOrder !== bOrder) {
+        return aOrder - bOrder;
       }
       return a.name.localeCompare(b.name);
     });
@@ -84,20 +113,26 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
   const handleResultClick = (result: SearchResult) => {
     if (result.type === 'person') {
       onSelectPerson(result.data as LineageData);
+    } else if (result.type === 'person-event') {
+      // For person events, find the person associated with the event
+      const charEvent = result.data as CharacterEventData;
+      const person = lineageData.find(p => p.id === charEvent.personId);
+      if (person) {
+        onSelectPerson(person, {
+          type: 'personal-event',
+          eventId: `${charEvent.personId}-${charEvent.eventName}`
+        });
+      }
     } else {
-      // For events, find the most relevant person
+      // For general events, find the most relevant person
       const event = result.data as Event;
       if (event.keyFigures.length > 0) {
-        const person = event.keyFigures.map(
-          (personId: string) => {
-            console.log(`Finding person with ID: ${personId}`);
-            return lineageData.find(p => p.id === personId);
-          }
-        )[0]; // Take the first relevant person
-        // If a relevant person is found, select them
+        const person = lineageData.find(p => event.keyFigures.includes(p.id));
         if (person) {
-          console.log(`Selected person from event: ${person.name}`);
-          onSelectPerson(person);
+          onSelectPerson(person, {
+            type: 'life-event',
+            eventId: `${event.dateAM}-${event.eventName}`
+          });
         }
       }
     }
@@ -250,11 +285,11 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson}) => {
                       fontSize: '12px',
                       padding: '2px 6px',
                       borderRadius: '3px',
-                      background: result.type === 'person' ? '#3b82f6' : '#10b981',
+                      background: result.type === 'person' ? '#3b82f6' : result.type === 'person-event' ? '#f59e0b' : '#10b981',
                       color: 'white',
                       fontWeight: 500
                     }}>
-                      {result.type === 'person' ? 'Person' : 'Event'}
+                      {result.type === 'person' ? 'Person' : result.type === 'person-event' ? 'Person-Event' : 'Event'}
                     </span>
                     <span style={{
                       fontWeight: 500,
