@@ -38,14 +38,23 @@
     ]
   },
   {
-    "personId":         "Adam (-)",
-    "eventName":        "The Garments of Light",
-    "jasherReference":  "Jasher 7:24-25",
-    "description":      "According to Jasher, God made not only garments of animal skins for Adam and Eve, but garments that gave them special power and authority. These garments were passed down and gave power to the wearer. Nimrod eventually obtained them through Ham, which contributed to his power.",
+    "personId":         "Abel (Adam)",
+    "eventName":        "Abel's Righteous Offering",
+    "jasherReference":  "Jasher 1:12-14",
+    "description":      "Abel became a keeper of sheep and brought the firstlings of his flock as an offering to the Lord. God had respect for Abel and his offering, which kindled Cain's jealousy and anger against his brother.",
     "relatedPersonIds": [
-      "Eve (wife Adam)",
-      "Ham (Noah)",
-      "Nimrod (Cush)"
+      "Cain (Adam)",
+      "Adam (-)",
+      "Eve (wife Adam)"
+    ]
+  },
+  {
+    "personId":         "Cain (Adam)",
+    "eventName":        "The Quarrel and Murder of Abel",
+    "jasherReference":  "Jasher 1:15-25",
+    "description":      "Jasher recounts a detailed dialogue that preceded the murder. The quarrel was not only about the offering but escalated into a physical fight in which Cain used a piece of a plow to kill Abel, because he did not know how to get his soul out of him.",
+    "relatedPersonIds": [
+      "Abel (Adam)"
     ]
   },
   {
@@ -61,12 +70,45 @@
     ]
   },
   {
-    "personId":         "Cain (Adam)",
-    "eventName":        "The Quarrel and Murder of Abel",
-    "jasherReference":  "Jasher 1:15-25",
-    "description":      "Jasher recounts a detailed dialogue that preceded the murder. The quarrel was not only about the offering but escalated into a physical fight in which Cain used a piece of a plow to kill Abel, because he did not know how to get his soul out of him.",
+    "personId":         "Seth (Adam)",
+    "eventName":        "Birth as Replacement for Abel",
+    "jasherReference":  "Jasher 1:27-28",
+    "description":      "After 130 years of mourning, Adam knew his wife again and she bore Seth. Adam said God had appointed another seed instead of Abel, whom Cain had slain. Seth was born in Adam's own likeness and image.",
     "relatedPersonIds": [
-      "Abel (Adam)"
+      "Adam (-)",
+      "Eve (wife Adam)",
+      "Abel (Adam)",
+      "Cain (Adam)"
+    ]
+  },
+  {
+    "personId":         "Cain (Adam)",
+    "eventName":        "Exile and Building the City of Enoch",
+    "jasherReference":  "Jasher 1:29-31",
+    "description":      "After killing Abel, Cain was cursed to be a fugitive and wanderer. He went to the land of Nod and knew his wife, who bore Enoch. Cain built a city and called it after his son's name, Enoch.",
+    "relatedPersonIds": [
+      "Enoch (Cain)"
+    ]
+  },
+  {
+    "personId":         "Enos (Seth)",
+    "eventName":        "Beginning to Call Upon the Lord",
+    "jasherReference":  "Jasher 2:1-3",
+    "description":      "In the days of Enos, son of Seth, men began to call upon the name of the Lord. This marked the beginning of formal worship and prayer among mankind, establishing a tradition of seeking God.",
+    "relatedPersonIds": [
+      "Seth (Adam)",
+      "Adam (-)"
+    ]
+  },
+  {
+    "personId":         "Adam (-)",
+    "eventName":        "The Garments of Light",
+    "jasherReference":  "Jasher 7:24-25",
+    "description":      "According to Jasher, God made not only garments of animal skins for Adam and Eve, but garments that gave them special power and authority. These garments were passed down and gave power to the wearer. Nimrod eventually obtained them through Ham, which contributed to his power.",
+    "relatedPersonIds": [
+      "Eve (wife Adam)",
+      "Ham (Noah)",
+      "Nimrod (Cush)"
     ]
   },
   {
