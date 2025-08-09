@@ -101,6 +101,48 @@
     ]
   },
   {
+    "personId":         "Lamech (Methusael)",
+    "eventName":        "Lamech's Boastful Song",
+    "jasherReference":  "Jasher 2:26-30",
+    "description":      "Lamech of Cain's line killed a man and a young man, boasting to his wives Adah and Zillah that if Cain was avenged sevenfold, then Lamech would be avenged seventy-sevenfold. This showed the increasing violence in Cain's lineage.",
+    "relatedPersonIds": [
+      "Adah (wife Lamech)",
+      "Zillah (wife Lamech)",
+      "Cain (Adam)"
+    ]
+  },
+  {
+    "personId":         "Noah (Lamech)",
+    "eventName":        "Construction of the Ark",
+    "jasherReference":  "Jasher 5:34-36",
+    "description":      "Noah spent many years building the ark according to God's specifications. Jasher describes how people mocked him during construction, not believing that a flood would come. The ark was made of gopher wood and covered with pitch inside and out.",
+    "relatedPersonIds": [
+      "Shem (Noah)",
+      "Ham (Noah)",
+      "Japheth (Noah)"
+    ]
+  },
+  {
+    "personId":         "Noah (Lamech)",
+    "eventName":        "The Great Flood",
+    "jasherReference":  "Jasher 6:11-19",
+    "description":      "God brought the flood upon the earth, destroying all flesh except those in the ark. Jasher describes how the fountains of the great deep broke open and the windows of heaven opened, covering even the highest mountains. The flood lasted for 150 days.",
+    "relatedPersonIds": [
+      "Shem (Noah)",
+      "Ham (Noah)",
+      "Japheth (Noah)"
+    ]
+  },
+  {
+    "personId":         "Nimrod (Cush)",
+    "eventName":        "Building the Tower of Babel",
+    "jasherReference":  "Jasher 9:20-25",
+    "description":      "Nimrod led the people in building a great tower whose top would reach unto heaven. Their goal was to make a name for themselves and not be scattered abroad. God confounded their language and scattered them across the earth.",
+    "relatedPersonIds": [
+      "Cush (Ham)"
+    ]
+  },
+  {
     "personId":         "Adam (-)",
     "eventName":        "The Garments of Light",
     "jasherReference":  "Jasher 7:24-25",
