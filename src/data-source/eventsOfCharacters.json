@@ -143,6 +143,81 @@
     ]
   },
   {
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Birth and Early Recognition",
+    "jasherReference":  "Jasher 8:1-4",
+    "description":      "At Abraham's birth, a great star appeared in the east that swallowed four stars from the four corners of heaven. Nimrod's astrologers interpreted this as a sign that a child was born who would destroy kingdoms and inherit the earth.",
+    "relatedPersonIds": [
+      "Terah (Nahor)",
+      "Nimrod (Cush)"
+    ]
+  },
+  {
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Hidden in the Cave",
+    "jasherReference":  "Jasher 8:5-13",
+    "description":      "To protect Abraham from Nimrod's decree to kill all male children, Terah hid him in a cave for ten years. An angel of the Lord fed and sustained Abraham during this time, and he grew in wisdom and knowledge of God.",
+    "relatedPersonIds": [
+      "Terah (Nahor)",
+      "Nimrod (Cush)"
+    ]
+  },
+  {
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Recognition of the One True God",
+    "jasherReference":  "Jasher 11:15-20",
+    "description":      "At age three, Abraham began to recognize his Creator. He observed the sun, moon, and stars, initially thinking each was God, but realized none could be the true God since they all set and were subject to change. He concluded there must be one supreme God who rules over all.",
+    "relatedPersonIds": []
+  },
+  {
+    "personId":         "Terah (Nahor)",
+    "eventName":        "Terah's Idol Making Business",
+    "jasherReference":  "Jasher 11:21-25",
+    "description":      "Terah was a manufacturer and seller of idols. Abraham worked in his father's shop and would mock the idols, asking them why they didn't eat the food placed before them. This led to Abraham's growing understanding of the futility of idol worship.",
+    "relatedPersonIds": [
+      "Abraham (Terah)"
+    ]
+  },
+  {
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Abraham's Marriage to Sarah",
+    "jasherReference":  "Jasher 12:42-45",
+    "description":      "After being saved from Nimrod's furnace, Abraham married Sarah (Iscah), who was the daughter of his brother Haran. Jasher describes how she was exceptionally beautiful and righteous, and their marriage was blessed by God.",
+    "relatedPersonIds": [
+      "Sarah (wife Abraham)",
+      "Haran (Terah)"
+    ]
+  },
+  {
+    "personId":         "Abraham (Terah)",
+    "eventName":        "Journey to Canaan",
+    "jasherReference":  "Jasher 13:5-9",
+    "description":      "God commanded Abraham to leave his country and kindred. Abraham took Sarah, Lot, and all their possessions and departed from Haran to the land of Canaan. Jasher describes the divine guidance and protection during their journey.",
+    "relatedPersonIds": [
+      "Sarah (wife Abraham)",
+      "Lot (Haran)",
+      "Terah (Nahor)"
+    ]
+  },
+  {
+    "personId":         "Sarah (wife Abraham)",
+    "eventName":        "Sarah's Beauty Causes Trouble in Egypt",
+    "jasherReference":  "Jasher 15:1-10",
+    "description":      "When famine drove Abraham and Sarah to Egypt, Pharaoh took Sarah into his house because of her great beauty. God plagued Pharaoh and his household until he realized Sarah was Abraham's wife and sent them away with great riches.",
+    "relatedPersonIds": [
+      "Abraham (Terah)"
+    ]
+  },
+  {
+    "personId":         "Lot (Haran)",
+    "eventName":        "Lot's Choice of the Jordan Valley",
+    "jasherReference":  "Jasher 13:10-12",
+    "description":      "When conflict arose between Abraham and Lot's herdsmen, Abraham gave Lot the choice of land. Lot chose the well-watered Jordan valley near Sodom, not knowing the wickedness of its inhabitants. This choice would lead to his eventual capture and rescue.",
+    "relatedPersonIds": [
+      "Abraham (Terah)"
+    ]
+  },
+  {
     "personId":         "Adam (-)",
     "eventName":        "The Garments of Light",
     "jasherReference":  "Jasher 7:24-25",
@@ -247,7 +322,7 @@
     "description":      "Jasher emphasizes that Isaac, at 37 years old, was fully aware of God's command and willingly agreed to it. Along the way, Satan tried to stop them both by creating a large river, but they persevered in their faith.",
     "relatedPersonIds": [
       "Abraham (Terah)",
-      "Sarah (Abraham)"
+      "Sarah (wife Abraham)"
     ]
   },
   {

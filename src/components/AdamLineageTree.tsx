@@ -3,6 +3,7 @@ import { Edge, NodeMouseHandler, NodeTypes, ReactFlow, ReactFlowInstance } from 
 import '@xyflow/react/dist/style.css';
 import PersonNodeComponent, { PersonNode, PersonNodeData } from './PersonNodeComponent';
 import DetailsPanel from './DetailsPanel';
+import SearchComponent from './SearchComponent';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData, lineageData } from "../domain/LineageData";
 import { findDescendantEdges, findDescendants } from './flowHelpers';
@@ -256,6 +257,9 @@ const AdamLineageTree: React.FC = () => {
           proOptions={{hideAttribution: true}}
           onInit={onInit}
         />
+
+        {/* Search Component - positioned in top right of flow view */}
+        <SearchComponent onSelectPerson={handleChildSelect}/>
       </div>
 
       {/* Details Panel - Responsive */}
