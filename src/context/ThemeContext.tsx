@@ -10,6 +10,7 @@ export interface ThemeColors {
   primaryText: string;
   secondaryText: string;
   mutedText: string;
+  linkText: string;
 
   // Node colors
   nodeBackground: string;
@@ -42,6 +43,7 @@ const lightTheme: ThemeColors = {
   primaryText: '#111827',
   secondaryText: '#374151',
   mutedText: '#434751',
+  linkText: '#2563eb',
 
   nodeBackground: '#ffffff',
   nodeBorder: '#d1d5db',
@@ -70,6 +72,7 @@ const darkTheme: ThemeColors = {
   primaryText: '#f9fafb',
   secondaryText: '#b2b8c5',
   mutedText: '#ababac',
+  linkText: '#f5c60b',
 
   nodeBackground: '#374151',
   nodeBorder: '#6b7280',

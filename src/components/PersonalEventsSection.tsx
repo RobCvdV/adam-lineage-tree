@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { LineageData } from '../domain/LineageData';
 import ClickablePersonName from './ClickablePersonName';
+import JasherReferenceLink from './JasherReferenceLink';
 
 interface PersonalEvent {
   personId: string;
@@ -76,7 +77,7 @@ const PersonalEventsSection: React.FC<PersonalEventsSectionProps> = ({
               color: theme.mutedText,
               marginBottom: 4
             }}>
-              Reference: {event.jasherReference}
+              Reference: <JasherReferenceLink reference={event.jasherReference}/>
             </div>
             <div style={{
               fontSize: fontSize.description,

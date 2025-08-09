@@ -17,7 +17,7 @@ const ClickablePersonName: React.FC<ClickablePersonNameProps> = ({
 
   const person = useMemo<LineageData | undefined>(() => getPersonData(personId), [personId]);
   const defaultStyle: React.CSSProperties = {
-    color: theme.secondaryText,
+    color: theme.linkText,
     cursor: person ? 'pointer' : 'default',
     textDecoration: person ? 'underline' : 'none',
     transition: 'color 0.2s ease',
@@ -42,7 +42,7 @@ const ClickablePersonName: React.FC<ClickablePersonNameProps> = ({
         e.currentTarget.style.color = theme.primaryText;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = style.color || theme.secondaryText;
+        e.currentTarget.style.color = style.color || theme.linkText;
       }}
     >
       {person.name}
