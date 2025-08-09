@@ -5,18 +5,22 @@
     "birthYear":  0,
     "ageAtDeath": 930,
     "partners":   [
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "parents":    [],
     "children":   [
       "Cain (Adam)",
       "Abel (Adam)",
-      "Seth (Adam)"
+      "Seth (Adam)",
+      "Luluwa (Adam)",
+      "Aklemia (Adam)",
+      "Awan (Adam)",
+      "Azura (Adam)"
     ],
     "comment":    "The first man, created by God. Birth years in this file are Anno Mundi (AM), 'year of the world', calculated from Adam's creation."
   },
   {
-    "id":         "Eve (-)",
+    "id":         "Eve (wife Adam)",
     "name":       "Eve",
     "birthYear":  0,
     "ageAtDeath": null,
@@ -27,9 +31,39 @@
     "children":   [
       "Cain (Adam)",
       "Abel (Adam)",
-      "Seth (Adam)"
+      "Seth (Adam)",
+      "Luluwa (Adam)",
+      "Aklemia (Adam)",
+      "Awan (Adam)",
+      "Azura (Adam)"
     ],
     "comment":    "The first woman, created from Adam's rib. Mother of all living."
+  },
+  {
+    "id":         "Luluwa (Adam)",
+    "name":       "Luluwa",
+    "birthYear":  5,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Adam (-)",
+      "Eve (wife Adam)"
+    ],
+    "children":   [],
+    "comment":    "Daughter of Adam and Eve mentioned in the Book of Jubilees. Twin sister of Cain."
+  },
+  {
+    "id":         "Aklemia (Adam)",
+    "name":       "Aklemia",
+    "birthYear":  7,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Adam (-)",
+      "Eve (wife Adam)"
+    ],
+    "children":   [],
+    "comment":    "Daughter of Adam and Eve mentioned in the Book of Jubilees. Twin sister of Abel."
   },
   {
     "id":         "Cain (Adam)",
@@ -41,7 +75,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "children":   [
       "Enoch (Cain)"
@@ -58,7 +92,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "children":   [
       "Enoch (Cain)"
@@ -73,7 +107,7 @@
     "partners":   [],
     "parents":    [
       "Adam (-)",
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "children":   [],
     "comment":    "Second son. A shepherd whose offering was pleasing to God. Murdered by Cain, died childless at around age 130."
@@ -88,7 +122,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "children":   [
       "Enos (Seth)"
@@ -105,7 +139,7 @@
     ],
     "parents":    [
       "Adam (-)",
-      "Eve (-)"
+      "Eve (wife Adam)"
     ],
     "children":   [
       "Enos (Seth)"
@@ -175,8 +209,8 @@
     "birthYear":  200,
     "ageAtDeath": null,
     "partners":   [
-      "Adah (-)",
-      "Zillah (-)"
+      "Adah (wife Lamech)",
+      "Zillah (wife Lamech)"
     ],
     "parents":    [
       "Methusael (Mehujael)"
@@ -190,7 +224,7 @@
     "comment":    "Descendant of Cain. The first man to take two wives."
   },
   {
-    "id":         "Adah (-)",
+    "id":         "Adah (wife Lamech)",
     "name":       "Adah",
     "birthYear":  190,
     "ageAtDeath": null,
@@ -205,7 +239,7 @@
     "comment":    "First wife of Lamech (Cain's line)."
   },
   {
-    "id":         "Zillah (-)",
+    "id":         "Zillah (wife Lamech)",
     "name":       "Zillah",
     "birthYear":  195,
     "ageAtDeath": null,
@@ -227,7 +261,7 @@
     "partners":   [],
     "parents":    [
       "Lamech (Methusael)",
-      "Adah (-)"
+      "Adah (wife Lamech)"
     ],
     "children":   [],
     "comment":    "Son of Adah. Father of those who dwell in tents and have livestock."
@@ -240,7 +274,7 @@
     "partners":   [],
     "parents":    [
       "Lamech (Methusael)",
-      "Adah (-)"
+      "Adah (wife Lamech)"
     ],
     "children":   [],
     "comment":    "Son of Adah. Father of all those who play the harp and flute."
@@ -253,7 +287,7 @@
     "partners":   [],
     "parents":    [
       "Lamech (Methusael)",
-      "Zillah (-)"
+      "Zillah (wife Lamech)"
     ],
     "children":   [],
     "comment":    "Son of Zillah. Instructor of every craftsman in bronze and iron."
@@ -266,7 +300,7 @@
     "partners":   [],
     "parents":    [
       "Lamech (Methusael)",
-      "Zillah (-)"
+      "Zillah (wife Lamech)"
     ],
     "children":   [],
     "comment":    "Daughter of Zillah. Sister of Tubal-Cain."
@@ -277,7 +311,7 @@
     "birthYear":  235,
     "ageAtDeath": 905,
     "partners":   [
-      "Noam (-)"
+      "Noam (wife Enos)"
     ],
     "parents":    [
       "Seth (Adam)",
@@ -289,7 +323,7 @@
     "comment":    "Son of Seth. In his time men began to call on the name of the LORD."
   },
   {
-    "id":         "Noam (-)",
+    "id":         "Noam (wife Enos)",
     "name":       "Noam",
     "birthYear":  240,
     "ageAtDeath": null,
@@ -308,11 +342,11 @@
     "birthYear":  325,
     "ageAtDeath": 910,
     "partners":   [
-      "Mualaleth (-)"
+      "Mualaleth (wife Cainan)"
     ],
     "parents":    [
       "Enos (Seth)",
-      "Noam (-)"
+      "Noam (wife Enos)"
     ],
     "children":   [
       "Mahalalel (Cainan)"
@@ -320,7 +354,7 @@
     "comment":    "Son of Enos."
   },
   {
-    "id":         "Mualaleth (-)",
+    "id":         "Mualaleth (wife Cainan)",
     "name":       "Mualaleth",
     "birthYear":  330,
     "ageAtDeath": null,
@@ -339,11 +373,11 @@
     "birthYear":  395,
     "ageAtDeath": 895,
     "partners":   [
-      "Dinah (-)"
+      "Dinah (wife Mahalalel)"
     ],
     "parents":    [
       "Cainan (Enos)",
-      "Mualaleth (-)"
+      "Mualaleth (wife Cainan)"
     ],
     "children":   [
       "Jared (Mahalalel)"
@@ -351,7 +385,7 @@
     "comment":    "Son of Cainan."
   },
   {
-    "id":         "Dinah (-)",
+    "id":         "Dinah (wife Mahalalel)",
     "name":       "Dinah",
     "birthYear":  400,
     "ageAtDeath": null,
@@ -370,11 +404,11 @@
     "birthYear":  460,
     "ageAtDeath": 962,
     "partners":   [
-      "Baraka (-)"
+      "Baraka (wife Jared)"
     ],
     "parents":    [
       "Mahalalel (Cainan)",
-      "Dinah (-)"
+      "Dinah (wife Mahalalel)"
     ],
     "children":   [
       "Enoch (Jared)"
@@ -382,7 +416,7 @@
     "comment":    "Son of Mahalalel."
   },
   {
-    "id":         "Baraka (-)",
+    "id":         "Baraka (wife Jared)",
     "name":       "Baraka",
     "birthYear":  465,
     "ageAtDeath": null,
@@ -401,11 +435,11 @@
     "birthYear":  622,
     "ageAtDeath": 365,
     "partners":   [
-      "Edna (-)"
+      "Edna (wife Enoch)"
     ],
     "parents":    [
       "Jared (Mahalalel)",
-      "Baraka (-)"
+      "Baraka (wife Jared)"
     ],
     "children":   [
       "Methuselah (Enoch)"
@@ -413,7 +447,7 @@
     "comment":    "Walked with God and was taken by God without dying. Lived 365 years."
   },
   {
-    "id":         "Edna (-)",
+    "id":         "Edna (wife Enoch)",
     "name":       "Edna",
     "birthYear":  625,
     "ageAtDeath": null,
@@ -432,11 +466,11 @@
     "birthYear":  687,
     "ageAtDeath": 969,
     "partners":   [
-      "Edna (-)"
+      "Edna (Methuselah)"
     ],
     "parents":    [
       "Enoch (Jared)",
-      "Edna (-)"
+      "Edna (wife Enoch)"
     ],
     "children":   [
       "Lamech (Methuselah)"
@@ -444,7 +478,7 @@
     "comment":    "Oldest person mentioned in the Bible. Died in the year of the flood."
   },
   {
-    "id":         "Edna (-)",
+    "id":         "Edna (wife Methuselah)",
     "name":       "Edna",
     "birthYear":  690,
     "ageAtDeath": null,
@@ -463,11 +497,11 @@
     "birthYear":  874,
     "ageAtDeath": 777,
     "partners":   [
-      "Betenos (-)"
+      "Betenos (wife Lamech)"
     ],
     "parents":    [
       "Methuselah (Enoch)",
-      "Edna (-)"
+      "Edna (wife Methuselah)"
     ],
     "children":   [
       "Noah (Lamech)"
@@ -475,7 +509,7 @@
     "comment":    "Father of Noah."
   },
   {
-    "id":         "Betenos (-)",
+    "id":         "Betenos (wife Lamech)",
     "name":       "Betenos",
     "birthYear":  880,
     "ageAtDeath": null,
@@ -494,11 +528,11 @@
     "birthYear":  1056,
     "ageAtDeath": 950,
     "partners":   [
-      "Emzara (-)"
+      "Emzara (wife Noah)"
     ],
     "parents":    [
       "Lamech (Methuselah)",
-      "Betenos (-)"
+      "Betenos (wife Lamech)"
     ],
     "children":   [
       "Shem (Noah)",
@@ -508,7 +542,7 @@
     "comment":    "Built the ark and survived the flood with his family (around 1656 AM). Righteous man of his generation."
   },
   {
-    "id":         "Emzara (-)",
+    "id":         "Emzara (wife Noah)",
     "name":       "Emzara",
     "birthYear":  1060,
     "ageAtDeath": null,
@@ -529,11 +563,11 @@
     "birthYear":  1558,
     "ageAtDeath": 600,
     "partners":   [
-      "Sedeqetelebab (-)"
+      "Sedeqetelebab (wife Shem)"
     ],
     "parents":    [
       "Noah (Lamech)",
-      "Emzara (-)"
+      "Emzara (wife Noah)"
     ],
     "children":   [
       "Elam (Shem)",
@@ -545,7 +579,7 @@
     "comment":    "Ancestor of the Semitic peoples, including Abraham. Blessed by Noah."
   },
   {
-    "id":         "Sedeqetelebab (-)",
+    "id":         "Sedeqetelebab (wife Shem)",
     "name":       "Sedeqetelebab",
     "birthYear":  1560,
     "ageAtDeath": null,
@@ -568,11 +602,11 @@
     "birthYear":  1558,
     "ageAtDeath": null,
     "partners":   [
-      "Ne'elatama'uk (-)"
+      "Ne'elatama'uk (wife Ham)"
     ],
     "parents":    [
       "Noah (Lamech)",
-      "Emzara (-)"
+      "Emzara (wife Noah)"
     ],
     "children":   [
       "Cush (Ham)",
@@ -583,7 +617,7 @@
     "comment":    "Father of Canaan. Cursed by Noah for his disrespectful act."
   },
   {
-    "id":         "Ne'elatama'uk (-)",
+    "id":         "Ne'elatama'uk (wife Ham)",
     "name":       "Ne'elatama'uk",
     "birthYear":  1560,
     "ageAtDeath": null,
@@ -605,11 +639,11 @@
     "birthYear":  1556,
     "ageAtDeath": null,
     "partners":   [
-      "'Adataneses (-)"
+      "'Adataneses (wife Japheth)"
     ],
     "parents":    [
       "Noah (Lamech)",
-      "Emzara (-)"
+      "Emzara (wife Noah)"
     ],
     "children":   [
       "Gomer (Japheth)",
@@ -623,7 +657,7 @@
     "comment":    "Ancestor of many nations. Blessed by Noah to dwell in the tents of Shem."
   },
   {
-    "id":         "'Adataneses (-)",
+    "id":         "'Adataneses (wife Japheth)",
     "name":       "'Adataneses",
     "birthYear":  1558,
     "ageAtDeath": null,
@@ -652,7 +686,7 @@
     ],
     "parents":    [
       "Shem (Noah)",
-      "Sedeqetelebab (-)"
+      "Sedeqetelebab (wife Shem)"
     ],
     "children":   [
       "Shelah (Arphaxad)"
@@ -660,7 +694,7 @@
     "comment":    "Son of Shem, born two years after the flood. Ancestor of Abraham."
   },
   {
-    "id":         "Rasuya (-)",
+    "id":         "Rasuya (wife Arphaxad)",
     "name":       "Rasuya",
     "birthYear":  1660,
     "ageAtDeath": null,
@@ -679,11 +713,11 @@
     "birthYear":  1693,
     "ageAtDeath": 433,
     "partners":   [
-      "Mu'ak (-)"
+      "Mu'ak (wife Shelah)"
     ],
     "parents":    [
       "Arphaxad (Shem)",
-      "Rasuya (-)"
+      "Rasuya (wife Arphaxad)"
     ],
     "children":   [
       "Eber (Shelah)"
@@ -691,7 +725,7 @@
     "comment":    "Son of Arphaxad. Some manuscripts (Septuagint) mention a Cainan between Arphaxad and Shelah."
   },
   {
-    "id":         "Mu'ak (-)",
+    "id":         "Mu'ak (wife Shelah)",
     "name":       "Mu'ak",
     "birthYear":  1695,
     "ageAtDeath": null,
@@ -710,11 +744,11 @@
     "birthYear":  1723,
     "ageAtDeath": 464,
     "partners":   [
-      "Azurad (-)"
+      "Azurad (wife Eber)"
     ],
     "parents":    [
       "Shelah (Arphaxad)",
-      "Mu'ak (-)"
+      "Mu'ak (wife Shelah)"
     ],
     "children":   [
       "Peleg (Eber)",
@@ -723,7 +757,7 @@
     "comment":    "Son of Shelah. Possible namesake of the Hebrews."
   },
   {
-    "id":         "Azurad (-)",
+    "id":         "Azurad (wife Eber)",
     "name":       "Azurad",
     "birthYear":  1725,
     "ageAtDeath": null,
@@ -743,11 +777,11 @@
     "birthYear":  1757,
     "ageAtDeath": 239,
     "partners":   [
-      "Lomna (-)"
+      "Lomna (wife Peleg)"
     ],
     "parents":    [
       "Eber (Shelah)",
-      "Azurad (-)"
+      "Azurad (wife Eber)"
     ],
     "children":   [
       "Reu (Peleg)"
@@ -755,7 +789,7 @@
     "comment":    "Son of Eber. In his days the earth was divided (Tower of Babel)."
   },
   {
-    "id":         "Lomna (-)",
+    "id":         "Lomna (wife Peleg)",
     "name":       "Lomna",
     "birthYear":  1760,
     "ageAtDeath": null,
@@ -776,7 +810,7 @@
     "partners":   [],
     "parents":    [
       "Eber (Shelah)",
-      "Azurad (-)"
+      "Azurad (wife Eber)"
     ],
     "children":   [
       "Almodad (Joktan)",
@@ -801,11 +835,11 @@
     "birthYear":  1787,
     "ageAtDeath": 239,
     "partners":   [
-      "Ora (-)"
+      "Ora (wife Reu)"
     ],
     "parents":    [
       "Peleg (Eber)",
-      "Lomna (-)"
+      "Lomna (wife Peleg)"
     ],
     "children":   [
       "Serug (Reu)"
@@ -813,7 +847,7 @@
     "comment":    "Son of Peleg."
   },
   {
-    "id":         "Ora (-)",
+    "id":         "Ora (wife Reu)",
     "name":       "Ora",
     "birthYear":  1790,
     "ageAtDeath": null,
@@ -832,11 +866,11 @@
     "birthYear":  1819,
     "ageAtDeath": 230,
     "partners":   [
-      "Melka (-)"
+      "Melka (wife Serug)"
     ],
     "parents":    [
       "Reu (Peleg)",
-      "Ora (-)"
+      "Ora (wife Reu)"
     ],
     "children":   [
       "Nahor (Serug)"
@@ -844,7 +878,7 @@
     "comment":    "Son of Reu, father of Nahor."
   },
   {
-    "id":         "Melka (-)",
+    "id":         "Melka (wife Serug)",
     "name":       "Melka",
     "birthYear":  1822,
     "ageAtDeath": null,
@@ -863,11 +897,11 @@
     "birthYear":  1849,
     "ageAtDeath": 148,
     "partners":   [
-      "Ijaska (-)"
+      "Ijaska (wife Nahor)"
     ],
     "parents":    [
       "Serug (Reu)",
-      "Melka (-)"
+      "Melka (wife Serug)"
     ],
     "children":   [
       "Terah (Nahor)"
@@ -875,7 +909,7 @@
     "comment":    "Son of Serug, grandfather of Abraham."
   },
   {
-    "id":         "Ijaska (-)",
+    "id":         "Ijaska (wife Nahor)",
     "name":       "Ijaska",
     "birthYear":  1852,
     "ageAtDeath": null,
@@ -894,11 +928,11 @@
     "birthYear":  1878,
     "ageAtDeath": 205,
     "partners":   [
-      "Edna (-)"
+      "Edna (wife Terah)"
     ],
     "parents":    [
       "Nahor (Serug)",
-      "Ijaska (-)"
+      "Ijaska (wife Nahor)"
     ],
     "children":   [
       "Abraham (Terah)",
@@ -908,7 +942,7 @@
     "comment":    "Father of Abraham, Nahor and Haran. Left Ur of the Chaldeans."
   },
   {
-    "id":         "Edna (-)",
+    "id":         "Edna (wife Terah)",
     "name":       "Edna",
     "birthYear":  1880,
     "ageAtDeath": null,
@@ -930,12 +964,12 @@
     "ageAtDeath": 175,
     "partners":   [
       "Sarah (Terah)",
-      "Hagar (-)",
-      "Keturah (-)"
+      "Hagar (wife Abraham)",
+      "Keturah (wife Abraham)"
     ],
     "parents":    [
       "Terah (Nahor)",
-      "Edna (-)"
+      "Edna (wife Terah)"
     ],
     "children":   [
       "Ishmael (Abraham)",
@@ -959,7 +993,7 @@
     ],
     "parents":    [
       "Terah (Nahor)",
-      "Edna (-)"
+      "Edna (wife Terah)"
     ],
     "children":   [
       "Isaac (Abraham)"
@@ -967,7 +1001,7 @@
     "comment":    "Originally Sarai. Wife and half-sister of Abraham, mother of Isaac."
   },
   {
-    "id":         "Hagar (-)",
+    "id":         "Hagar (wife Abraham)",
     "name":       "Hagar",
     "birthYear":  1990,
     "ageAtDeath": null,
@@ -981,7 +1015,7 @@
     "comment":    "Egyptian maidservant of Sarah, mother of Ishmael."
   },
   {
-    "id":         "Keturah (-)",
+    "id":         "Keturah (wife Abraham)",
     "name":       "Keturah",
     "birthYear":  2080,
     "ageAtDeath": null,
@@ -1009,7 +1043,7 @@
     ],
     "parents":    [
       "Terah (Nahor)",
-      "Edna (-)"
+      "Edna (wife Terah)"
     ],
     "children":   [
       "Uz (Nahor)",
@@ -1029,11 +1063,11 @@
     "birthYear":  2000,
     "ageAtDeath": null,
     "partners":   [
-      "Costara (-)"
+      "Costara (wife Haran)"
     ],
     "parents":    [
       "Terah (Nahor)",
-      "Edna (-)"
+      "Edna (wife Terah)"
     ],
     "children":   [
       "Lot (Haran)",
@@ -1043,7 +1077,7 @@
     "comment":    "Brother of Abraham, died before Terah."
   },
   {
-    "id":         "Costara (-)",
+    "id":         "Costara (wife Haran)",
     "name":       "Costara",
     "birthYear":  2002,
     "ageAtDeath": null,
@@ -1068,7 +1102,7 @@
     ],
     "parents":    [
       "Haran (Terah)",
-      "Costara (-)"
+      "Costara (wife Haran)"
     ],
     "children":   [
       "Uz (Nahor)",
@@ -1138,7 +1172,7 @@
     "partners":   [],
     "parents":    [
       "Abraham (Terah)",
-      "Hagar (-)"
+      "Hagar (wife Abraham)"
     ],
     "children":   [
       "Nebaioth (Ishmael)",
@@ -1180,9 +1214,9 @@
     "birthYear":  2168,
     "ageAtDeath": 147,
     "partners":   [
-      "Adah (-)",
-      "Oholibamah (-)",
-      "Basemath (-)"
+      "Adah (wife Esau)",
+      "Oholibamah (wife Esau)",
+      "Basemath (wife Esau)"
     ],
     "parents":    [
       "Isaac (Abraham)",
@@ -1205,8 +1239,8 @@
     "partners":   [
       "Leah (Laban)",
       "Rachel (Laban)",
-      "Bilhah (-)",
-      "Zilpah (-)"
+      "Bilhah (wife Jacob)",
+      "Zilpah (wife Jacob)"
     ],
     "parents":    [
       "Isaac (Abraham)",
@@ -1269,7 +1303,7 @@
     "comment":    "Beloved wife of Jacob, mother of Joseph and Benjamin."
   },
   {
-    "id":         "Bilhah (-)",
+    "id":         "Bilhah (wife Jacob)",
     "name":       "Bilhah",
     "birthYear":  2150,
     "ageAtDeath": null,
@@ -1284,7 +1318,7 @@
     "comment":    "Servant of Rachel, concubine of Jacob."
   },
   {
-    "id":         "Zilpah (-)",
+    "id":         "Zilpah (wife Jacob)",
     "name":       "Zilpah",
     "birthYear":  2152,
     "ageAtDeath": null,
@@ -1304,7 +1338,7 @@
     "birthYear":  2259,
     "ageAtDeath": 110,
     "partners":   [
-      "Asenath (-)"
+      "Asenath (wife Joseph)"
     ],
     "parents":    [
       "Jacob (Isaac)",
@@ -1317,7 +1351,7 @@
     "comment":    "Favored son of Jacob, vizier of Egypt."
   },
   {
-    "id":         "Asenath (-)",
+    "id":         "Asenath (wife Joseph)",
     "name":       "Asenath",
     "birthYear":  2260,
     "ageAtDeath": null,
@@ -1330,5 +1364,752 @@
       "Ephraim (Joseph)"
     ],
     "comment":    "Egyptian wife of Joseph, daughter of Potiphera."
+  },
+  {
+    "id":         "Elam (Shem)",
+    "name":       "Elam",
+    "birthYear":  1600,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Shem (Noah)",
+      "Sedeqetelebab (wife Shem)"
+    ],
+    "children":   [],
+    "comment":    "Son of Shem. Ancestor of the Elamites."
+  },
+  {
+    "id":         "Asshur (Shem)",
+    "name":       "Asshur",
+    "birthYear":  1602,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Shem (Noah)",
+      "Sedeqetelebab (wife Shem)"
+    ],
+    "children":   [],
+    "comment":    "Son of Shem. Ancestor of the Assyrians."
+  },
+  {
+    "id":         "Lud (Shem)",
+    "name":       "Lud",
+    "birthYear":  1606,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Shem (Noah)",
+      "Sedeqetelebab (wife Shem)"
+    ],
+    "children":   [],
+    "comment":    "Son of Shem. Ancestor of the Lydians."
+  },
+  {
+    "id":         "Aram (Shem)",
+    "name":       "Aram",
+    "birthYear":  1608,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Shem (Noah)",
+      "Sedeqetelebab (wife Shem)"
+    ],
+    "children":   [
+      "Uz (Aram)",
+      "Hul (Aram)",
+      "Gether (Aram)",
+      "Meshech (Aram)"
+    ],
+    "comment":    "Son of Shem. Ancestor of the Arameans."
+  },
+  {
+    "id":         "Cush (Ham)",
+    "name":       "Cush",
+    "birthYear":  1600,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Ham (Noah)",
+      "Ne'elatama'uk (wife Ham)"
+    ],
+    "children":   [
+      "Seba (Cush)",
+      "Havilah (Cush)",
+      "Sabtah (Cush)",
+      "Raamah (Cush)",
+      "Sabteca (Cush)",
+      "Nimrod (Cush)"
+    ],
+    "comment":    "Son of Ham. Father of Nimrod and ancestor of the Cushites."
+  },
+  {
+    "id":         "Nimrod (Cush)",
+    "name":       "Nimrod",
+    "birthYear":  1650,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Cush (Ham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Cush. Mighty hunter before the LORD, builder of Babel and other cities."
+  },
+  {
+    "id":         "Mizraim (Ham)",
+    "name":       "Mizraim",
+    "birthYear":  1602,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Ham (Noah)",
+      "Ne'elatama'uk (wife Ham)"
+    ],
+    "children":   [
+      "Ludim (Mizraim)",
+      "Anamim (Mizraim)",
+      "Lehabim (Mizraim)",
+      "Naphtuhim (Mizraim)",
+      "Pathrusim (Mizraim)",
+      "Casluhim (Mizraim)",
+      "Caphtorim (Mizraim)"
+    ],
+    "comment":    "Son of Ham. Ancestor of the Egyptians."
+  },
+  {
+    "id":         "Put (Ham)",
+    "name":       "Put",
+    "birthYear":  1604,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Ham (Noah)",
+      "Ne'elatama'uk (wife Ham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Ham. Ancestor of the Libyans."
+  },
+  {
+    "id":         "Canaan (Ham)",
+    "name":       "Canaan",
+    "birthYear":  1606,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Ham (Noah)",
+      "Ne'elatama'uk (wife Ham)"
+    ],
+    "children":   [
+      "Sidon (Canaan)",
+      "Heth (Canaan)",
+      "Jebusite (Canaan)",
+      "Amorite (Canaan)",
+      "Girgashite (Canaan)",
+      "Hivite (Canaan)",
+      "Arkite (Canaan)",
+      "Sinite (Canaan)",
+      "Arvadite (Canaan)",
+      "Zemarite (Canaan)",
+      "Hamathite (Canaan)"
+    ],
+    "comment":    "Son of Ham. Cursed by Noah. Ancestor of the Canaanites."
+  },
+  {
+    "id":         "Gomer (Japheth)",
+    "name":       "Gomer",
+    "birthYear":  1600,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [
+      "Ashkenaz (Gomer)",
+      "Riphath (Gomer)",
+      "Togarmah (Gomer)"
+    ],
+    "comment":    "Son of Japheth. Ancestor of various European peoples."
+  },
+  {
+    "id":         "Magog (Japheth)",
+    "name":       "Magog",
+    "birthYear":  1602,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [],
+    "comment":    "Son of Japheth. Associated with northern peoples in prophecy."
+  },
+  {
+    "id":         "Madai (Japheth)",
+    "name":       "Madai",
+    "birthYear":  1604,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [],
+    "comment":    "Son of Japheth. Ancestor of the Medes."
+  },
+  {
+    "id":         "Javan (Japheth)",
+    "name":       "Javan",
+    "birthYear":  1606,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [
+      "Elishah (Javan)",
+      "Tarshish (Javan)",
+      "Kittim (Javan)",
+      "Dodanim (Javan)"
+    ],
+    "comment":    "Son of Japheth. Ancestor of the Greeks and other Mediterranean peoples."
+  },
+  {
+    "id":         "Tubal (Japheth)",
+    "name":       "Tubal",
+    "birthYear":  1608,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [],
+    "comment":    "Son of Japheth. Not to be confused with Tubal-Cain."
+  },
+  {
+    "id":         "Meshech (Japheth)",
+    "name":       "Meshech",
+    "birthYear":  1610,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [],
+    "comment":    "Son of Japheth. Associated with northern peoples."
+  },
+  {
+    "id":         "Tiras (Japheth)",
+    "name":       "Tiras",
+    "birthYear":  1612,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Japheth (Noah)",
+      "'Adataneses (wife Japheth)"
+    ],
+    "children":   [],
+    "comment":    "Son of Japheth. Possibly ancestor of the Thracians."
+  },
+  {
+    "id":         "Almodad (Joktan)",
+    "name":       "Almodad",
+    "birthYear":  1790,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Sheleph (Joktan)",
+    "name":       "Sheleph",
+    "birthYear":  1792,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Hazarmaveth (Joktan)",
+    "name":       "Hazarmaveth",
+    "birthYear":  1794,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Jerah (Joktan)",
+    "name":       "Jerah",
+    "birthYear":  1796,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Hadoram (Joktan)",
+    "name":       "Hadoram",
+    "birthYear":  1798,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Uzal (Joktan)",
+    "name":       "Uzal",
+    "birthYear":  1800,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Diklah (Joktan)",
+    "name":       "Diklah",
+    "birthYear":  1802,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Obal (Joktan)",
+    "name":       "Obal",
+    "birthYear":  1804,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Abimael (Joktan)",
+    "name":       "Abimael",
+    "birthYear":  1806,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Sheba (Joktan)",
+    "name":       "Sheba",
+    "birthYear":  1808,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Ophir (Joktan)",
+    "name":       "Ophir",
+    "birthYear":  1810,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe famous for gold."
+  },
+  {
+    "id":         "Havilah (Joktan)",
+    "name":       "Havilah",
+    "birthYear":  1812,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Jobab (Joktan)",
+    "name":       "Jobab",
+    "birthYear":  1814,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joktan (Eber)"
+    ],
+    "children":   [],
+    "comment":    "Son of Joktan, ancestor of Arabian tribe."
+  },
+  {
+    "id":         "Zimran (Abraham)",
+    "name":       "Zimran",
+    "birthYear":  2140,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Abraham and Keturah."
+  },
+  {
+    "id":         "Jokshan (Abraham)",
+    "name":       "Jokshan",
+    "birthYear":  2142,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [
+      "Sheba (Jokshan)",
+      "Dedan (Jokshan)"
+    ],
+    "comment":    "Son of Abraham and Keturah."
+  },
+  {
+    "id":         "Medan (Abraham)",
+    "name":       "Medan",
+    "birthYear":  2144,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Abraham and Keturah."
+  },
+  {
+    "id":         "Midian (Abraham)",
+    "name":       "Midian",
+    "birthYear":  2146,
+    "ageAtDeath": null,
+    "partners":   [
+      "Ephah (wife Midian)"
+    ],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [
+      "Ephah (Midian)",
+      "Epher (Midian)",
+      "Hanoch (Midian)",
+      "Abida (Midian)",
+      "Eldaah (Midian)"
+    ],
+    "comment":    "Son of Abraham and Keturah. Ancestor of the Midianites."
+  },
+  {
+    "id":         "Ishbak (Abraham)",
+    "name":       "Ishbak",
+    "birthYear":  2148,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Abraham and Keturah."
+  },
+  {
+    "id":         "Shuah (Abraham)",
+    "name":       "Shuah",
+    "birthYear":  2150,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Abraham (Terah)",
+      "Keturah (wife Abraham)"
+    ],
+    "children":   [],
+    "comment":    "Son of Abraham and Keturah."
+  },
+  {
+    "id":         "Reuben (Jacob)",
+    "name":       "Reuben",
+    "birthYear":  2245,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Hanoch (Reuben)",
+      "Pallu (Reuben)",
+      "Hezron (Reuben)",
+      "Carmi (Reuben)"
+    ],
+    "comment":    "Firstborn son of Jacob and Leah. Lost his birthright."
+  },
+  {
+    "id":         "Simeon (Jacob)",
+    "name":       "Simeon",
+    "birthYear":  2246,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Jemuel (Simeon)",
+      "Jamin (Simeon)",
+      "Ohad (Simeon)",
+      "Jachin (Simeon)",
+      "Zohar (Simeon)",
+      "Shaul (Simeon)"
+    ],
+    "comment":    "Second son of Jacob and Leah."
+  },
+  {
+    "id":         "Levi (Jacob)",
+    "name":       "Levi",
+    "birthYear":  2247,
+    "ageAtDeath": 137,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Gershon (Levi)",
+      "Kohath (Levi)",
+      "Merari (Levi)"
+    ],
+    "comment":    "Third son of Jacob and Leah. Ancestor of the Levites and priests."
+  },
+  {
+    "id":         "Judah (Jacob)",
+    "name":       "Judah",
+    "birthYear":  2248,
+    "ageAtDeath": null,
+    "partners":   [
+      "Shua (wife Juda)",
+      "Tamar (wife Judah)"
+    ],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Er (Judah)",
+      "Onan (Judah)",
+      "Shelah (Judah)",
+      "Perez (Judah)",
+      "Zerah (Judah)"
+    ],
+    "comment":    "Fourth son of Jacob and Leah. Ancestor of the royal line including David."
+  },
+  {
+    "id":         "Dan (Jacob)",
+    "name":       "Dan",
+    "birthYear":  2249,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Bilhah (wife Jacob)"
+    ],
+    "children":   [
+      "Hushim (Dan)"
+    ],
+    "comment":    "Son of Jacob and Bilhah."
+  },
+  {
+    "id":         "Naphtali (Jacob)",
+    "name":       "Naphtali",
+    "birthYear":  2250,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Bilhah (wife Jacob)"
+    ],
+    "children":   [
+      "Jahzeel (Naphtali)",
+      "Guni (Naphtali)",
+      "Jezer (Naphtali)",
+      "Shillem (Naphtali)"
+    ],
+    "comment":    "Son of Jacob and Bilhah."
+  },
+  {
+    "id":         "Gad (Jacob)",
+    "name":       "Gad",
+    "birthYear":  2251,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Zilpah (wife Jacob)"
+    ],
+    "children":   [
+      "Ziphion (Gad)",
+      "Haggi (Gad)",
+      "Shuni (Gad)",
+      "Ezbon (Gad)",
+      "Eri (Gad)",
+      "Arodi (Gad)",
+      "Areli (Gad)"
+    ],
+    "comment":    "Son of Jacob and Zilpah."
+  },
+  {
+    "id":         "Asher (Jacob)",
+    "name":       "Asher",
+    "birthYear":  2252,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Zilpah (wife Jacob)"
+    ],
+    "children":   [
+      "Jimnah (Asher)",
+      "Ishuah (Asher)",
+      "Isui (Asher)",
+      "Beriah (Asher)",
+      "Serah (Asher)"
+    ],
+    "comment":    "Son of Jacob and Zilpah."
+  },
+  {
+    "id":         "Issachar (Jacob)",
+    "name":       "Issachar",
+    "birthYear":  2253,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Tola (Issachar)",
+      "Phuvah (Issachar)",
+      "Job (Issachar)",
+      "Shimron (Issachar)"
+    ],
+    "comment":    "Fifth son of Jacob and Leah."
+  },
+  {
+    "id":         "Zebulun (Jacob)",
+    "name":       "Zebulun",
+    "birthYear":  2254,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [
+      "Sered (Zebulun)",
+      "Elon (Zebulun)",
+      "Jahleel (Zebulun)"
+    ],
+    "comment":    "Sixth son of Jacob and Leah."
+  },
+  {
+    "id":         "Dinah (Jacob)",
+    "name":       "Dinah",
+    "birthYear":  2255,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Leah (Laban)"
+    ],
+    "children":   [],
+    "comment":    "Daughter of Jacob and Leah. Violated by Shechem."
+  },
+  {
+    "id":         "Benjamin (Jacob)",
+    "name":       "Benjamin",
+    "birthYear":  2266,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Jacob (Isaac)",
+      "Rachel (Laban)"
+    ],
+    "children":   [
+      "Bela (Benjamin)",
+      "Becher (Benjamin)",
+      "Ashbel (Benjamin)",
+      "Gera (Benjamin)",
+      "Naaman (Benjamin)",
+      "Ehi (Benjamin)",
+      "Rosh (Benjamin)",
+      "Muppim (Benjamin)",
+      "Huppim (Benjamin)",
+      "Ard (Benjamin)"
+    ],
+    "comment":    "Youngest son of Jacob and Rachel."
+  },
+  {
+    "id":         "Manasseh (Joseph)",
+    "name":       "Manasseh",
+    "birthYear":  2290,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joseph (Jacob)",
+      "Asenath (wife Joseph)"
+    ],
+    "children":   [
+      "Machir (Manasseh)"
+    ],
+    "comment":    "Firstborn son of Joseph, adopted by Jacob."
+  },
+  {
+    "id":         "Ephraim (Joseph)",
+    "name":       "Ephraim",
+    "birthYear":  2292,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Joseph (Jacob)",
+      "Asenath (wife Joseph)"
+    ],
+    "children":   [
+      "Shuthelah (Ephraim)",
+      "Becher (Ephraim)",
+      "Tahan (Ephraim)"
+    ],
+    "comment":    "Second son of Joseph, adopted by Jacob and given precedence over Manasseh."
   }
 ]

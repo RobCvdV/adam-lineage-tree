@@ -1,11 +1,49 @@
 [
   {
     "personId":         "Adam (-)",
+    "eventName":        "Creation and Placement in Eden",
+    "jasherReference":  "Jasher 1:1-3",
+    "description":      "God formed Adam from the dust of the earth and breathed into his nostrils the breath of life. Adam was placed in the Garden of Eden to dress it and keep it, with dominion over all living creatures.",
+    "relatedPersonIds": [
+      "Eve (wife Adam)"
+    ]
+  },
+  {
+    "personId":         "Eve (wife Adam)",
+    "eventName":        "Creation from Adam's Rib",
+    "jasherReference":  "Jasher 1:4-5",
+    "description":      "God caused a deep sleep to fall upon Adam and took one of his ribs to form woman. Adam called her Eve because she was the mother of all living. They were both naked and not ashamed.",
+    "relatedPersonIds": [
+      "Adam (-)"
+    ]
+  },
+  {
+    "personId":         "Adam (-)",
+    "eventName":        "The Fall and Expulsion from Eden",
+    "jasherReference":  "Jasher 1:6-8",
+    "description":      "After eating from the tree of knowledge of good and evil, Adam and Eve's eyes were opened and they knew they were naked. God expelled them from the Garden of Eden, lest they eat from the tree of life and live forever.",
+    "relatedPersonIds": [
+      "Eve (wife Adam)"
+    ]
+  },
+  {
+    "personId":         "Cain (Adam)",
+    "eventName":        "Birth and Early Life as a Tiller",
+    "jasherReference":  "Jasher 1:9-11",
+    "description":      "Cain was the firstborn of Adam and Eve. He became a tiller of the ground, while his brother Abel became a keeper of sheep. Cain brought an offering of the fruit of the ground to the Lord.",
+    "relatedPersonIds": [
+      "Abel (Adam)",
+      "Adam (-)",
+      "Eve (wife Adam)"
+    ]
+  },
+  {
+    "personId":         "Adam (-)",
     "eventName":        "The Garments of Light",
     "jasherReference":  "Jasher 7:24-25",
     "description":      "According to Jasher, God made not only garments of animal skins for Adam and Eve, but garments that gave them special power and authority. These garments were passed down and gave power to the wearer. Nimrod eventually obtained them through Ham, which contributed to his power.",
     "relatedPersonIds": [
-      "Eve (-)",
+      "Eve (wife Adam)",
       "Ham (Noah)",
       "Nimrod (Cush)"
     ]
@@ -16,7 +54,7 @@
     "jasherReference":  "Jasher 1:26",
     "description":      "After Abel's murder, Adam and Eve mourned intensely. According to Jasher, Adam did not know his wife for 130 years, until the birth of Seth, who would continue the line of humanity.",
     "relatedPersonIds": [
-      "Eve (-)",
+      "Eve (wife Adam)",
       "Abel (Adam)",
       "Cain (Adam)",
       "Seth (Adam)"
@@ -226,3 +264,4 @@
     ]
   }
 ]
+
