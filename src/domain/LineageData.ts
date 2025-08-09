@@ -15,6 +15,8 @@ export interface LineageData {
   parents: string[];
   children: string[];
   comment?: string;
+
+  [key: string]: any; // Allow additional properties
 }
 
 export function getPersonData(personId: string): LineageData | undefined {

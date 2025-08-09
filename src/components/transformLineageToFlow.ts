@@ -28,32 +28,61 @@ export function transformLineageToFlow(data: LineageData[], isMobile: boolean = 
   const sizes = isMobile ? NODE_SIZES.mobile : NODE_SIZES.desktop;
   const NODE_WIDTH = sizes.width;
   const NODE_HEIGHT = sizes.height;
-  const HORIZONTAL_SPACING = sizes.spacing.horizontal - sizes.width; // spacing between nodes
+  const HORIZONTAL_SPACING = sizes.spacing.horizontal; // Use full spacing, don't subtract width
   const VERTICAL_SPACING = sizes.spacing.vertical;
-  const PARTNER_SPACING = 20; // Closer spacing for partners
+  const PARTNER_SPACING = 20; // Increased spacing for partners
+  const MIN_NODE_MARGIN = 20; // Minimum margin between any two nodes
 
-  // Track positioned people and occupied positions
+  // Track positioned people and occupied positions with actual coordinates
   const positionedPeople = new Map<string, PositionedPerson>();
-  const occupiedPositions = new Set<string>();
+  const occupiedRectangles: Array<{ x: number, y: number, width: number, height: number }> = [];
 
-  // Helper function to check if position is available
-  function isPositionAvailable(x: number, y: number): boolean {
-    const gridKey = `${Math.floor(x / sizes.spacing.horizontal)},${Math.floor(y / VERTICAL_SPACING)}`;
-    return !occupiedPositions.has(gridKey);
+  // Helper function to check if position overlaps with existing nodes
+  function isPositionAvailable(x: number, y: number, width: number = NODE_WIDTH, height: number = NODE_HEIGHT): boolean {
+    const newRect = {
+      x: x - MIN_NODE_MARGIN,
+      y: y - MIN_NODE_MARGIN,
+      width: width + (MIN_NODE_MARGIN * 2),
+      height: height + (MIN_NODE_MARGIN * 2)
+    };
+
+    return !occupiedRectangles.some(existingRect => {
+      return !(newRect.x >= existingRect.x + existingRect.width ||
+        newRect.x + newRect.width <= existingRect.x ||
+        newRect.y >= existingRect.y + existingRect.height ||
+        newRect.y + newRect.height <= existingRect.y);
+    });
   }
 
   // Helper function to mark position as occupied
-  function occupyPosition(x: number, y: number): void {
-    const gridKey = `${Math.floor(x / sizes.spacing.horizontal)},${Math.floor(y / VERTICAL_SPACING)}`;
-    occupiedPositions.add(gridKey);
+  function occupyPosition(x: number, y: number, width: number = NODE_WIDTH, height: number = NODE_HEIGHT): void {
+    occupiedRectangles.push({
+      x: x - MIN_NODE_MARGIN,
+      y: y - MIN_NODE_MARGIN,
+      width: width + (MIN_NODE_MARGIN * 2),
+      height: height + (MIN_NODE_MARGIN * 2)
+    });
   }
 
   // Helper function to find next available position moving right
-  function findNextAvailablePosition(startX: number, y: number): { x: number; y: number } {
+  function findNextAvailablePosition(startX: number, y: number, width: number = NODE_WIDTH): {
+    x: number;
+    y: number
+  } {
     let x = startX;
-    while (!isPositionAvailable(x, y)) {
-      x += sizes.spacing.horizontal;
+    const maxAttempts = 50; // Prevent infinite loops
+    let attempts = 0;
+
+    while (!isPositionAvailable(x, y, width) && attempts < maxAttempts) {
+      x += HORIZONTAL_SPACING;
+      attempts++;
     }
+
+    // If we can't find a position horizontally, try moving down
+    if (attempts >= maxAttempts) {
+      return findNextAvailablePosition(0, y + VERTICAL_SPACING, width);
+    }
+
     return {x, y};
   }
 
@@ -227,7 +256,7 @@ export function transformLineageToFlow(data: LineageData[], isMobile: boolean = 
   });
 
   // Create nodes from positioned people
-  positionedPeople.forEach((positionedPerson, personId) => {
+  positionedPeople.forEach((positionedPerson) => {
     const person = positionedPerson.person;
 
     // Find parent data (first parent for backward compatibility)
