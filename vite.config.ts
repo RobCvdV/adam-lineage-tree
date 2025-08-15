@@ -6,6 +6,8 @@ export default defineConfig({
   base: '/adam-lineage-tree/',
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true
   },
   server: {
     open: true,
