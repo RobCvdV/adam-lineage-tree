@@ -1,29 +1,29 @@
 {
   "name":             "Adam Lineage Tree",
   "short_name":       "Adam Lineage",
-  "description":      "Interactive genealogical tree exploring the lineage from Adam through biblical history",
-  "start_url":        "/",
+  "description":      "Explore the genealogy from Adam through an interactive family tree",
+  "start_url":        "/adam-lineage-tree/",
   "display":          "standalone",
   "background_color": "#ffffff",
   "theme_color":      "#3b82f6",
   "orientation":      "any",
-  "categories":       [
-    "education",
-    "reference"
-  ],
   "icons":            [
     {
-      "src":     "/icon-192.png",
+      "src":     "/adam-lineage-tree/icon-192.png",
       "sizes":   "192x192",
       "type":    "image/png",
       "purpose": "any maskable"
     },
     {
-      "src":     "/icon-512.png",
+      "src":     "/adam-lineage-tree/icon-512.png",
       "sizes":   "512x512",
       "type":    "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories":       [
+    "education",
+    "reference"
+  ],
+  "lang":             "en"
 }
-
