@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adam Lineage Tree</title>
-    <script type="module" crossorigin src="/adam-lineage-tree/assets/index-206f2cbd.js"></script>
-    <link rel="stylesheet" href="/adam-lineage-tree/assets/index-eb91de67.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Adam Lineage Tree</title>
+  
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/adam-lineage-tree/manifest.json">
+  
+  <!-- Meta tags for PWA -->
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="description"
+        content="Interactive genealogical tree exploring the lineage from Adam through biblical history">
+  
+  <!-- iOS specific meta tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Adam Lineage">
+  
+  <!-- Icons -->
+  <link rel="icon" href="/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <script type="module" crossorigin src="/adam-lineage-tree/assets/index-8530b828.js"></script>
+  <link rel="stylesheet" href="/adam-lineage-tree/assets/index-eb91de67.css">
+</head>
+<body>
+<div id="root"></div>
 
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('SW registered: ', registration);
+        })
+        .catch((registrationError) => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+</script>
+</body>
+</html>
