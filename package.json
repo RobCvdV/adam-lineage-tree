@@ -3,7 +3,7 @@
   "version":         "1.0.0",
   "description":     "",
   "main":            "dist/index.js",
-  "homepage":        "https://robcvdv.github.io/adam-lineage-tree",
+  "homepage":        "https://adam-lineage-tree.akiar.n",
   "scripts":         {
     "dev":       "vite --host",
     "build":     "vite build",
