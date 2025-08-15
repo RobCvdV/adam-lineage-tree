@@ -1,10 +1,10 @@
 const CACHE_NAME = 'adam-lineage-v1';
 const urlsToCache = [
-  '/adam-lineage-tree/',
-  '/adam-lineage-tree/index.html',
-  '/adam-lineage-tree/manifest.json',
-  '/adam-lineage-tree/assets/icon-192x192.png',
-  '/adam-lineage-tree/assets/icon-512x512.png',
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/assets/icon-192x192.png',
+  '/assets/icon-512x512.png',
 ];
 
 self.addEventListener('install', (event) => {

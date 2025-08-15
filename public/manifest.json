@@ -2,7 +2,7 @@
   "name":             "Adam Lineage Tree",
   "short_name":       "Adam Lineage",
   "description":      "Explore the genealogy from Adam through an interactive family tree",
-  "start_url":        "/adam-lineage-tree/",
+  "start_url":        "adam-lineage-tree.akiar.nl",
   "display":          "standalone",
   "background_color": "#ffffff",
   "theme_color":      "#3b82f6",
