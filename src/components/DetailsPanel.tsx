@@ -51,52 +51,54 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
         {personTitle || nodeData.name}
       </div>
 
-      <DetailList
-        items={detailItems}
-      />
+      <div style={styles.content}>
+        <DetailList
+          items={detailItems}
+        />
 
-      <PeopleSection
-        titleSingle="Partner"
-        titlePlural="Partners"
-        peopleData={partnersData}
-        onNodeSelect={onNodeSelect}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
-      />
+        <PeopleSection
+          titleSingle="Partner"
+          titlePlural="Partners"
+          peopleData={partnersData}
+          onNodeSelect={onNodeSelect}
+          isMobile={isMobile}
+          sectionSpacing={styles.sectionSpacing}
+        />
 
-      <PeopleSection
-        titleSingle="Parent"
-        titlePlural="Parents"
-        peopleData={parentsData}
-        onNodeSelect={onNodeSelect}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
-      />
+        <PeopleSection
+          titleSingle="Parent"
+          titlePlural="Parents"
+          peopleData={parentsData}
+          onNodeSelect={onNodeSelect}
+          isMobile={isMobile}
+          sectionSpacing={styles.sectionSpacing}
+        />
 
-      <PeopleSection
-        titleSingle="Child"
-        titlePlural="Children"
-        peopleData={children}
-        onNodeSelect={onNodeSelect}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
-      />
+        <PeopleSection
+          titleSingle="Child"
+          titlePlural="Children"
+          peopleData={children}
+          onNodeSelect={onNodeSelect}
+          isMobile={isMobile}
+          sectionSpacing={styles.sectionSpacing}
+        />
 
-      <PersonalEventsSection
-        personalEvents={personalEvents}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
-        onNodeSelect={onNodeSelect}
-        highlightedEventId={highlightedEvent?.type === 'personal-event' ? highlightedEvent.eventId : undefined}
-      />
+        <PersonalEventsSection
+          personalEvents={personalEvents}
+          isMobile={isMobile}
+          sectionSpacing={styles.sectionSpacing}
+          onNodeSelect={onNodeSelect}
+          highlightedEventId={highlightedEvent?.type === 'personal-event' ? highlightedEvent.eventId : undefined}
+        />
 
-      <LifeEventsSection
-        lifeEvents={lifeEvents}
-        isMobile={isMobile}
-        sectionSpacing={styles.sectionSpacing}
-        onNodeSelect={onNodeSelect}
-        highlightedEventId={highlightedEvent?.type === 'life-event' ? highlightedEvent.eventId : undefined}
-      />
+        <LifeEventsSection
+          lifeEvents={lifeEvents}
+          isMobile={isMobile}
+          sectionSpacing={styles.sectionSpacing}
+          onNodeSelect={onNodeSelect}
+          highlightedEventId={highlightedEvent?.type === 'life-event' ? highlightedEvent.eventId : undefined}
+        />
+      </div>
     </div>
   );
 };
