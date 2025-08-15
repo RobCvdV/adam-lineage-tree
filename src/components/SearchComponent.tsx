@@ -183,7 +183,11 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobi
           e.currentTarget.style.color = theme.buttonText;
         }}
       >
-        🔍
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="3" fill="none"/>
+          <path d="m25 25-7-7" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
       </button>
 
       {/* Search Panel */}
