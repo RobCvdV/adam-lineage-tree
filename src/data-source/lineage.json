@@ -466,7 +466,7 @@
     "birthYear":  687,
     "ageAtDeath": 969,
     "partners":   [
-      "Edna (Methuselah)"
+      "Edna (wife Methuselah)"
     ],
     "parents":    [
       "Enoch (Jared)",
@@ -682,7 +682,7 @@
     "birthYear":  1658,
     "ageAtDeath": 438,
     "partners":   [
-      "Rasuya (-)"
+      "Rasuya (wife Arphaxad)"
     ],
     "parents":    [
       "Shem (Noah)",
@@ -1115,6 +1115,99 @@
       "Bethuel (Nahor)"
     ],
     "comment":    "Daughter of Haran, wife of Nahor, grandmother of Rebekah."
+  },
+  {
+    "id":         "Lot (Haran)",
+    "name":       "Lot",
+    "birthYear":  2010,
+    "ageAtDeath": null,
+    "partners":   [
+      "Edith (wife Lot)"
+    ],
+    "parents":    [
+      "Haran (Terah)",
+      "Costara (wife Haran)"
+    ],
+    "children":   [
+      "Paltith (Lot)",
+      "Adith (Lot)"
+    ],
+    "comment":    "Son of Haran, nephew of Abraham. Lived in Sodom and was rescued by angels before its destruction."
+  },
+  {
+    "id":         "Edith (wife Lot)",
+    "name":       "Edith",
+    "birthYear":  2012,
+    "ageAtDeath": null,
+    "partners":   [
+      "Lot (Haran)"
+    ],
+    "parents":    [],
+    "children":   [
+      "Paltith (Lot)",
+      "Adith (Lot)"
+    ],
+    "comment":    "Wife of Lot, named Edith according to the Book of Jasher. Turned into a pillar of salt when fleeing Sodom."
+  },
+  {
+    "id":         "Paltith (Lot)",
+    "name":       "Paltith",
+    "birthYear":  2030,
+    "ageAtDeath": null,
+    "partners":   [
+      "Lot (Haran)"
+    ],
+    "parents":    [
+      "Lot (Haran)",
+      "Edith (wife Lot)"
+    ],
+    "children":   [
+      "Moab"
+    ],
+    "comment":    "Older daughter of Lot, named Paltith according to the Book of Jasher. Bore Moab through her father."
+  },
+  {
+    "id":         "Adith (Lot)",
+    "name":       "Adith",
+    "birthYear":  2032,
+    "ageAtDeath": null,
+    "partners":   [
+      "Lot (Haran)"
+    ],
+    "parents":    [
+      "Lot (Haran)",
+      "Edith (wife Lot)"
+    ],
+    "children":   [
+      "Ben-Ammi"
+    ],
+    "comment":    "Younger daughter of Lot, named Adith according to the Book of Jasher. Bore Ben-Ammi through her father."
+  },
+  {
+    "id":         "Moab",
+    "name":       "Moab",
+    "birthYear":  2050,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Lot (Haran)",
+      "Paltith (Lot)"
+    ],
+    "children":   [],
+    "comment":    "Son of Lot and his older daughter, ancestor of the Moabites."
+  },
+  {
+    "id":         "Ben-Ammi",
+    "name":       "Ben-Ammi",
+    "birthYear":  2052,
+    "ageAtDeath": null,
+    "partners":   [],
+    "parents":    [
+      "Lot (Haran)",
+      "Adith (Lot)"
+    ],
+    "children":   [],
+    "comment":    "Son of Lot and his younger daughter, ancestor of the Ammonites."
   },
   {
     "id":         "Bethuel (Nahor)",
