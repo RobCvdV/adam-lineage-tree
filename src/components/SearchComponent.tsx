@@ -26,7 +26,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobi
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const hasResults = results.length > 0;
 
   // Focus input when opened
   useEffect(() => {
@@ -109,7 +108,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobi
       return a.name.localeCompare(b.name);
     });
 
-    setResults(searchResults.slice(0, 8)); // Limit results
+    setResults(searchResults); // Show all results since we have full height
   }, [searchTerm]);
 
   const handleResultClick = (result: SearchResult) => {
@@ -144,12 +143,6 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobi
     setSearchTerm('');
   };
 
-  const handleClickOutside = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <div style={{
       position: 'absolute',
@@ -157,169 +150,200 @@ const SearchComponent: React.FC<SearchComponentProps> = ({onSelectPerson, isMobi
       right: '16px',
       zIndex: 20
     }}>
-      {/* Search Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        style={{
-          width: '40px',
+      {/* Search Button/Input Container */}
+      <div style={{
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end'
+      }}>
+        {/* Expandable Search Input */}
+        <div style={{
+          position: 'absolute',
+          right: 0,
+          top: 0,
           height: '40px',
-          borderRadius: '50%',
+          width: isOpen ? (isMobile ? '280px' : '320px') : '40px',
+          transition: 'width 0.3s ease-in-out',
+          borderRadius: '20px',
           border: `1px solid ${theme.buttonBorder}`,
           background: theme.buttonBackground,
-          color: theme.buttonText,
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          overflow: 'hidden',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-          transition: 'all 0.2s'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = theme.buttonHoverBackground;
-          e.currentTarget.style.color = theme.buttonHoverText;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = theme.buttonBackground;
-          e.currentTarget.style.color = theme.buttonText;
-        }}
-      >
-        <svg width="20" height="20" viewBox="0 0 32 32" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="3" fill="none"/>
-          <path d="m25 25-7-7" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
-        </svg>
-      </button>
+        }}>
+          {/* Search Input */}
+          <input
+            ref={searchInputRef}
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search people and events..."
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              background: 'transparent',
+              color: theme.primaryText,
+              fontSize: '14px',
+              outline: 'none',
+              paddingLeft: '16px',
+              paddingRight: '48px',
+              opacity: isOpen ? 1 : 0,
+              transition: 'opacity 0.2s ease-in-out',
+              transitionDelay: isOpen ? '0.1s' : '0s'
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') {
+                setIsOpen(false);
+                setSearchTerm('');
+              } else if (e.key === 'Enter' && results.length > 0) {
+                handleResultClick(results[0]);
+              }
+            }}
+            onBlur={() => {
+              // Close if input loses focus and no search term
+              if (!searchTerm.trim()) {
+                setIsOpen(false);
+              }
+            }}
+          />
 
-      {/* Search Panel */}
-      {isOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.3)',
-            zIndex: 100
-          }}
-          onClick={handleClickOutside}
-        >
-          <div
+          {/* Search Icon Button */}
+          <button
+            onClick={() => {
+              if (!isOpen) {
+                setIsOpen(true);
+              } else if (!searchTerm.trim()) {
+                setIsOpen(false);
+              }
+            }}
             style={{
               position: 'absolute',
-              top: '60px',
-              right: '6px',
-              width: isMobile ? 'calc(100% - 12px)' : '400px',
-              bottom: hasResults ? '6px' : 'auto',
-              background: theme.panelBackground,
-              borderRadius: '8px',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-              border: `1px solid ${theme.sectionBorder}`,
-              overflow: 'hidden'
+              right: 0,
+              top: 0,
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              background: 'transparent',
+              color: theme.buttonText,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s'
             }}
-            onClick={(e) => e.stopPropagation()}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = theme.buttonHoverText;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = theme.buttonText;
+            }}
           >
-            {/* Search Input */}
-            <div style={{
-              padding: '16px',
-              borderBottom: `1px solid ${theme.sectionBorder}`
-            }}>
-              <input
-                ref={searchInputRef}
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search people and events..."
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="3" fill="none"/>
+              <path d="m25 25-7-7" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Search Results Dropdown */}
+      {isOpen && results.length > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '48px',
+            right: '0px',
+            width: isMobile ? '280px' : '320px',
+            // maxHeight: 'calc(100vh - 80px)',
+            background: theme.panelBackground,
+            borderRadius: '8px',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+            border: `1px solid ${theme.sectionBorder}`,
+            overflow: 'hidden',
+            zIndex: 101
+          }}
+        >
+          <div style={{
+            maxHeight: 'calc(100vh - 80px)',
+            overflowY: 'auto'
+          }}>
+            {results.map((result, index) => (
+              <div
+                key={`${result.type}-${result.id}`}
+                onClick={() => handleResultClick(result)}
                 style={{
-                  width: '100%',
-                  padding: '8px 12px',
-                  border: `1px solid ${theme.sectionBorder}`,
-                  borderRadius: '4px',
-                  background: theme.surfaceBackground,
-                  color: theme.primaryText,
-                  fontSize: '14px',
-                  outline: 'none'
+                  padding: '12px 16px',
+                  cursor: 'pointer',
+                  borderBottom: index < results.length - 1 ? `1px solid ${theme.sectionBorder}` : 'none',
+                  transition: 'background 0.1s'
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Escape') {
-                    setIsOpen(false);
-                  } else if (e.key === 'Enter' && results.length > 0) {
-                    handleResultClick(results[0]);
-                  }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = theme.buttonHoverBackground;
                 }}
-              />
-            </div>
-
-            {/* Search Results */}
-            <div style={{
-              maxHeight: '100%',
-              overflowY: 'auto'
-            }}>
-              {results.length === 0 && searchTerm.trim() && (
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
                 <div style={{
-                  padding: '16px',
-                  color: theme.secondaryText,
-                  textAlign: 'center',
-                  fontSize: '14px'
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  marginBottom: '4px'
                 }}>
-                  No results found
-                </div>
-              )}
-
-              {results.map((result, index) => (
-                <div
-                  key={`${result.type}-${result.id}`}
-                  onClick={() => handleResultClick(result)}
-                  style={{
-                    padding: '12px 16px',
-                    cursor: 'pointer',
-                    borderBottom: index < results.length - 1 ? `1px solid ${theme.sectionBorder}` : 'none',
-                    transition: 'background 0.1s'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = theme.buttonHoverBackground;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                  }}
-                >
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    marginBottom: '4px'
+                  <span style={{
+                    fontSize: '12px',
+                    padding: '2px 6px',
+                    borderRadius: '3px',
+                    background: result.type === 'person' ? '#3b82f6' : result.type === 'person-event' ? '#f59e0b' : '#10b981',
+                    color: 'white',
+                    fontWeight: 500
                   }}>
-                    <span style={{
-                      fontSize: '12px',
-                      padding: '2px 6px',
-                      borderRadius: '3px',
-                      background: result.type === 'person' ? '#3b82f6' : result.type === 'person-event' ? '#f59e0b' : '#10b981',
-                      color: 'white',
-                      fontWeight: 500
-                    }}>
-                      {result.type === 'person' ? 'Person' : result.type === 'person-event' ? 'Person-Event' : 'Event'}
-                    </span>
-                    <span style={{
-                      fontWeight: 500,
-                      color: theme.primaryText,
-                      fontSize: '14px'
-                    }}>
-                      {result.name}
-                    </span>
-                  </div>
-                  {result.description && (
-                    <div style={{
-                      fontSize: '12px',
-                      color: theme.secondaryText,
-                      lineHeight: '1.4'
-                    }}>
-                      {result.description}
-                    </div>
-                  )}
+                    {result.type === 'person' ? 'Person' : result.type === 'person-event' ? 'Person-Event' : 'Event'}
+                  </span>
+                  <span style={{
+                    fontWeight: 500,
+                    color: theme.primaryText,
+                    fontSize: '14px'
+                  }}>
+                    {result.name}
+                  </span>
                 </div>
-              ))}
-            </div>
+                {result.description && (
+                  <div style={{
+                    fontSize: '12px',
+                    color: theme.secondaryText,
+                    lineHeight: '1.4'
+                  }}>
+                    {result.description}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
+        </div>
+      )}
+
+      {/* No Results Message */}
+      {isOpen && results.length === 0 && searchTerm.trim() && (
+        <div style={{
+          position: 'absolute',
+          top: '48px',
+          right: '0px',
+          width: isMobile ? '280px' : '320px',
+          background: theme.panelBackground,
+          borderRadius: '8px',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+          border: `1px solid ${theme.sectionBorder}`,
+          padding: '16px',
+          color: theme.secondaryText,
+          textAlign: 'center',
+          fontSize: '14px',
+          zIndex: 101
+        }}>
+          No results found
         </div>
       )}
     </div>
